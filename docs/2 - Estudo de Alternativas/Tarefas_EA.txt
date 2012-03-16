@@ -1,0 +1,33 @@
+
+ :: Estudo de Alternativas :: 
+
+Índice [Ricardo]
+Objetivos [Ricardo]
+Situação Atual
+	Conceitos []
+	DFDs [Josimar=ok]
+	Órgãos Envolvidos [Josimar=ok]
+	Volumes e Frequências [ok]
+	Problemas [ok]
+	Necessidades [ok]
+Alternativas
+	Diretrizes Gerais []
+	Alternativa 1 - Desenvolvimento [Ricardo]
+	Alternativa 2 - Mercado 1 []
+	Alternativa 3 - Mercado 2 [Josimar=]
+[Considerações Finais]
+Cronograma Anteprojeto [Ricardo]
+
+:: Organização da Apresentação ::
+
+1. Situação Atual 
+>> DFDs
+>> Volumes e Frequências
+>> Problemas e Necessidades
+
+2. Descrição Alternativa
+>> Diretrizes (Gerais/Específicas);
+>> Funções Básicas;
+>> Produtos;
+>> Recursos Necessários;
+>> Custos/Benefícios.
