@@ -1,0 +1,214 @@
+
+-- DbCheck 1.3 - Database structure checker - (c) 2008 Orbium Ltda
+-- 26/03/2012 9:03
+
+create table Produtos (
+ idProduto int identity not null,
+ nmTitulo varchar(200) not null,
+ nmTituloOriginal varchar(200) not null,
+ dsProduto varchar(4000) not null,
+ ISBN char(13) null,
+ dsAutores varchar(1000) not null,
+ nmEditora varchar(100) not null,
+ nrAno int not null,
+ dsEdicao varchar(50) not null,
+ qtdProduto int not null
+)
+go
+
+create table Usuarios (
+ idUsuario int identity not null,
+ nmUsuario varchar(200) not null,
+ dsEndereco varchar(200) null,
+ tpUsuario smallint not null,
+ dsLogin varchar(100) not null,
+ senha varchar(100) not null,
+ dsPergunta varchar(500) not null,
+ dsResposta int not null,
+ dsEmail varchar(100) not null
+)
+go
+
+create table Estado (
+ idEstado int identity not null,
+ nmEstado varchar(100) not null,
+ siglaEstado char(2) not null
+)
+go
+
+create table Municipio (
+ idMunicipio int identity not null,
+ nmMunicipio varchar(100) not null,
+ idEstado int not null
+)
+go
+
+create table Cliente (
+ idCliente int identity not null,
+ nmCliente varchar(200) not null,
+ idUsuario int null
+)
+go
+
+create table Pessoa (
+ idPessoa int identity not null,
+ idCliente int not null,
+ cpf char(11) not null,
+ rg char(10) null,
+ dtNascimento datetime null,
+ nmMae varchar(200) null
+)
+go
+
+create table Empresa (
+ idEmpresa int identity not null,
+ idCliente int not null,
+ nmRazaoSocial varchar(200) not null,
+ cnpj varchar(14) not null,
+ inscricaoEstadual varchar(20) null,
+ inscricaoMunicipal varchar(20) null
+)
+go
+
+create table Telefone (
+ idTelefone int identity not null,
+ idCliente int not null,
+ tpTelefone int not null,
+ dsTelefone varchar(20) not null
+)
+go
+
+create table Endereco (
+ idEndereco int identity not null,
+ dsEndereco varchar(200) not null,
+ nrEndereco varchar(10) null,
+ compEndereco varchar(20) null,
+ dsBairro varchar(100) null,
+ idMunicipio int null,
+ idCliente int not null
+)
+go
+
+create table Pedido (
+ idPedido int identity not null,
+ dtPedido datetime not null,
+ idCliente int not null,
+ idUsuario int not null,
+ dtEntregaPrevista datetime not null,
+ dtEntregaReal datetime null,
+ idEnderecoEntrega int null,
+ idEnderecoCobranca int null,
+ tpPagamento int not null,
+ nrParcelas int null
+)
+go
+
+create table ItemPedido (
+ idPedido int not null,
+ idProduto int not null,
+ qtdProduto int not null,
+ vlDesconto decimal(3,2) not null,
+ vlFinal decimal(10,2) not null
+)
+go
+
+create table Fornecedor (
+ idFornecedor int identity not null,
+ nmFornecedor varchar(200) not null,
+ cnpj varchar(14) not null,
+ dsEndereco varchar(200) not null,
+ nrEndereco varchar(10) null,
+ compEndereco varchar(50) null,
+ CEP varchar(10) null,
+ dsBairro varchar(100) null,
+ idMunicipio int not null,
+ telefone1 varchar(50) not null,
+ telefone2 varchar(50) null,
+ dsEmail varchar(100) null,
+ nmContato varchar(200) not null
+)
+go
+
+create table FornecedorProduto (
+ idFornecedor int not null,
+ idProduto int not null,
+ vlUltimaCompra decimal(10,2) not null,
+ dtUltimaCompra datetime not null
+)
+go
+
+
+/*--------------------------------------------------*/
+
+
+/*--------------------------------------------------*/
+
+alter table Produtos add constraint pk_Produto PRIMARY KEY (idProduto) on [primary]
+go
+alter table Usuarios add constraint pk_Usuario PRIMARY KEY (idUsuario) on [primary]
+go
+alter table Estado add constraint pk_Estado PRIMARY KEY (idEstado) on [primary]
+go
+alter table Municipio add constraint pk_Municipio PRIMARY KEY (idMunicipio) on [primary]
+go
+alter table Cliente add constraint pk_Cliente PRIMARY KEY (idCliente) on [primary]
+go
+alter table Pessoa add constraint pk_Pessoa PRIMARY KEY (idPessoa) on [primary]
+go
+alter table Empresa add constraint pk_Empresa PRIMARY KEY (idEmpresa) on [primary]
+go
+alter table Telefone add constraint pk_Telefone PRIMARY KEY (idTelefone) on [primary]
+go
+alter table Endereco add constraint pk_Endereco PRIMARY KEY (idEndereco) on [primary]
+go
+alter table Pedido add constraint pk_Pedido PRIMARY KEY (idPedido) on [primary]
+go
+alter table ItemPedido add constraint pk_PedidoProduto PRIMARY KEY (idPedido,idProduto) on [primary]
+go
+alter table Fornecedor add constraint pk_Fornecedor PRIMARY KEY (idFornecedor) on [primary]
+go
+alter table FornecedorProduto add constraint pk_FornecedorProduto PRIMARY KEY (idFornecedor,idProduto) on [primary]
+go
+
+/*--------------------------------------------------*/
+
+alter table Usuarios add constraint uk_dsLogin UNIQUE (dsLogin) on [indexes]
+go
+alter table Municipio add constraint mun_Estado FOREIGN KEY (idEstado) references Estado (idEstado)
+go
+alter table Cliente add constraint cli_Usuario FOREIGN KEY (idUsuario) references Usuarios (idUsuario)
+go
+alter table Pessoa add constraint pes_Cliente FOREIGN KEY (idCliente) references Cliente (idCliente)
+go
+alter table Empresa add constraint emp_Cliente FOREIGN KEY (idCliente) references Cliente (idCliente)
+go
+alter table Telefone add constraint tel_Cliente FOREIGN KEY (idCliente) references Cliente (idCliente)
+go
+alter table Endereco add constraint end_Cliente FOREIGN KEY (idCliente) references Cliente (idCliente)
+go
+alter table Endereco add constraint end_Municipio FOREIGN KEY (idMunicipio) references Municipio (idMunicipio)
+go
+alter table Pedido add constraint ped_Cliente FOREIGN KEY (idCliente) references Cliente (idCliente)
+go
+alter table Pedido add constraint ped_Usuario FOREIGN KEY (idUsuario) references Usuarios (idUsuario)
+go
+alter table Pedido add constraint ped_EnderecoEntrega FOREIGN KEY (idEnderecoEntrega) references Endereco (idEndereco)
+go
+alter table Pedido add constraint ped_EnderecoCobranca FOREIGN KEY (idEnderecoCobranca) references Endereco (idEndereco)
+go
+alter table ItemPedido add constraint ipe_Pedido FOREIGN KEY (idPedido) references Pedido (idPedido)
+go
+alter table ItemPedido add constraint ipe_Produto FOREIGN KEY (idProduto) references Produtos (idProduto)
+go
+alter table Fornecedor add constraint for_Municipio FOREIGN KEY (idMunicipio) references Municipio (idMunicipio)
+go
+alter table FornecedorProduto add constraint fpr_Fornecedor FOREIGN KEY (idFornecedor) references Fornecedor (idFornecedor)
+go
+alter table FornecedorProduto add constraint fpr_Produto FOREIGN KEY (idProduto) references Produtos (idProduto)
+go
+
+/*--------------------------------------------------*/
+
+
+/*--------------------------------------------------*/
+

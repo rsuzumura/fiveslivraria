@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Server="192.168.0.70" Name="FiveLivraria" User="sa" xmlns="hppt://www.orbium.com.br">
+  <Tables>
+    <Table Name="Produtos">
+      <Columns>
+        <Column Name="idProduto" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmTitulo" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nmTituloOriginal" Type="varchar" Length="200" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsProduto" Type="varchar" Length="4000" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="ISBN" Type="char" Length="13" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsAutores" Type="varchar" Length="1000" Nullable="false" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nmEditora" Type="varchar" Length="100" Nullable="false" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nrAno" Type="int" Length="0" Nullable="false" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsEdicao" Type="varchar" Length="50" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="qtdProduto" Type="int" Length="0" Nullable="false" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Produto" UniqueTable="" Type="PRIMARY KEY" Columns="idProduto" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Usuarios">
+      <Columns>
+        <Column Name="idUsuario" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmUsuario" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="tpUsuario" Type="smallint" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="5" NumericScale="0" />
+        <Column Name="dsLogin" Type="varchar" Length="100" Nullable="false" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="senha" Type="varchar" Length="100" Nullable="false" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsPergunta" Type="varchar" Length="500" Nullable="false" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsResposta" Type="int" Length="0" Nullable="false" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsEmail" Type="varchar" Length="100" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Usuario" UniqueTable="" Type="PRIMARY KEY" Columns="idUsuario" UniqueColumns="" />
+        <Key Name="uk_dsLogin" UniqueTable="" Type="UNIQUE" Columns="dsLogin" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Estado">
+      <Columns>
+        <Column Name="idEstado" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmEstado" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="siglaEstado" Type="char" Length="2" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Estado" UniqueTable="" Type="PRIMARY KEY" Columns="idEstado" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Municipio">
+      <Columns>
+        <Column Name="idMunicipio" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmMunicipio" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idEstado" Type="int" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Municipio" UniqueTable="" Type="PRIMARY KEY" Columns="idMunicipio" UniqueColumns="" />
+        <Key Name="mun_Estado" UniqueTable="Estado" Type="FOREIGN KEY" Columns="idEstado" UniqueColumns="idEstado" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Cliente">
+      <Columns>
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmCliente" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idUsuario" Type="int" Length="0" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Cliente" UniqueTable="" Type="PRIMARY KEY" Columns="idCliente" UniqueColumns="" />
+        <Key Name="cli_Usuario" UniqueTable="Usuarios" Type="FOREIGN KEY" Columns="idUsuario" UniqueColumns="idUsuario" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Pessoa">
+      <Columns>
+        <Column Name="idPessoa" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="cpf" Type="char" Length="11" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="rg" Type="char" Length="10" Nullable="true" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dtNascimento" Type="datetime" Length="0" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nmMae" Type="varchar" Length="200" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Pessoa" UniqueTable="" Type="PRIMARY KEY" Columns="idPessoa" UniqueColumns="" />
+        <Key Name="pes_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Empresa">
+      <Columns>
+        <Column Name="idEmpresa" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmRazaoSocial" Type="varchar" Length="200" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="cnpj" Type="varchar" Length="14" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="inscricaoEstadual" Type="varchar" Length="20" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="inscricaoMunicipal" Type="varchar" Length="20" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Empresa" UniqueTable="" Type="PRIMARY KEY" Columns="idEmpresa" UniqueColumns="" />
+        <Key Name="emp_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Telefone">
+      <Columns>
+        <Column Name="idTelefone" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="tpTelefone" Type="int" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsTelefone" Type="varchar" Length="20" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Telefone" UniqueTable="" Type="PRIMARY KEY" Columns="idTelefone" UniqueColumns="" />
+        <Key Name="tel_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Endereco">
+      <Columns>
+        <Column Name="idEndereco" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nrEndereco" Type="varchar" Length="10" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="compEndereco" Type="varchar" Length="20" Nullable="true" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsBairro" Type="varchar" Length="100" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idMunicipio" Type="int" Length="0" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Endereco" UniqueTable="" Type="PRIMARY KEY" Columns="idEndereco" UniqueColumns="" />
+        <Key Name="end_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+        <Key Name="end_Municipio" UniqueTable="Municipio" Type="FOREIGN KEY" Columns="idMunicipio" UniqueColumns="idMunicipio" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Pedido">
+      <Columns>
+        <Column Name="idPedido" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dtPedido" Type="datetime" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idUsuario" Type="int" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dtEntregaPrevista" Type="datetime" Length="0" Nullable="false" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dtEntregaReal" Type="datetime" Length="0" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idEnderecoEntrega" Type="int" Length="0" Nullable="true" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idEnderecoCobranca" Type="int" Length="0" Nullable="true" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="tpPagamento" Type="int" Length="0" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nrParcelas" Type="int" Length="0" Nullable="true" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Pedido" UniqueTable="" Type="PRIMARY KEY" Columns="idPedido" UniqueColumns="" />
+        <Key Name="ped_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+        <Key Name="ped_Usuario" UniqueTable="Usuarios" Type="FOREIGN KEY" Columns="idUsuario" UniqueColumns="idUsuario" />
+        <Key Name="ped_EnderecoEntrega" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoEntrega" UniqueColumns="idEndereco" />
+        <Key Name="ped_EnderecoCobranca" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoCobranca" UniqueColumns="idEndereco" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="ItemPedido">
+      <Columns>
+        <Column Name="idPedido" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idProduto" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="qtdProduto" Type="int" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="vlDesconto" Type="decimal" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="3" NumericScale="2" />
+        <Column Name="vlFinal" Type="decimal" Length="0" Nullable="false" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="2" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_PedidoProduto" UniqueTable="" Type="PRIMARY KEY" Columns="idPedido idProduto" UniqueColumns="" />
+        <Key Name="ipe_Pedido" UniqueTable="Pedido" Type="FOREIGN KEY" Columns="idPedido" UniqueColumns="idPedido" />
+        <Key Name="ipe_Produto" UniqueTable="Produtos" Type="FOREIGN KEY" Columns="idProduto" UniqueColumns="idProduto" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Fornecedor">
+      <Columns>
+        <Column Name="idFornecedor" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmFornecedor" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="cnpj" Type="varchar" Length="14" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nrEndereco" Type="varchar" Length="10" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="compEndereco" Type="varchar" Length="50" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="CEP" Type="varchar" Length="10" Nullable="true" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsBairro" Type="varchar" Length="100" Nullable="true" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idMunicipio" Type="int" Length="0" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="telefone1" Type="varchar" Length="50" Nullable="false" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="telefone2" Type="varchar" Length="50" Nullable="true" Ordinal="11" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsEmail" Type="varchar" Length="100" Nullable="true" Ordinal="12" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nmContato" Type="varchar" Length="200" Nullable="false" Ordinal="13" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Fornecedor" UniqueTable="" Type="PRIMARY KEY" Columns="idFornecedor" UniqueColumns="" />
+        <Key Name="for_Municipio" UniqueTable="Municipio" Type="FOREIGN KEY" Columns="idMunicipio" UniqueColumns="idMunicipio" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="FornecedorProduto">
+      <Columns>
+        <Column Name="idFornecedor" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idProduto" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="vlUltimaCompra" Type="decimal" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="2" />
+        <Column Name="dtUltimaCompra" Type="datetime" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_FornecedorProduto" UniqueTable="" Type="PRIMARY KEY" Columns="idFornecedor idProduto" UniqueColumns="" />
+        <Key Name="fpr_Fornecedor" UniqueTable="Fornecedor" Type="FOREIGN KEY" Columns="idFornecedor" UniqueColumns="idFornecedor" />
+        <Key Name="fpr_Produto" UniqueTable="Produtos" Type="FOREIGN KEY" Columns="idProduto" UniqueColumns="idProduto" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+  </Tables>
+  <Programs>
+  </Programs>
+</Database>
