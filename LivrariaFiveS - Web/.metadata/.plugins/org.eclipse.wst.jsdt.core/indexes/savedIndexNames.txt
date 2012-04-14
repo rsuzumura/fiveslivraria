@@ -1,0 +1,5 @@
+INDEX VERSION 1.122+C:\Users\Leandro\Desktop\Projeto-LivrariaFiveS\LivrariaFiveS - Web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+432134430.index
+2257321103.index
+1977579229.index
+974990192.index
