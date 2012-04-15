@@ -33,5 +33,9 @@
 	<classpathentry kind="lib" path="C:/Users/Leandro/Desktop/spring-framework-3.1.1.RELEASE/dist/org.springframework.web.servlet-3.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Leandro/Desktop/spring-framework-3.1.1.RELEASE/dist/org.springframework.web.struts-3.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Leandro/Desktop/spring-framework-3.1.1.RELEASE/dist/org.springframework.web-3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="sqljdbc.jar"/>
+	<classpathentry kind="lib" path="sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="hibernate-validator-4.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

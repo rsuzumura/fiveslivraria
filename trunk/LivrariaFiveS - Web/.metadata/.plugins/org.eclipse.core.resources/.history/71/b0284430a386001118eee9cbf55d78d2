@@ -1,0 +1,25 @@
+package projeto.livraria.classes;
+
+import javax.validation.constraints.NotNull;
+
+
+public class Usuario {
+	
+	public int idUsuario;
+	@NotNull
+	public String nmUsuario;
+	@NotNull
+	public String dsEndereco;
+	@NotNull
+	public int tpUsuario;
+	@NotNull
+	public String dsLogin;
+	@NotNull
+	public String senha;
+	@NotNull
+	public String dsPergunta;
+	@NotNull
+	public String dsResposta;
+	@NotNull
+	public String dsEmail;
+}

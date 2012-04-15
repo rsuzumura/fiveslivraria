@@ -1,0 +1,19 @@
+package projeto.livraria.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import projeto.livraria.dao.CallStoredProcedure;
+import projeto.livraria.dao.Parametro;
+
+@Controller
+public class UsuarioController {
+
+	@RequestMapping("/cadastraUsuario")
+	public String execute() {
+		CallStoredProcedure proc = new CallStoredProcedure();
+		Parametro parametros = new Parametro();
+		proc.executaSp("{call dbo.nomeProc(?, ?)}", parametros);
+		return "index";
+	}
+}
