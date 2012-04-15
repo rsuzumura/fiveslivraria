@@ -1,0 +1,22 @@
+package projeto.livraria.dao;
+
+import java.sql.Connection;
+import java.util.List;
+
+public class CallStoredProcedure {
+
+	public void executaSp(Connection con, String sp, List<Parametro> parametros)
+	{
+				
+	}
+	
+	public Object variavel(int legal)
+	{
+		return legal;
+	}
+	
+	public static void main(String[] args) {
+		System.out.print("teste");
+	}
+	
+}

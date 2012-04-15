@@ -1,0 +1,7 @@
+package projeto.livraria.dao;
+
+public class Parametro {
+
+	public String nome;
+	public Object valor;
+}

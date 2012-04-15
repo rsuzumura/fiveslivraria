@@ -1,0 +1,16 @@
+package projeto.livraria.controller;
+
+public class Usuario {
+	
+	public int idUsuario;
+	nmUsuario
+	dsEndereco
+	tpUsuario
+	dsLogin
+	senha
+	dsPergunta
+	dsResposta
+	dsEmail
+
+
+}

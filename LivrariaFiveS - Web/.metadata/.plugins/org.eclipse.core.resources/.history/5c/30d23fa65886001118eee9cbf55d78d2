@@ -1,0 +1,61 @@
+package projeto.livraria.dao;
+
+import java.math.BigDecimal;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.util.Date;
+import java.util.List;
+
+public class CallStoredProcedure {
+
+	public void executaSp(Connection con, String sp, List<Parametro> parametros)
+	{
+		//A proc deve vir neste formato "{call dbo.GetImmediateManager(?, ?)}"
+		 try {
+		      CallableStatement cstmt = con.prepareCall(sp);
+		      
+		      for (Parametro parametro : parametros) {
+					switch (parametro.valor.getClass().getSimpleName()) {
+					case "String":
+						cstmt.setString(parametro.nome, (String)parametro.valor);
+						break;
+					case "Integer":
+						cstmt.setInt(parametro.nome, (int)parametro.valor);
+						break;
+					case "Float":
+						cstmt.setFloat(parametro.nome, (Float)parametro.valor);
+						break;
+					case "BigDecimal":
+						cstmt.setBigDecimal(parametro.nome, (BigDecimal) parametro.valor);
+						break;
+					case "Date":
+						cstmt.setDate(parametro.nome, (java.sql.Date)parametro.valor);
+						break;
+					default:
+						break;
+					}
+				}	
+		      cstmt.setInt("employeeID", 5);
+		      cstmt.registerOutParameter("managerID", java.sql.Types.INTEGER);
+		      cstmt.executeQuery();
+		      System.out.println("MANAGER ID: " + cstmt.getInt("managerID"));
+		      cstmt.close();
+		   }
+		   catch (Exception e) {
+		      e.printStackTrace();
+		   }
+		 
+			
+	}
+	
+	public static Object variavel(String legal)
+	{
+		return legal;
+	}
+	
+	public static void main(String[] args) 
+	{		
+		System.out.print(variavel("").getClass().getSimpleName());
+	}
+	
+}

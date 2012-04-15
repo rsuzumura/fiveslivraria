@@ -1,0 +1,39 @@
+package projeto.livraria.dao;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.util.List;
+
+public class CallStoredProcedure {
+
+	public void executaSp(Connection con, String sp, List<Parametro> parametros)
+	{
+		//A proc deve vir neste formato "{call dbo.GetImmediateManager(?, ?)}"
+		 try {
+		      CallableStatement cstmt = con.prepareCall("{call dbo.GetImmediateManager(?, ?)}");
+		      cstmt.setInt("employeeID", 5);
+		      cstmt.registerOutParameter("managerID", java.sql.Types.INTEGER);
+		      cstmt.execute();
+		      System.out.println("MANAGER ID: " + cstmt.getInt("managerID"));
+		      cstmt.close();
+		   }
+		   catch (Exception e) {
+		      e.printStackTrace();
+		   }
+		 
+		for (Parametro parametro : parametros) {
+			
+		}		
+	}
+	
+	public static Object variavel(float legal)
+	{
+		return legal;
+	}
+	
+	public static void main(String[] args) 
+	{		
+		System.out.print(variavel(4).getClass().getName());
+	}
+	
+}
