@@ -47,10 +47,10 @@ public class Usuario {
 	public void setDsPergunta(String dsPergunta) {
 		this.dsPergunta = dsPergunta;
 	}
-	public String getDsResposta() {
+	public int getDsResposta() {
 		return dsResposta;
 	}
-	public void setDsResposta(String dsResposta) {
+	public void setDsResposta(int dsResposta) {
 		this.dsResposta = dsResposta;
 	}
 	public String getDsEmail() {
@@ -73,7 +73,7 @@ public class Usuario {
 	@NotNull
 	public String dsPergunta;
 	@NotNull
-	public String dsResposta;
+	public int dsResposta;
 	@NotNull
 	public String dsEmail;
 	
