@@ -16,31 +16,31 @@
 			</tr>
 			<tr>
 				<td>Endereço:</td>
-				<td><input id="dsEndereco" type="text"></td>
+				<td><input name="dsEndereco" type="text"></td>
 			</tr>
 			<tr>
 				<td>Usuário:</td>
-				<td><input id="dsLogin" type="text"></td>
+				<td><input name="dsLogin" type="text"></td>
 			</tr>
 			<tr>
 				<td>Senha:</td>
-				<td><input id="senha" type="text"></td>
+				<td><input name="senha" type="text"></td>
 			</tr>
 			<tr>
 				<td>Pergunta secreta:</td>
-				<td><input id="dsPergunta" type="text"></td>
+				<td><input name="dsPergunta" type="text"></td>
 			</tr>
 			<tr>
 				<td>Resposta secreta:</td>
-				<td><input id="dsResposta" type="text"></td>
+				<td><input name="dsResposta" type="text"></td>
 			</tr>
 			<tr>
 				<td>E-mail:</td>
-				<td><input id="dsEmail" type="text"></td>
+				<td><input name="dsEmail" type="text"></td>
 			</tr>
 			<tr>
-				<td>Usuario</td>
-				<td><input id="nmUsuario" type="text"></td>
+				<td>Tipo Usuario</td>
+				<td><input name="tpUsuario" type="text"></td>
 			</tr>
 		</table>
 		<input id="btnCadastrar" type="submit" value="Cadastar">

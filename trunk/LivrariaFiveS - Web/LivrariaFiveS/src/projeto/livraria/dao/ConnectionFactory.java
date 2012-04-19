@@ -5,12 +5,12 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
 
-	private final String url = "jdbc:microsoft:sqlserver://";
-	private final String serverName= "localhost";
+	private final String url = "jdbc:jtds:sqlserver://fiveslivraria.no-ip.org:1433//FivesLivraria";
+	private final String serverName= "fiveslivraria.no-ip.org";
 	private final String portNumber = "1433";
-	private final String databaseName= "pubs";
-	private final String userName = "user";
-	private final String password = "password";
+	private final String databaseName= "livraria";
+	private final String userName = "fatec";
+	private final String password = "f1v&$l1vr@r1@";
 	// Informs the driver to use server a side-cursor, 
 	// which permits more than one active statement 
 	// on a connection.
@@ -18,7 +18,7 @@ public class ConnectionFactory {
 
 	public Connection getConnection() {		
 		try {
-			Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver"); 
+			Class.forName("net.sourceforge.jtds.jdbc.Driver");
 			return DriverManager.getConnection(getConnectionUrl(), userName, password);
 		} catch(Exception e) {
 			throw new RuntimeException(e);
@@ -26,7 +26,7 @@ public class ConnectionFactory {
 	}	 
 
 	private String getConnectionUrl(){
-		return url+serverName+":"+portNumber+";databaseName="+databaseName+";selectMethod="+selectMethod+";";
+		return url;
 	}
 
 }

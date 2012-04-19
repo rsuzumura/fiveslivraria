@@ -9,13 +9,14 @@ public class Parametro {
 	public Object valor;
 	private List<Parametro> parametros;
 	
-	public Parametro(){}
+	public Parametro(){
+		parametros = new ArrayList<Parametro>();
+	}
 	
 	private Parametro(String nome, Object valor)
 	{
 		this.nome = nome;
-		this.valor = valor;
-		parametros = new ArrayList<Parametro>();		
+		this.valor = valor;				
 	}
 	
 	public void add(String nome, Object valor)
