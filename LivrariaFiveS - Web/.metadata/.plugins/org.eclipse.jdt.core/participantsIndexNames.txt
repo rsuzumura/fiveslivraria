@@ -1,5 +1,0 @@
-INDEX VERSION 1.126
-C:\Users\Leandro\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\642303535.index
-\LivrariaFiveS\src
-C:\Users\Leandro\Desktop\Projeto-LivrariaFiveS\LivrariaFiveS - Web\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\642303535.index
-\LivrariaFiveS\src
