@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Wed Apr 18 22:30:52 BRT 2012
-org.eclipse.jst.jee.server\:LivrariaFiveS=C\:\\Users\\Leandro\\Desktop\\apache-tomcat-6.0.35\\wtpwebapps\\LivrariaFiveS
