@@ -1,0 +1,11 @@
+--- Menu Funcionário ---
+Usuário
+
+
+Senha
+
+
+Prosseguir
+
+______________________________
+Cadastro
