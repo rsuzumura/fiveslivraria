@@ -1,16 +1,17 @@
 --- Consulta de Pedidos ---
 
 Relatório de Clientes
-
+Exibe os clientes que já realizaram alguma compra.
 
 Relatório de Pedidos
-
+Exibe todos os pedidos já processados.
 
 Relatório de Produtos
-
+Exibe todos os produtos que já fizeram parte dos itens de um pedido.
 
 Pedido Gerado entre:
-
-___________________________________
+exibe todos os pedidos com base na sua data de realização
+_______
 
 Cadastro
+Proporciona ao funcionário visualizar seu perfil e permissões para desempenho no caixa.

@@ -1,13 +1,15 @@
 --- Ações do Caixa ---
 
 Pedidos
-
+Permite visualizar a tela para realização de pedidos para os clientes no balcão.
 
 Consultar Pedidos
+Permite visualizar as vendas já realizadas para informação aos clientes.
 
+Ações de Caixa [substituindo Fechamento de Caixa]
+Permite acessar as telas para ações de abertura e fechamento de caixa no dia.
 
-Ações de Caixa - substituindo Fechamento de Caixa
+_______
 
-
-________________________________________
 Cadastro
+Proporciona ao funcionário visualizar seu perfil e permissões para desempenho no caixa.
