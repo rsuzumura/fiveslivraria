@@ -1,0 +1,32 @@
+--- Visão Cliente * Meu Carrinho ---
+
+Produto
+Produto que está sendo adquirido.
+
+Descrição produto
+Detalhes do produto sendo adquirido.
+
+Opção excluir do carrinho (lixeira)
+Ação para remover um determinado produto da lista de itens no processo de venda..
+
+Valor
+Preço por unidade do produto no processo de venda..
+
+Quantidade
+Número de unidades do produto no processo de venda.
+
+Atualizar valor
+Realiza atualização dos valores na tela para o usuário.
+
+Total por item
+Valor resultante da multiplicação entre quantidade de itens e o valor unitário do produto.
+
+Continuar Comprando
+
+Fechar Pedido
+Realiza a finalização da venda para o cliente.
+
+_______
+
+Cadastro
+Proporciona ao funcionário visualizar seu perfil e permissões para desempenho no caixa.
