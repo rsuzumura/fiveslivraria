@@ -1,9 +1,12 @@
 --- Ação de Caixa ---
 
 Histórico
-
+Visualiza o fechamento e aberutra 
 
 Abrir Caixa
-
+Executa o processo de abertura do caixa para a realização das vendas no balcão. 
+Processo vinculado ao usuário e máquina em que está logado.
 
 Fechar Caixa
+Executa o processo de fechamento do caixa para a realização das vendas no balcão. 
+Processo vinculado ao usuário e máquina em que está logado.

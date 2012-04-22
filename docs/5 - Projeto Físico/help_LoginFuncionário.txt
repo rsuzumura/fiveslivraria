@@ -1,11 +1,12 @@
 --- Menu Funcionário ---
 Usuário
-
+Informe o usuário para acesso ao sistema.
 
 Senha
-
+Digite sua senha para acesso ao sistema.
 
 Prosseguir
+Envia as informações de usuário e senha para confirmação na base de usuários.
 
-______________________________
-Cadastro
+Cadastrar
+Permite realizar o cadastro de usuários no sistema. É necessário ter acesso de gestor para concluir esta operação.
