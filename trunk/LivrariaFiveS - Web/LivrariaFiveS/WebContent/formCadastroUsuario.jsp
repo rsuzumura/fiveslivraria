@@ -7,7 +7,6 @@
 </head>
 <body>
 	<h1>Cadastro de usuário</h1>
-		
 		<form action="cadastraUsuario" method="POST">
 		<table>
 			<tr>

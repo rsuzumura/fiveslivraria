@@ -49,7 +49,7 @@ public class CallStoredProcedure {
 		      //System.out.println("MANAGER ID: " + cstmt.getInt("managerID"));
 		      rs = cstmt.executeQuery();
 		      
-		      cstmt.close();
+		      //cstmt.close();
 		   }
 		   catch (Exception e) {
 		      e.printStackTrace();
