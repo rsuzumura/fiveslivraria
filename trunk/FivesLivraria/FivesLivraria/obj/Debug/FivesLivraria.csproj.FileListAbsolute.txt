@@ -1,7 +1,0 @@
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\bin\FivesLivraria.dll
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\bin\FivesLivraria.pdb
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\obj\Debug\FivesLivraria.dll
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\obj\Debug\FivesLivraria.pdb
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\bin\FivesLivraria.Security.dll
-C:\Users\ricardosuzumura\Desktop\LES\FivesLivraria\FivesLivraria\bin\FivesLivraria.Security.pdb
