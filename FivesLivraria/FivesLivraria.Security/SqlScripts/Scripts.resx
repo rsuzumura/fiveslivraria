@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddRoles" xml:space="preserve">
+    <value>insert into fiv_Logins_Roles(
+	lro_Username, 
+	lro_Rolename, 
+	lro_ApplicationName 
+) values (
+	@username, 
+	@rolename, 
+	@applicationName 
+);</value>
+  </data>
+  <data name="BlockLogin" xml:space="preserve">
+    <value>set nocount off
+update fiv_Logins set
+	lgi_IsLockedOut = @isLockedOut,
+	lgi_LastLockedOutDate = @lastLockedOutDate
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>set nocount off;
+update fiv_Logins set
+	lgi_Password = @password,
+    lgi_CreationDate = @lastPasswordChangeDate
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="ChangeQuestionAndAnswer" xml:space="preserve">
+    <value>set nocount off;
+update fiv_Logins set
+	lgi_PasswordQuestion = @question,
+    lgi_PasswordAnswer = @answer
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="CountAll" xml:space="preserve">
+    <value>select 
+	count(*)
+from 
+	fiv_Logins
+where 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="CountRolesByUser" xml:space="preserve">
+    <value>select 
+	count(*)
+from 
+	fiv_Logins_Roles
+where 
+	lro_Username = @username and 
+	lro_Rolename = @rolename and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="CountUsersByEmail" xml:space="preserve">
+    <value>select 
+	count(*)
+from 
+	fiv_Logins
+where 
+	lgi_Email like @emailSearch and
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="CountUsersByName" xml:space="preserve">
+    <value>select 
+	count(*) 
+from 
+	fiv_Logins
+where 
+	lgi_Username like @usernameSearch and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>set nocount off;
+insert into fiv_Logins (
+	lgi_Login, 
+	lgi_Username, 
+	lgi_Password, 
+	lgi_Email, 
+	lgi_PasswordQuestion, 
+	lgi_PasswordAnswer,
+	lgi_IsApproved, 
+	lgi_Notes, 
+	lgi_CreationDate, 
+	lgi_LastPasswordChangeDate, 
+	lgi_LastActivityDate,
+	lgi_ApplicationName, 
+	lgi_IsLockedOut, 
+	lgi_LastLockedOutDate, 
+	lgi_FailedAttemptCount,
+	lgi_FailedAttemptWindow, 
+	lgi_FailedAnswerAttemptCount, 
+	lgi_FailedAnswerAttemptWindow 
+) values (
+	@login, 
+	@username, 
+	@password, 
+	@email, 
+	@passwordQuestion, 
+	@passwordAnswer,
+	@isApproved, 
+	@notes, 
+	@creationDate, 
+	@lastPasswordChangeDate, 
+	@lastActivityDate,
+	@applicationName, 
+	@isLockedOut, 
+	@lastLockedOutDate, 
+	@failedAttemptCount,
+	@failedAttemptWindow, 
+	@failedAnswerAttemptCount, 
+	@failedAnswerAttemptWindow
+);</value>
+  </data>
+  <data name="CreateRole" xml:space="preserve">
+    <value>insert into fiv_Roles(
+	rol_Rolename, 
+	rol_ApplicationName 
+) values (
+	@rolename, 
+	@applicationName 
+);</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>delete from 
+	fiv_Logins
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="DeleteRoles" xml:space="preserve">
+    <value>delete from 
+	fiv_Logins_Roles
+where 
+	lro_Username = @username and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="FindUsersInRole" xml:space="preserve">
+    <value>select 
+	lro_Username
+from 
+	fiv_Logins_Roles
+where 
+	lro_Username like @usernameSearch and 
+	lro_RoleName = @roleName and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetAllRoles" xml:space="preserve">
+    <value>select 
+	rol_Rolename
+from 
+	fiv_Roles
+where 
+	rol_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetByUsername" xml:space="preserve">
+    <value>select
+	lgi_Login, 
+	lgi_Username, 
+	lgi_ApplicationName, 
+	lgi_Email, 
+	lgi_Notes, 
+	lgi_Password, 
+	lgi_PasswordQuestion,
+    lgi_PasswordAnswer, 
+    lgi_IsApproved, 
+    lgi_LastActivityDate, 
+    lgi_LastLoginDate, 
+    lgi_LastPasswordChangeDate,
+    lgi_CreationDate, 
+    lgi_IsLockedOut, 
+    lgi_LastLockedOutDate, 
+    lgi_FailedAttemptCount,
+    lgi_FailedAttemptWindow, 
+    lgi_FailedAnswerAttemptCount, 
+    lgi_FailedAnswerAttemptWindow
+from 
+	fiv_Logins
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetPassword" xml:space="preserve">
+    <value>select 
+	lgi_Password, 
+	lgi_PasswordAnswer, 
+	lgi_IsLockedOut
+from 
+	fiv_Logins
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetRolesByUser" xml:space="preserve">
+    <value>select 
+	lro_Rolename
+from 
+	fiv_Logins_Roles
+where 
+	lro_Username = @username and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetUsernameByEmail" xml:space="preserve">
+    <value>select 
+	isnull(lgi_Username, '')
+from 
+	fiv_Logins
+where 
+	lgi_Email = @email and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetUsersInRole" xml:space="preserve">
+    <value>select 
+	lro_Username
+from 
+	fiv_Logins_Roles
+where 
+	lro_Rolename = @rolename and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="GetUsersOnline" xml:space="preserve">
+    <value>select
+	count(*)
+from
+	fiv_Logins
+where
+	lgi_LastActivityDate &gt; @compareDate and
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="ListAll" xml:space="preserve">
+    <value>select 
+	lgi_Login, 
+	lgi_Username, 
+	lgi_Email, 
+	lgi_PasswordQuestion, 
+	lgi_Notes, 
+	lgi_IsApproved, 
+	lgi_IsLockedOut,
+	lgi_CreationDate, 
+	lgi_LastLoginDate, 
+	lgi_LastActivityDate, 
+	lgi_LastPasswordChangeDate, 
+	lgi_LastLockedOutDate
+from 
+	fiv_Logins
+where 
+	lgi_ApplicationName = @applicationName
+order by 
+	lgi_Username;</value>
+  </data>
+  <data name="ListByEmail" xml:space="preserve">
+    <value>declare @startRow int, @endRow int;
+
+set @startRow = (@pageIndex * @pageSize) + 1;
+set @endRow = @startRow + @pageSize - 1;
+
+select
+	[Logins].*
+from (
+	select
+		lgi_Login, 
+		lgi_Username, 
+		lgi_ApplicationName, 
+		lgi_Email, 
+		lgi_Notes, 
+		lgi_Password, 
+		lgi_PasswordQuestion,
+		lgi_PasswordAnswer, 
+		lgi_IsApproved, 
+		lgi_LastActivityDate, 
+		lgi_LastLoginDate, 
+		lgi_LastPasswordChangeDate,
+		lgi_CreationDate, 
+		lgi_IsLockedOut, 
+		lgi_LastLockedOutDate, 
+		lgi_FailedAttemptCount,
+		lgi_FailedAttemptWindow, 
+		lgi_FailedAnswerAttemptCount, 
+		lgi_FailedAnswerAttemptWindow,
+		row_number() over(order by lgi_Username) [row_num]
+	from 
+		fiv_Logins
+	where 
+		lgi_Email like @emailSearch and 
+		lgi_ApplicationName = @applicationName
+) [Logins]
+where
+	[row_num] between @startRow and @endRow;</value>
+  </data>
+  <data name="ListByName" xml:space="preserve">
+    <value>declare @startRow int, @endRow int;
+
+set @startRow = (@pageIndex * @pageSize) + 1;
+set @endRow = @startRow + @pageSize - 1;
+
+select
+	[Logins].*
+from (
+	select
+		lgi_Login, 
+		lgi_Username, 
+		lgi_ApplicationName, 
+		lgi_Email, 
+		lgi_Notes, 
+		lgi_Password, 
+		lgi_PasswordQuestion,
+		lgi_PasswordAnswer, 
+		lgi_IsApproved, 
+		lgi_LastActivityDate, 
+		lgi_LastLoginDate, 
+		lgi_LastPasswordChangeDate,
+		lgi_CreationDate, 
+		lgi_IsLockedOut, 
+		lgi_LastLockedOutDate, 
+		lgi_FailedAttemptCount,
+		lgi_FailedAttemptWindow, 
+		lgi_FailedAnswerAttemptCount, 
+		lgi_FailedAnswerAttemptWindow,
+		row_number() over(order by lgi_Username) [row_num]
+	from 
+		fiv_Logins
+	where 
+		lgi_Username like @usernameSearch and 
+		lgi_ApplicationName = @applicationName
+) [Logins]
+where
+	[row_num] between @startRow and @endRow;</value>
+  </data>
+  <data name="LoadFailureCounters" xml:space="preserve">
+    <value>select
+	lgi_FailedAttemptCount,
+	lgi_FailedAttemptWindow,
+	lgi_FailedAnswerAttemptCount,
+	lgi_FailedAnswerAttemptWindow
+from 
+	fiv_Logins
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="PasswordAnswerErrorCounter" xml:space="preserve">
+    <value>set nocount off;
+update fiv_Logins set
+	lgi_FailedAnswerAttemptCount = @count,
+	lgi_FailedAnswerAttemptWindow = @windowStart
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="PasswordErrorCounter" xml:space="preserve">
+    <value>set nocount off;
+update fiv_Logins set
+	lgi_FailedAttemptCount = @count,
+	lgi_FailedAttemptWindow = @windowStart
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="RemoveLoginRoles" xml:space="preserve">
+    <value>delete from 
+	fiv_Logins_Roles
+where 
+	lro_Rolename = @rolename and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="RemoveRoles" xml:space="preserve">
+    <value>delete from 
+	fiv_Roles
+where 
+	rol_Rolename = @rolename and 
+	rol_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="RemoveUsersFromRoles" xml:space="preserve">
+    <value>delete from 
+	fiv_Logins_Roles
+where 
+	lro_Username = @username and 
+	lro_Rolename = @rolename and 
+	lro_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="ResetPassword" xml:space="preserve">
+    <value>update fiv_Logins set
+	lgi_Password = @password,
+	lgi_PasswordQuestion = @question,
+	lgi_PasswordAnswer = @answer,
+	lgi_IsLockedOut = @isLockedOut,
+	lgi_LastPasswordChangeDate = @lastPasswordChangeDate
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="RoleExists" xml:space="preserve">
+    <value>select 
+	count(*)
+from 
+	fiv_Roles
+where 
+	rol_Rolename = @rolename and 
+	rol_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="UnlockUser" xml:space="preserve">
+    <value>update fiv_Logins set
+	lgi_IsLockedOut = 0,
+	lgi_LastLockedOutDate = @lastLockedOutDate
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>update fiv_Logins set
+	lgi_Email = @email,
+	lgi_Notes = @notes,
+	lgi_IsApproved = @isApproved
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="UpdateErrorPassword" xml:space="preserve">
+    <value>set nocount off
+update fiv_Logins set
+	lgi_FailedAttemptCount = @count
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="UpdateErrorPasswordAnswer" xml:space="preserve">
+    <value>set nocount off
+update fiv_Logins set
+	lgi_FailedAnswerAttemptCount = @count
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="UpdateLastActivity" xml:space="preserve">
+    <value>update fiv_Logins set
+	lgi_LastActivityDate = @lastActivityDate
+where 
+	lgi_Username = @username and 
+	lgi_Applicationname = @applicationName;</value>
+  </data>
+  <data name="UpdateLastLoginDate" xml:space="preserve">
+    <value>update fiv_Logins set
+	lgi_LastLoginDate = @lastLoginDate
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName;</value>
+  </data>
+  <data name="ValidateUser" xml:space="preserve">
+    <value>select 
+	lgi_Password, 
+	lgi_IsApproved
+from 
+	fiv_Logins
+where 
+	lgi_Username = @username and 
+	lgi_ApplicationName = @applicationName and 
+	lgi_IsLockedOut = 0;</value>
+  </data>
+</root>
