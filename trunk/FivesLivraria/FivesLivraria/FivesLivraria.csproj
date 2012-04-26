@@ -57,8 +57,11 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\cadastro.css" />
     <Content Include="Styles\loginMaster.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -109,6 +112,10 @@
     <Content Include="Main.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FivesLivraria.Data\FivesLivraria.Data.csproj">
+      <Project>{5406BB3D-67FE-48D6-8267-C327FD19864F}</Project>
+      <Name>FivesLivraria.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FivesLivraria.Security\FivesLivraria.Security.csproj">
       <Project>{A5066931-1611-4AD1-BCD2-7D4239182C9C}</Project>
       <Name>FivesLivraria.Security</Name>

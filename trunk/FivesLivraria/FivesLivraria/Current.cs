@@ -22,5 +22,20 @@ namespace FivesLivraria
                 HttpContext.Current.Session["userId"] = value;
             }
         }
+        public static String UserName
+        {
+            get
+            {
+                object o = HttpContext.Current.Session["userName"];
+                if (o == null)
+                    return string.Empty;
+                else
+                    return (string)o;
+            }
+            set
+            {
+                HttpContext.Current.Session["userName"] = value;
+            }
+        }
     }
 }
