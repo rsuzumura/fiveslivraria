@@ -45,7 +45,7 @@
 	height: 350px;
 	background-color: #EFEFEF;
 }
-.divLogin,.divCadastro .header
+.divLogin .header,.divCadastro .header
 {
 	background-color: #31A400;
 	color: White;
