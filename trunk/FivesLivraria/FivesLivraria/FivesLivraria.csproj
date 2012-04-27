@@ -53,6 +53,7 @@
   <ItemGroup>
     <Content Include="CadastroCliente.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="External\ChilkatDotNet4.dll" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
