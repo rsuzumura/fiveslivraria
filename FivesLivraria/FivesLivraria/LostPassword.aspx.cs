@@ -31,7 +31,7 @@ namespace FivesLivraria
                 {
                     string password = mu.GetPassword(txtAnswer.Text);
                     Chilkat.Email msg = new Chilkat.Email();
-                    msg.From    = mu.Email;
+                    msg.From    = General.emailSettings["address"];
                     msg.Subject = "Confirmação de Email";
 
                     //endereços
