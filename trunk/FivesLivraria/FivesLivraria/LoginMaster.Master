@@ -14,6 +14,10 @@
     <div style="width: 100%;" align="center">
         <div class="divMain">
             <div class="loginHeader">
+                Bem vindo, visitante! Faça seu
+                <asp:HyperLink ID="hklLogin" runat="server" Text="Login" NavigateUrl="~/Login.aspx"></asp:HyperLink>
+                ou
+                <asp:HyperLink ID="hlkRegister" runat="server" Text="cadastre-se" NavigateUrl="~/CadastroCliente.aspx"></asp:HyperLink>&nbsp;&nbsp;
             </div>
             <div class="header">
                 &nbsp;&nbsp;Five'S Livraria

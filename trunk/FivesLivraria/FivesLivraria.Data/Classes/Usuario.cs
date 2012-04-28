@@ -19,5 +19,10 @@ namespace FivesLivraria.Data
             SqlXmlRun.Execute("spCadastra_usuario", this, "idUsuario", out id);
             this.idUsuario = id;
         }
+
+        public static Usuario Get(string dsLogin)
+        {
+            return SqlXmlGet<Usuario>.Select("spGet_usuario", new SqlXmlParams("dsLogin", dsLogin));
+        }
     }
 }

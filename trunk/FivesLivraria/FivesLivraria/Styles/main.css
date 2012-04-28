@@ -1,0 +1,42 @@
+﻿body {
+}
+.main
+{
+	width: 1200px;
+	height: 800px;
+}
+
+.loginHeader
+{
+	background-color: #31A400;
+	color: White;
+	height: 50px;
+	width: 100%;
+	text-align: right;
+	vertical-align: middle;
+	font-size: 10pt;
+	line-height: 45px;
+}
+
+.labelHeader
+{
+	font-weight: bold;
+	font-family: Verdana;
+	font-size: 10pt;
+}
+
+.link
+{
+	color: White;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Verdana;
+}
+
+.link:visited
+{
+	color: Blue;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Verdana;
+}
