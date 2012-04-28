@@ -1,5 +1,4 @@
 
--- DbCheck 1.3 - Database structure checker - (c) 2008 Orbium Ltda
 -- 26/03/2012 9:03
 
 create table Produtos (
@@ -20,12 +19,7 @@ create table Usuarios (
  idUsuario int identity not null,
  nmUsuario varchar(200) not null,
  dsEndereco varchar(200) null,
- tpUsuario smallint not null,
- dsLogin varchar(100) not null,
- senha varchar(100) not null,
- dsPergunta varchar(500) not null,
- dsResposta int not null,
- dsEmail varchar(100) not null
+ dsLogin varchar(100) not null
 )
 go
 
@@ -169,6 +163,70 @@ alter table Fornecedor add constraint pk_Fornecedor PRIMARY KEY (idFornecedor) o
 go
 alter table FornecedorProduto add constraint pk_FornecedorProduto PRIMARY KEY (idFornecedor,idProduto) on [primary]
 go
+
+CREATE TABLE [dbo].[fiv_Logins](
+	[lgi_Login] [uniqueidentifier] NOT NULL,
+	[lgi_Username] [varchar](100) NOT NULL,
+	[lgi_ApplicationName] [varchar](100) NOT NULL,
+	[lgi_Email] [varchar](100) NOT NULL,
+	[lgi_Notes] [varchar](250) NULL,
+	[lgi_Password] [varchar](100) NOT NULL,
+	[lgi_PasswordQuestion] [varchar](250) NULL,
+	[lgi_PasswordAnswer] [varchar](100) NULL,
+	[lgi_IsApproved] [bit] NULL,
+	[lgi_LastActivityDate] [datetime] NULL,
+	[lgi_LastLoginDate] [datetime] NULL,
+	[lgi_LastPasswordChangeDate] [datetime] NULL,
+	[lgi_CreationDate] [datetime] NULL,
+	[lgi_IsLockedOut] [bit] NULL,
+	[lgi_LastLockedOutDate] [datetime] NULL,
+	[lgi_FailedAttemptCount] [int] NULL,
+	[lgi_FailedAttemptWindow] [datetime] NULL,
+	[lgi_FailedAnswerAttemptCount] [int] NULL,
+	[lgi_FailedAnswerAttemptWindow] [datetime] NULL,
+ CONSTRAINT [lgi_Login] PRIMARY KEY CLUSTERED 
+(
+	[lgi_Login] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY],
+ CONSTRAINT [lgi_Username] UNIQUE NONCLUSTERED 
+(
+	[lgi_Username] ASC,
+	[lgi_ApplicationName] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+CREATE TABLE [dbo].[fiv_Roles](
+	[rol_Rolename] [varchar](100) NOT NULL,
+	[rol_ApplicationName] [varchar](100) NOT NULL,
+ CONSTRAINT [rol_roles] PRIMARY KEY CLUSTERED 
+(
+	[rol_Rolename] ASC,
+	[rol_ApplicationName] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[fiv_Logins_Roles](
+	[lro_Username] [varchar](100) NOT NULL,
+	[lro_Rolename] [varchar](100) NOT NULL,
+	[lro_ApplicationName] [varchar](100) NOT NULL,
+ CONSTRAINT [lro_login_role] PRIMARY KEY CLUSTERED 
+(
+	[lro_Username] ASC,
+	[lro_Rolename] ASC,
+	[lro_ApplicationName] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[fiv_Logins_Roles]  WITH CHECK ADD  CONSTRAINT [lro_role] FOREIGN KEY([lro_Rolename], [lro_ApplicationName])
+REFERENCES [dbo].[fiv_Roles] ([rol_Rolename], [rol_ApplicationName])
+GO
+ALTER TABLE [dbo].[fiv_Logins_Roles] CHECK CONSTRAINT [lro_role]
+GO
+
 
 /*--------------------------------------------------*/
 
