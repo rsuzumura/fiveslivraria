@@ -27,6 +27,7 @@ namespace FivesLivraria
                 { }//General.ShowError(3, TraduzMensagem(s));
                 else
                 {
+                    Roles.AddUsersToRoles(new string[]{ txtLogin.Text }, new string[] { "cliente" });
                     Usuario u = new Usuario()
                     {
                         nmUsuario   = txtUser.Text,

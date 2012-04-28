@@ -4,11 +4,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:" CssClass="validationMessage" />
+    </div>
     <div class="divCadastro">
         <div class="header">
             &nbsp;&nbsp;Cadastro de Usuário
-        </div>
-        <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:" />
+        </div>        
         <table class="data">
             <colgroup>
                 <col width="15%" />
