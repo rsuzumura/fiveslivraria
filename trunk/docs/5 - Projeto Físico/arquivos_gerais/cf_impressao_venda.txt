@@ -1,0 +1,26 @@
+---------------- IMPRESSAO DA VENDA --------------
+                                                  
+        NOME DA EMPRESA [FONTE 13 OU 14]          
+         ENDEREÇO DA EMPRESA                      
+             CEP                                  
+CNPJ                                              
+IE                                                
+IM                                                
+--------------------------------------------------
+dd/mm/aaa  hh:mm:ss  ccf:codcf        coo: pedido >>> A DATA E HORA CORRESPONDEM AO INÍCIO DA OPERAÇÃO
+            CUPOM FISCAL[fonte 12 ou 11]          
+item codprod        descricao                     
+qtd   um     vlr unit       TIPOTX      vlr item  
+                                                  
+                                                  
+                                                  
+                          ------------------------                       
+  TOTAL  R$                           XXX.XXX,00  
+FORMAPGTO                              VALORPGTO  
+TROCO                                 VALORTROCO  
+LISTA TX = VALOR                                  
+--------------------------------------------------
+MARCA EQUIPAMENTO ECF               USUARIO       
+VERSÃO DO EQUIPAMENTO               ESTACAO       
+                            dd/mm/aaa  hh:mm:ss   >> A DATA E HORA DO FIM DA TRANSAÇÃO
+NUMERO ALEATORIO....                          
