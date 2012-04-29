@@ -40,3 +40,15 @@
 	font-size: 10pt;
 	font-family: Verdana;
 }
+
+.header
+{
+	background-color: #DFFFF0;
+	width: 100%;
+	height: 60px;
+	font-family: Harrington;
+	font-size: 26pt;
+	line-height: 55px;
+	vertical-align: middle;
+	text-align: left;
+}
