@@ -86,7 +86,7 @@
     <Compile Include="CadastroCliente.aspx.designer.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Current.cs" />
+    <Compile Include="StateClasses\Current.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,7 +94,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="General.cs" />
+    <Compile Include="StateClasses\General.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
