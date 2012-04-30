@@ -7,20 +7,18 @@ namespace FivesLivraria.Data.Classes
 {
    public class TEF : FormaPagamento
    {
-      private int id;
-      private double valor;
-
+      
       private long numeroCartao;
-      public void setNumeroCartao(long numeroCartao)
-      { this.numeroCartao = numeroCartao; }
-      protected long geNumeroCartao()
-      { return numeroCartao; }
+         public void setNumeroCartao(long numeroCartao)
+            { this.numeroCartao = numeroCartao; }
+         protected long geNumeroCartao()
+            { return numeroCartao; }
 
       private int codigoCartao;
-      public void setCodigoCartao(int codigoCartao)
-      { this.codigoCartao = codigoCartao; }
-      protected long geCodigoCartao()
-      { return codigoCartao; }
+         public void setCodigoCartao(int codigoCartao)
+            { this.codigoCartao = codigoCartao; }
+         protected long geCodigoCartao()
+            { return codigoCartao; }
 
       public TEF()
       { }
