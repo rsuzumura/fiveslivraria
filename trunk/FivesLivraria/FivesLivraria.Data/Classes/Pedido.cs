@@ -19,8 +19,8 @@ namespace FivesLivraria.Data.Classes
 
       public void setPagamento(int id, double valor)
       {
-         if (id != FormaPagamento.PAGAMENTODINHEIRO)
-            this.pagamento = new TEF(id, valor);
+         //if (id != FormaPagamento.PAGAMENTODINHEIRO)
+           // this.pagamento = new TEF(id, valor);
 
       }
    }

@@ -7,9 +7,9 @@ namespace FivesLivraria.Data.Classes
 {
    public class FormaPagamento
    {
-      public static const int PAGAMENTODINHEIRO = 1;
-      public static const int PAGAMENTOCREDITO = 2;
-      public static const int PAGAMENTODEBITO = 3;
+      public const int PAGAMENTODINHEIRO = 1;
+      public const int PAGAMENTOCREDITO = 2;
+      public const int PAGAMENTODEBITO = 3;
 
       protected int id;
       public void setId(int id)

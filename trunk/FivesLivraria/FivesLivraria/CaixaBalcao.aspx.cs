@@ -20,7 +20,7 @@ namespace FivesLivraria
                                    {"5", "Produto 05", "10,00" } };
        ItemPedido item;
        int qtde;
-        area_TEF
+       // area_TEF
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace FivesLivraria
            item.AddProduto(codProd, nome, vlr);
            qtde++;
 
-           area_TEF.text = area_TEF.text + "\n" + item.toString(qtde);
+           //area_TEF.text = area_TEF.text + "\n" + item.toString(qtde);
         }
     }
 }
