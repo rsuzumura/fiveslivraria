@@ -5,39 +5,43 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
-    class SimulaTEF
-    {
-        public long numeroCartao { set; get; }
-        public int codigoVerificador { set; get; }
-        public bool statusAprovacao { set; get; }
+   public class SimulaTEF
+   {
+      private long numeroCartao { public set; public get; }
+      private int codigoVerificador { public set; public get; }
+      private bool statusAprovacao { public set; public get; }
 
-        public bool verificarPasta()
-        {
-            return true;
-        }
+      public SimulaTEF(long numeroCartao, int codigoVerificador, bool statusAprovacao)
+      {
 
-        protected bool avaliarCredito()
-        {
-            return true;
-        }
+      }
 
-        public void buscarDados()
-        {
+      public bool verificarPasta()
+      {
+         return true;
+      }
 
-        }
+      protected bool avaliarCredito()
+      {
+         return true;
+      }
 
-        public void gravarStatus()
-        {
-        }
+      public void buscarDados()
+      {
 
-        public void transmitirResposta()
-        {
-        }
+      }
 
-        protected bool validarDados()
-        {
-            return true;
-        }
-    }
+      public void gravarStatus()
+      {
+      }
 
+      public void transmitirResposta()
+      {
+      }
+
+      protected bool validarDados()
+      {
+         return true;
+      }
+   }
 }
