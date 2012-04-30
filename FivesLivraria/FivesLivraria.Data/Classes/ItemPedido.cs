@@ -13,7 +13,12 @@ namespace FivesLivraria.Data.Classes
         private double desconto;
 
         public ItemPedido()
-        { }
+        { 
+           produtos = new List<Produto>();
+           qtde = 0;
+           valor = 0.00;
+           desconto = 0.00;
+        }
 
         public ItemPedido(List<Produto> produtos, double valor, double desconto)
         {
@@ -25,7 +30,8 @@ namespace FivesLivraria.Data.Classes
 
         public void AddProduto(int codigo, string nome, double valor)
         {
-            this.produtos.Add(new Produto(codigo, nome, valor));
+           Produto prodtemp = new Produto(codigo, nome, valor);
+            this.produtos.Add( (Produto) prodtemp);
             this.qtde++;
         }
 
