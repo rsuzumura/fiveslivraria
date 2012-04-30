@@ -1,30 +1,29 @@
----------------- REDUCAO Z -----------------------
-        NOME DA EMPRESA [FONTE 13 OU 14]          
-         ENDEREÇO DA EMPRESA                      
-             CEP                                  
-CNPJ                                              
-IE                                                
-IM                                                
---------------------------------------------------
-DD/MM/AAAA  HH:MM:SS                COD: 000000    >> contador das operações realizadas pelo ECF
-                REDUÇÃO Z                         
-                                                  
-MOVIMENTO DIA: DD/MM/AAAA                         
-            CONTADORES                            
-Geral de operações não fiscal:          000000    
-Contador de reduções Z:                 000000    
-Contador de cupom fiscal:               000000    
-Comprovante de Credito ou Debito:       000000    
-Cumpom Fiscal Cancelado:                000000    
-            TOTALIZADORES                         
-Venda Bruta Diária:              000.000.000,00   
-Total de ICMS:                   000.000.000,00   
-Venda Líquida:                   000.000.000,00   
-            MEIOS DE PAGAMENTO                    
-Nº   MEIO PAGAMENTO         VALOR ACUMULADO (R$)  
-01    DINHEIRO                  000.000.000,00    
-02    CARTÃO DE CRÉDITO         000.000.000,00    
-03    CARTÃO DE DÉBITO          000.000.000,00    
-                                                   
-__________________________________________________
-                                                  
+---------------- REDUCAO Z -----------------------|
+        NOME DA EMPRESA [FONTE 13 OU 14]          |>>>> fabricante do equipamento
+CNPJ                                              |>>>> fabricante do equipamento
+IE                                                |>>>> fabricante do equipamento
+IM                                                |>>>> fabricante do equipamento
+--------------------------------------------------|
+DD/MM/AAAA  HH:MM:SS                COD: 000000   | >> contador das operações realizadas pelo ECF
+                REDUÇÃO Z                         |
+                                                  |
+MOVIMENTO DIA: DD/MM/AAAA                         |
+            CONTADORES                            |
+Geral de operações não fiscal:          000000    |
+Contador de reduções Z:                 000000    |
+Contador de cupom fiscal:               000000    |
+Comprovante de Credito ou Debito:       000000    |
+Cumpom Fiscal Cancelado:                000000    |
+            TOTALIZADORES                         |
+Venda Bruta Diária:              000.000.000,00   |
+Total de ICMS:                   000.000.000,00   |
+Venda Líquida:                   000.000.000,00   |
+            MEIOS DE PAGAMENTO                    |
+Nº   MEIO PAGAMENTO         VALOR ACUMULADO (R$)  |
+01    DINHEIRO                  000.000.000,00    |
+02    CARTÃO DE CRÉDITO         000.000.000,00    |
+03    CARTÃO DE DÉBITO          000.000.000,00    |
+                                                  | 
+__________________________________________________|
+   CAIXA: XPTO                                    |
+                                                  |
