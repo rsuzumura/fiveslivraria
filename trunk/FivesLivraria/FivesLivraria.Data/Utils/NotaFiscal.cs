@@ -5,31 +5,50 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
-    class NotaFiscal
-    {
-        public Pedido pedido { set; get; }
-        public ItemPedido item { set; get; }
-        public String linhaImpressao { set; get; }
-        
-        public void imprimeNota()
-        {
-        }
+   public class NotaFiscal
+   {
+      private long cliente;
+      public void setCliente(long cpf)
+      { this.cliente = cpf; }
+      public long getCliente()
+      { return cliente; }
 
-        public void cancelaNota()
-        {
-        }
+      private ItemPedido item;
+      public void setItem(ItemPedido item)
+      { this.item = item; }
+      public ItemPedido getItem()
+      { return item; }
 
-        public void leituraX()
-        {
-        }
+      private string linhaImpressao;
+      public void setLinhaImpressao(string linhaImpressao)
+      { this.linhaImpressao = linhaImpressao; }
+      public string getLinhaImpressao()
+      { return linhaImpressao; }
 
-        public void reducaoZ()
-        {
-        }
+      public NotaFiscal(long cpf, ItemPedido item)
+      {
+         setCliente(cpf);
+         setItem(item);
+      }
 
-        public void imprimirLinha()
-        {
-        }
+      public void imprimeNota()
+      {
+      }
 
-    }
+      public void cancelaNota()
+      {
+      }
+
+      public void leituraX()
+      {
+      }
+
+      public void reducaoZ()
+      {
+      }
+
+      public void imprimirLinha()
+      {
+      }
+   }
 }
