@@ -23,6 +23,12 @@ namespace FivesLivraria.Data.Classes
       public TEF()
       { }
 
+      public TEF( int id, double valor)
+      {
+         setId(id); // método da classe superior
+         setValor(valor); // método da classe superior
+      }
+
       public TEF(int id, double valor, long numeroCartao, int codigoCartao)
       {
          setId(id); // método da classe superior

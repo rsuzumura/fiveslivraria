@@ -25,6 +25,8 @@ namespace FivesLivraria.Data.Classes
       public string getLinhaImpressao()
       { return linhaImpressao; }
 
+      public NotaFiscal() { }
+
       public NotaFiscal(long cpf, ItemPedido item)
       {
          setCliente(cpf);

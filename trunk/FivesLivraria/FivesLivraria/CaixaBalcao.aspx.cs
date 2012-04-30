@@ -27,7 +27,7 @@ namespace FivesLivraria
            qtde = 0;
         }
 
-        protected void clk_itemPedido()
+        protected void clk_itemPedido(object sender, EventArgs e)
         {
            int codProd = int.Parse(ListFrmPgto.SelectedValue);
            double vlr = double.Parse(ProdutosTeste[(codProd-1),3]);
@@ -36,7 +36,8 @@ namespace FivesLivraria
            item.AddProduto(codProd, nome, vlr);
            qtde++;
 
-           //area_TEF.text = area_TEF.text + "\n" + item.toString(qtde);
+           area_Cupom.Value = area_Cupom.Value + "\n" + item.ToString(qtde);
+           area_TEF.Value = "Teste";
         }
     }
 }
