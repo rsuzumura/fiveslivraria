@@ -30,8 +30,8 @@ namespace FivesLivraria
         protected void clk_itemPedido(object sender, EventArgs e)
         {
            int codProd = int.Parse(ListFrmPgto.SelectedValue);
-           double vlr = double.Parse(ProdutosTeste[(codProd-1),3]);
-           string nome = ProdutosTeste[(codProd-1),2];
+           double vlr = double.Parse(ProdutosTeste[(codProd-1),2]);
+           string nome = ProdutosTeste[(codProd-1),1];
 
            item.AddProduto(codProd, nome, vlr);
            qtde++;
