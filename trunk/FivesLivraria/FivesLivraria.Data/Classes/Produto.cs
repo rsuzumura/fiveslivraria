@@ -17,5 +17,11 @@ namespace FivesLivraria.Data.Classes
          this.nome = nome;
          this.valor = valor;
       }
+
+      override
+      public string ToString()
+      {
+         return "codigo: " + codigo + "\n nome: " + nome + "\n valor: " + valor;
+      }
    }
 }

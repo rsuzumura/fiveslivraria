@@ -12,6 +12,9 @@ namespace FivesLivraria.Data.Classes
       private double valor;
       private double desconto;
 
+      public ItemPedido()
+      { }
+
       public ItemPedido(List<Produto> produtos, double valor, double desconto)
       {
          this.produtos = produtos;
@@ -22,6 +25,12 @@ namespace FivesLivraria.Data.Classes
       public void AddProduto(int codigo, string nome, double valor)
       {
          this.produtos.Add(new Produto(codigo, nome, valor));
+      }
+
+      override
+      public string ToString( int n)
+      {
+         return produtos[n].ToString;
       }
    }
 }
