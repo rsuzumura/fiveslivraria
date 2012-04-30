@@ -15,5 +15,7 @@ begin
 		dsLogin
 	from
 		Usuarios [Usuario]
+	where
+		dsLogin = @dsLogin
 	for xml auto, elements
 end
