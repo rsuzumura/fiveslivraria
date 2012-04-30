@@ -56,18 +56,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CadastroCliente.aspx" />
+    <Content Include="Controls\MessageBox.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="External\ChilkatDotNet4.dll" />
     <Content Include="External\x64\ChilkatDotNet4.dll" />
+    <Content Include="Images\alert.png" />
+    <Content Include="Images\confirm.png" />
+    <Content Include="Images\error.png" />
+    <Content Include="Images\info.png" />
+    <Content Include="Images\msgBoxBackGround.png" />
     <Content Include="Login.aspx" />
     <Content Include="LostPassword.aspx" />
     <Content Include="Produtos.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.msgBox.js" />
+    <Content Include="Scripts\jquery.msgBox.min.js" />
     <Content Include="Styles\cadastro.css" />
     <Content Include="Styles\loginMaster.css" />
     <Content Include="Styles\main.css" />
+    <Content Include="Styles\msgBoxLight.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -80,12 +89,27 @@
     <Content Include="CaixaBalcao.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="CadastroCliente.aspx.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CadastroCliente.aspx.designer.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MessageBox.ascx.cs">
+      <DependentUpon>MessageBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MessageBox.ascx.designer.cs">
+      <DependentUpon>MessageBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="JsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JsResource.resx</DependentUpon>
     </Compile>
     <Compile Include="StateClasses\Current.cs" />
     <Compile Include="Default.aspx.cs">
@@ -155,6 +179,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoginMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>JsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Theme_Default\RequiredFieldValidator.skin" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

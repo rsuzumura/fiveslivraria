@@ -52,3 +52,11 @@
 	vertical-align: middle;
 	text-align: left;
 }
+
+.validator
+{
+	font-family: Verdana, Tahoma;
+	color: Red;
+	font-weight: bold;
+	font-size: 10pt;
+}

@@ -9,7 +9,7 @@ using FivesLivraria.Data;
 
 namespace FivesLivraria
 {
-    public partial class LostPassword : System.Web.UI.Page
+    public partial class LostPassword : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,7 +64,7 @@ namespace FivesLivraria
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    this.ShowMessage(MessageType.Error, ex.Message, "Erro");
                 }
             }
         }
