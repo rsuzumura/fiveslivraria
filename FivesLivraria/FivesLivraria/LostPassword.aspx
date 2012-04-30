@@ -1,10 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LoginMaster.Master" AutoEventWireup="true"
     CodeBehind="LostPassword.aspx.cs" Inherits="FivesLivraria.LostPassword" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="Scripts/jquery-1.4.1.js"></script>
-    <script type="text/javascript" src="Scripts/jquery.msgBox.js" ></script>
-    <link rel="Stylesheet" type="text/css" href="Styles/msgBoxLight.css" />
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="divCadastro">
