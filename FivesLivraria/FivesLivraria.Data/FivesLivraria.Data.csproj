@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Classes\FormaPagamento.cs" />
     <Compile Include="Classes\ItemPedido.cs" />
+    <Compile Include="Classes\Produto.cs" />
     <Compile Include="Utils\NotaFiscal.cs" />
     <Compile Include="Classes\Pedido.cs" />
     <Compile Include="Utils\SimulaTEF.cs" />
