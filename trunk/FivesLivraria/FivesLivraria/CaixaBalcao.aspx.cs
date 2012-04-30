@@ -20,7 +20,6 @@ namespace FivesLivraria
                                    {"5", "Produto 05", "10,00" } };
        ItemPedido item;
        int qtde;
-       // area_TEF
 
         protected void Page_Load(object sender, EventArgs e)
         {
