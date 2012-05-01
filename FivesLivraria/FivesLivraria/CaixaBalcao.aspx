@@ -15,28 +15,30 @@
             height: 213px;
         }
     </style>
+
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p>
         <asp:Label ID="Label1" runat="server" Text="Label" 
-        style="position:absolute; top: 191px; left: 83px; width: 136px; height: 15px;"> Escolha o Item: </asp:Label>
+        
+            style="position:absolute; top: 191px; left: 83px; width: 136px; height: 15px; right: 802px;"> Escolha o Item: </asp:Label>
     </p>
     <p>
-        <select id="listProdutosTeste" runat="server"
-            
-            style="position:absolute; width: 88px; margin-left: 0px; top: 188px; left: 228px;">
-            <option> 1 </option>
-            <option> 2 </option>
-            <option> 3 </option>
-            <option> 4 </option>
-            <option> 5 </option>
-        </select>
-        <textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" 
+        &nbsp;<textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" 
             title="Cupons Impressos" runat="server"
             style="background-color: #FFFFCC; position: absolute; top: 146px; left: 735px; width: 464px; height: 344px;">
        </textarea>
             
        <asp:Button id="btn_Acao" runat="server" Text="Ação" style="position:absolute; top: 190px; left: 349px;" OnClick="clk_itemPedido" />
+            <asp:DropDownList ID="listProdutosTeste" runat="server" 
+            style="position:absolute; top: 193px; left: 225px;" 
+            OnClick="listProdutosTeste_onclick">
+                <asp:ListItem Selected="True" Value="1">Prod 01</asp:ListItem>
+                <asp:ListItem Value="2">Prod 02</asp:ListItem>
+                <asp:ListItem Value="3">Prod 03</asp:ListItem>
+                <asp:ListItem Value="4">Prod 04</asp:ListItem>
+                <asp:ListItem Value="5">Prod 05</asp:ListItem>
+        </asp:DropDownList>
             </p>
     <p>
         <br />

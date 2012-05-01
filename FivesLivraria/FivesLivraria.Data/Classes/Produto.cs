@@ -21,7 +21,7 @@ namespace FivesLivraria.Data.Classes
       override
       public string ToString()
       {
-         return "codigo: " + codigo + "\n nome: " + nome + "\n valor: " + valor;
+         return "codigo: " + codigo + " nome: " + nome + " valor: " + valor;
       }
    }
 }
