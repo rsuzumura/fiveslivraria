@@ -42,10 +42,7 @@ namespace FivesLivraria.Data.Classes
 
         public string ToString(int n)
         {
-            string result = string.Empty;
-            for (int i = 0; i < n; i++)
-                result += produtos[n].ToString();
-            return result;
+           return produtos[n].ToString();
         }
     }
 }

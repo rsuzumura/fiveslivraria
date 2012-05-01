@@ -37,7 +37,7 @@ namespace FivesLivraria
            item.AddProduto(codProd, nome, vlr);
            qtde++;
 
-           area_Cupom.Value = area_Cupom.Value + "\n" + item.exibe(qtde-1);
+           area_Cupom.Value = area_Cupom.Value + "\n" + item.ToString(qtde-1);
            area_TEF.Value = "Teste";
         }
 
