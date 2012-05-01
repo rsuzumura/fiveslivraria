@@ -12,6 +12,9 @@ namespace FivesLivraria.Data
         public SqlString nmUsuario { get; set; }
         public SqlString dsEndereco { get; set; }
         public SqlString dsLogin { get; set; }
+        public SqlString Email { get; set; }
+        public SqlBoolean IsLocked { get; set; }
+        public SqlString RoleName { get; set; }
 
         public void Insert()
         {

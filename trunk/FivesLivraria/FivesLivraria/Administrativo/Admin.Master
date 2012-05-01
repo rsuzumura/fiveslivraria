@@ -1,15 +1,13 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="FivesLivraria.Administrativo.Admin" %>
 
 <%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Administração - Five'S Livraria</title>
     <link rel="Stylesheet" type="text/css" href="../Styles/admin.css" />
     <script type="text/javascript" src="../Scripts/jquery-1.4.1.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery.msgBox.js" ></script>
+    <script type="text/javascript" src="../Scripts/jquery.msgBox.js"></script>
     <link rel="Stylesheet" type="text/css" href="../Styles/msgBoxLight.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -22,15 +20,14 @@
                 Usuário:&nbsp;
                 <asp:Label ID="lblUser" runat="server"></asp:Label>
                 &nbsp;&nbsp;
-                <asp:LinkButton ID="lnkExit" runat="server" Text="Sair" onclick="lnkExit_Click"></asp:LinkButton>&nbsp;&nbsp;
+                <asp:LinkButton ID="lnkExit" runat="server" Text="Sair" OnClick="lnkExit_Click"></asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="divHeader">
                 &nbsp;&nbsp;Five'S Livraria
             </div>
             <div style="width: 100%;">
                 <div class="divMenu">
-                    <eo:Menu ID="menu" runat="server" Width="180px" 
-                        CheckIconUrl="OfficeCheckIcon2" ControlSkinID="None">
+                    <eo:Menu ID="menu" runat="server" Width="180px" CheckIconUrl="OfficeCheckIcon2" ControlSkinID="None">
                         <TopGroup Orientation="Vertical">
                             <Items>
                                 <eo:MenuItem CustomItemID="cstLogo" Text-Html="" Disabled="True">
@@ -46,42 +43,33 @@
                             </Items>
                         </TopGroup>
                         <LookItems>
-                            <eo:MenuItem DisabledStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:5px;padding-right:5px;padding-top:1px;color:gray" 
-                                Height="24" 
-                                HoverStyle-CssText="background-color:#C0D6F4;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:4px;padding-right:4px;padding-top:0px;padding-bottom:0px;" 
-                                ItemID="_TopLevelItem" 
-                                NormalStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:5px;padding-right:5px;padding-top:1px;" 
+                            <eo:MenuItem DisabledStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:5px;padding-right:5px;padding-top:1px;color:gray"
+                                Height="24" HoverStyle-CssText="background-color:#C0D6F4;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:4px;padding-right:4px;padding-top:0px;padding-bottom:0px;"
+                                ItemID="_TopLevelItem" NormalStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:5px;padding-right:5px;padding-top:1px;"
                                 SelectedStyle-CssText="background-color:white;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:4px;padding-right:4px;padding-top:0px;padding-bottom:0px;">
-                                <SubMenu CollapseEffect-Type="GlideTopToBottom" 
-                                    ExpandEffect-Type="GlideTopToBottom" ItemSpacing="3" LeftIconCellWidth="25" 
-                                    SideImage="Office2003SideBar2" 
-                                    Style-CssText="background-color:#F6F6F6;border-bottom-color:#002D96;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#002D96;border-left-style:solid;border-left-width:1px;border-right-color:#002D96;border-right-style:solid;border-right-width:1px;border-top-color:#002D96;border-top-style:solid;border-top-width:1px;color:black;cursor:hand;font-family:Tahoma;font-size:8pt;padding-bottom:1px;padding-left:1px;padding-right:1px;padding-top:1px;">
+                                <SubMenu CollapseEffect-Type="GlideTopToBottom" ExpandEffect-Type="GlideTopToBottom"
+                                    ItemSpacing="3" LeftIconCellWidth="25" SideImage="Office2003SideBar2" Style-CssText="background-color:#F6F6F6;border-bottom-color:#002D96;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#002D96;border-left-style:solid;border-left-width:1px;border-right-color:#002D96;border-right-style:solid;border-right-width:1px;border-top-color:#002D96;border-top-style:solid;border-top-width:1px;color:black;cursor:hand;font-family:Tahoma;font-size:8pt;padding-bottom:1px;padding-left:1px;padding-right:1px;padding-top:1px;">
                                 </SubMenu>
                             </eo:MenuItem>
-                            <eo:MenuItem IsSeparator="True" ItemID="_Separator" 
-                                NormalStyle-CssText="background-color:#6a8ccb;height:1px;margin-left:30px;width:1px;">
+                            <eo:MenuItem IsSeparator="True" ItemID="_Separator" NormalStyle-CssText="background-color:#6a8ccb;height:1px;margin-left:30px;width:1px;">
                             </eo:MenuItem>
-                            <eo:MenuItem DisabledStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:2px;padding-right:5px;padding-top:1px;color:gray" 
-                                Height="24" 
-                                HoverStyle-CssText="background-color:#FFEEC2;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:1px;padding-right:4px;padding-top:0px;" 
-                                ItemID="_Default" 
-                                NormalStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:2px;padding-right:5px;padding-top:1px;" 
-                                SelectedStyle-CssText="background-color:white;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:1px;padding-right:4px;padding-top:0px;" 
+                            <eo:MenuItem DisabledStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:2px;padding-right:5px;padding-top:1px;color:gray"
+                                Height="24" HoverStyle-CssText="background-color:#FFEEC2;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:1px;padding-right:4px;padding-top:0px;"
+                                ItemID="_Default" NormalStyle-CssText="background-color:transparent;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;padding-bottom:1px;padding-left:2px;padding-right:5px;padding-top:1px;"
+                                SelectedStyle-CssText="background-color:white;border-bottom-color:#000080;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#000080;border-left-style:solid;border-left-width:1px;border-right-color:#000080;border-right-style:solid;border-right-width:1px;border-top-color:#000080;border-top-style:solid;border-top-width:1px;padding-left:1px;padding-right:4px;padding-top:0px;"
                                 Text-Padding-Right="30">
-                                <SubMenu CollapseEffect-Type="GlideTopToBottom" 
-                                    ExpandEffect-Type="GlideTopToBottom" ItemSpacing="3" LeftIconCellWidth="25" 
-                                    SideImage="Office2003SideBar2" 
-                                    Style-CssText="background-color:#F6F6F6;border-bottom-color:#002D96;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#002D96;border-left-style:solid;border-left-width:1px;border-right-color:#002D96;border-right-style:solid;border-right-width:1px;border-top-color:#002D96;border-top-style:solid;border-top-width:1px;color:black;cursor:hand;font-family:Tahoma;font-size:8pt;padding-bottom:1px;padding-left:1px;padding-right:1px;padding-top:1px;">
+                                <SubMenu CollapseEffect-Type="GlideTopToBottom" ExpandEffect-Type="GlideTopToBottom"
+                                    ItemSpacing="3" LeftIconCellWidth="25" SideImage="Office2003SideBar2" Style-CssText="background-color:#F6F6F6;border-bottom-color:#002D96;border-bottom-style:solid;border-bottom-width:1px;border-left-color:#002D96;border-left-style:solid;border-left-width:1px;border-right-color:#002D96;border-right-style:solid;border-right-width:1px;border-top-color:#002D96;border-top-style:solid;border-top-width:1px;color:black;cursor:hand;font-family:Tahoma;font-size:8pt;padding-bottom:1px;padding-left:1px;padding-right:1px;padding-top:1px;">
                                 </SubMenu>
                             </eo:MenuItem>
                         </LookItems>
                     </eo:Menu>
                 </div>
-                <div class="divContent"></div>            
+                <div class="divContent">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-            </asp:ContentPlaceHolder>
         </div>
     </div>
     </form>

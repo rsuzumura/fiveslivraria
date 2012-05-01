@@ -13,11 +13,11 @@ namespace FivesLivraria.Data.Classes
         private double desconto;
 
         public ItemPedido()
-        { 
-           produtos = new List<Produto>();
-           qtde = 0;
-           valor = 0.00;
-           desconto = 0.00;
+        {
+            produtos = new List<Produto>();
+            qtde = 0;
+            valor = 0.00;
+            desconto = 0.00;
         }
 
         public ItemPedido(List<Produto> produtos, double valor, double desconto)
@@ -30,8 +30,13 @@ namespace FivesLivraria.Data.Classes
 
         public void AddProduto(int codigo, string nome, double valor)
         {
-           Produto prodtemp = new Produto(codigo, nome, valor);
-           this.produtos.Add(prodtemp);
+            Produto prodtemp = new Produto()
+            {
+                codigo = codigo,
+                nome = nome,
+                valor = valor
+            };
+            this.produtos.Add((Produto)prodtemp);
             this.qtde++;
         }
 
@@ -39,13 +44,8 @@ namespace FivesLivraria.Data.Classes
         {
             string result = string.Empty;
             for (int i = 0; i < n; i++)
-                result +=  produtos[i].ToString();
+                result += produtos[n].ToString();
             return result;
-        }
-
-        public string exibe(int n)
-        {
-           return produtos[n].ToString();
         }
     }
 }
