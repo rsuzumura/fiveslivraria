@@ -7,10 +7,16 @@ namespace FivesLivraria.Data.Classes
 {
     public class ItemPedido
     {
-        private List<Produto> produtos;
-        private int qtde;
-        private double valor;
-        private double desconto;
+       private List<Produto> produtos;
+       private int qtde;
+       private double valor;
+       private double desconto;
+
+       private int numeroPeiddo;
+         public void setPedido( int numeroPedido )
+            { this.numeroPeiddo = numeroPedido; }
+         public int getPedido()
+            { return numeroPeiddo; }
 
         public ItemPedido()
         {

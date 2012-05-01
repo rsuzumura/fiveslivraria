@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
-   public class NotaFiscal
+   public class CupomFiscal
    {
       private long cliente;
       public void setCliente(long cpf)
@@ -25,19 +25,19 @@ namespace FivesLivraria.Data.Classes
       public string getLinhaImpressao()
       { return linhaImpressao; }
 
-      public NotaFiscal() { }
+      public CupomFiscal() { }
 
-      public NotaFiscal(long cpf, ItemPedido item)
+      public CupomFiscal(long cpf, ItemPedido item)
       {
          setCliente(cpf);
          setItem(item);
       }
 
-      public void imprimeNota()
+      public void imprimeCupom()
       {
       }
 
-      public void cancelaNota()
+      public void cancelaCupom()
       {
       }
 
@@ -58,6 +58,13 @@ namespace FivesLivraria.Data.Classes
          string cabec = "";
 
          cabec += "\n";
+         cabec += " ";
+         cabec += " ";
+         cabec += " ";
+         cabec += " ";
+         cabec += " ";
+         cabec += " ";
+         cabec += " ";
 
             return cabec;
       }
