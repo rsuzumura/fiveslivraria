@@ -70,9 +70,11 @@
     <Content Include="Images\confirm.png" />
     <Content Include="Images\error.png" />
     <Content Include="Images\info.png" />
+    <Content Include="Images\imagem1.gif" />
     <Content Include="Images\msgBoxBackGround.png" />
     <Content Include="Login.aspx" />
     <Content Include="LostPassword.aspx" />
+    <Content Include="Principal.aspx" />
     <Content Include="Produtos.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -122,6 +124,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="StateClasses\Current.cs" />
     <Compile Include="Default.aspx.cs">
