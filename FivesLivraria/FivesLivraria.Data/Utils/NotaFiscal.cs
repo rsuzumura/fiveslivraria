@@ -52,5 +52,14 @@ namespace FivesLivraria.Data.Classes
       public void imprimirLinha()
       {
       }
+
+      protected string cabecalho()
+      {
+         string cabec = "";
+
+         cabec += "\n";
+
+            return cabec;
+      }
    }
 }
