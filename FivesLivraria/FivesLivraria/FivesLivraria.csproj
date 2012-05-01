@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="EO.Web, Version=9.0.49.2, Culture=neutral, PublicKeyToken=e92353a6bf73fffc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\EO.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -62,7 +63,9 @@
     <Content Include="CadastroCliente.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="External\ChilkatDotNet4.dll" />
+    <Content Include="External\EO.Web.dll" />
     <Content Include="External\x64\ChilkatDotNet4.dll" />
+    <Content Include="Global.asax" />
     <Content Include="Images\alert.png" />
     <Content Include="Images\confirm.png" />
     <Content Include="Images\error.png" />
@@ -116,6 +119,9 @@
     </Compile>
     <Compile Include="CadastroCliente.aspx.designer.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="StateClasses\Current.cs" />
     <Compile Include="Default.aspx.cs">
@@ -191,6 +197,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrativo\Admin.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="eo_web.licx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
