@@ -1,13 +1,13 @@
 ---------------- IMPRESSAO DA VENDA --------------
                                                   
-        NOME DA EMPRESA [FONTE 13 OU 14]          
-         ENDEREÇO DA EMPRESA                      
-             CEP                                  
-CNPJ                                              
-IE                                                
-IM                                                
+            LIVRARIA FIVE'S                       
+         Rua Baker Street, 110                    
+             CEP 01157-989                        
+CNPJ: 12.345.678/0001-90                          
+IE: 123.345.578.890                               
+IM: 1.234.567-0                                   
 --------------------------------------------------
-dd/mm/aaa  hh:mm:ss  ccf:codcf        coo: pedido >>> A DATA E HORA CORRESPONDEM AO INÍCIO DA OPERAÇÃO
+dd/mm/aaa  hh:mm:ss  ccf:codcf        COO: 000000 >>> A DATA E HORA CORRESPONDEM AO INÍCIO DA OPERAÇÃO
             CUPOM FISCAL[fonte 12 ou 11]          
 item codprod        descricao                     
 qtd   um     vlr unit       TIPOTX      vlr item  

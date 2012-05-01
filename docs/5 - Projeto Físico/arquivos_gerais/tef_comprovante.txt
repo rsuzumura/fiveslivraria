@@ -1,0 +1,55 @@
+---------------- IMPRESSAO DA VENDA --------------|
+                                                  |
+            LIVRARIA FIVE'S                       |
+         Rua Baker Street, 110                    |
+             CEP 01157-989                        |
+CNPJ: 12.345.678/0001-90                          |
+IE: 123.345.578.890                               |
+IM: 1.234.567-0                                   |
+--------------------------------------------------|
+            COMPROVANTE [OPERACAO]                |
+                CARTÃO                            |
+                1ª VIA                            |
+                                                  |
+COO DOCUMENTO VINCULADO:                000000    |
+VALOR DA COMPRA  R$                     000,00    |
+VALOR DO PAGAMENTO  R$                  000,00    |
+--------------------------------------------------|
+            bandeira do cartão                    |
+        comprovante de operação                   | :>>> sendo operação contido em { débito; crédito }
+empresa responsavel                               |
+        endereco                                  |
+term:               doc:            lote:         |
+dd/mm/aaaa hh:mm:ss     aut: 000000     onl-X     | :>>> onl-X, sendo X contido em { D; C }
+venda operação a vista                            |
+valor venda:                000,00                |
+                                                  |
+--------------------------------------------------|
+MARCA EQUIPAMENTO ECF               USUARIO       |
+VERSÃO DO EQUIPAMENTO               ESTACAO       |
+                           dd/mm/aaaa  hh:mm:ss   | :>>> A DATA E HORA DO FIM DA TRANSAÇÃO
+==================================================|
+                2ª via - cliente                  |
+==================================================|
+            bandeira do cartão                    |
+        comprovante de operação                   | :>>> sendo operação contido em { débito; crédito }
+empresa responsavel                               |
+cnpj: 11.222.333/0001-99                          |
+                                                  |
+            LIVRARIA FIVE'S                       |
+         Rua Baker Street, 110                    |
+             CEP 01157-989                        |
+CNPJ: 12.345.678/0001-90                          |
+                                                  |
+term:               doc:            lote:         |
+dd/mm/aaaa hh:mm:ss     aut: 000000     onl-X     | :>>> onl-X, sendo X contido em { D; C }
+venda operação a vista                            |
+valor venda:                000,00                |
+                                                  |
+                                                  |
+                                                  |
+                                                  |
+                                                  |
+                                                  |
+                                                  |
+                                                  
