@@ -30,14 +30,15 @@ namespace FivesLivraria.Data.Classes
 
         public void AddProduto(int codigo, string nome, double valor)
         {
-            Produto prodtemp = new Produto()
-            {
-                codigo = codigo,
-                nome = nome,
-                valor = valor
-            };
-            this.produtos.Add((Produto)prodtemp);
-            this.qtde++;
+            //Produto prodtemp = new Produto()
+            //{
+            //    codigo = codigo,
+            //    nome = nome,
+            //    valor = valor
+            //};
+            //this.produtos.Add((Produto)prodtemp);
+            //this.qtde++;
+            //this.produtos.Add(new Produto());
         }
 
         public string ToString(int n)
