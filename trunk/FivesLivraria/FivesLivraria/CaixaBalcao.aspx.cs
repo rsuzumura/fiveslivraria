@@ -20,7 +20,6 @@ namespace FivesLivraria
                                    {"5", "Produto 05", "10,00" } };
        ItemPedido item;
        int qtde;
-
         protected void Page_Load(object sender, EventArgs e)
         {
            item = new ItemPedido();
@@ -29,15 +28,22 @@ namespace FivesLivraria
 
         protected void clk_itemPedido(object sender, EventArgs e)
         {
-           int codProd = int.Parse(ListFrmPgto.SelectedValue);
-           double vlr = double.Parse(ProdutosTeste[(codProd-1),2]);
-           string nome = ProdutosTeste[(codProd-1),1];
+           int indice = listProdutosTeste.SelectedIndex;
+           
+           int codProd = int.Parse(ProdutosTeste[indice, 0]);
+           double vlr = double.Parse(ProdutosTeste[indice, 2]);
+           string nome = ProdutosTeste[indice, 1];  
 
            item.AddProduto(codProd, nome, vlr);
            qtde++;
 
-           area_Cupom.Value = area_Cupom.Value + "\n" + item.ToString(qtde);
+           area_Cupom.Value = area_Cupom.Value + "\n" + item.exibe(qtde-1);
            area_TEF.Value = "Teste";
+        }
+
+        protected void listProdutosTeste_onclick(object sender, EventArgs e)
+        {
+
         }
     }
 }

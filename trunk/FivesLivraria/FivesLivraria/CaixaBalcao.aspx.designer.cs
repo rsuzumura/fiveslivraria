@@ -22,15 +22,6 @@ namespace FivesLivraria {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// listProdutosTeste control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect listProdutosTeste;
-        
-        /// <summary>
         /// area_Cupom control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Acao;
+        
+        /// <summary>
+        /// listProdutosTeste control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listProdutosTeste;
         
         /// <summary>
         /// ListFrmPgto control.

@@ -31,7 +31,7 @@ namespace FivesLivraria.Data.Classes
         public void AddProduto(int codigo, string nome, double valor)
         {
            Produto prodtemp = new Produto(codigo, nome, valor);
-            this.produtos.Add( (Produto) prodtemp);
+           this.produtos.Add(prodtemp);
             this.qtde++;
         }
 
@@ -39,8 +39,13 @@ namespace FivesLivraria.Data.Classes
         {
             string result = string.Empty;
             for (int i = 0; i < n; i++)
-                result +=  produtos[n].ToString();
+                result +=  produtos[i].ToString();
             return result;
+        }
+
+        public string exibe(int n)
+        {
+           return produtos[n].ToString();
         }
     }
 }
