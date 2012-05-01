@@ -5,11 +5,11 @@ if object_id(@o, 'P') is not null begin
 end;
 go
 create procedure spLista_produtos (
-	@categoria varchar(100) = null,
+	@categoria int = 0,
 	@nmProduto varchar(100) = '%%',
 	@pageindex int = 0,
 	@pageSize int = 10,
-	@totalRowCount int out
+	@totalRowCount int  = null out
 ) as
 begin
 	select
@@ -18,13 +18,17 @@ begin
 		Produtos
 	where
 		nmTitulo like @nmProduto;
+	
+	select @totalRowCount = @totalRowCount/@pageSize + 1
 
 	declare @startRow int, @endRow int;
 
 	set @startRow = (@pageIndex * @pageSize) + 1;
 	set @endRow   = @startRow + @pageSize - 1;
 
-	with [Produto] as (
+	select
+		[Produto].*
+	from (
 		select 			
 			 idProduto
 			,nmTitulo
@@ -36,17 +40,18 @@ begin
 			,nrAno
 			,dsEdicao
 			,qtdProduto
-			--,nmImagem
+			,nmImagem
+			,vlPreco
+			,cat.dsCategoria [dsCategoria]
 			,row_number() over(order by idProduto) rownum
 		from 
-			Produtos	
+			Produtos p
+			left Join Categoria cat ON
+			p.idCategoria = cat.idCategoria	
 		where
 			nmTitulo like @nmProduto
-	)
-	select
-		*
-	from
-		[Produto]
+			and (@categoria = 0 or p.idCategoria = @categoria)
+	) [Produto]
 	where
 		rownum between @startRow and @endRow
 	for xml auto, elements, root('ListaProduto')
