@@ -19,31 +19,52 @@ namespace FivesLivraria
                                    {"4", "Produto 04", "20,00" },
                                    {"5", "Produto 05", "10,00" } };
        ItemPedido item;
-       int qtde;
+
         protected void Page_Load(object sender, EventArgs e)
         {
            item = new ItemPedido();
-           qtde = 0;
         }
 
-        protected void clk_itemPedido(object sender, EventArgs e)
+       protected void btn_Item_onClick(object sender, EventArgs e)
         {
            int indice = listProdutosTeste.SelectedIndex;
            
            int codProd = int.Parse(ProdutosTeste[indice, 0]);
            double vlr = double.Parse(ProdutosTeste[indice, 2]);
-           string nome = ProdutosTeste[indice, 1];  
+           string nome = ProdutosTeste[indice, 1];
 
            item.AddProduto(codProd, nome, vlr);
-           qtde++;
 
-           area_Cupom.Value = area_Cupom.Value + "\n" + item.ToString(qtde-1);
-           area_TEF.Value = "Teste";
+           TableCell cel1 = new TableCell();
+               cel1.Text = ProdutosTeste[indice, 0];
+           TableCell cel2 = new TableCell();
+               cel2.Text = ProdutosTeste[indice, 1];
+           TableCell cel3 = new TableCell();
+               cel3.Text = ProdutosTeste[indice, 2];
+
+          TableRow linha = new TableRow();
+             linha.Cells.Add(cel1);
+             linha.Cells.Add(cel2);
+             linha.Cells.Add(cel3);
+
+          tbl_Itens.Rows.Add(linha);
+                
         }
 
-        protected void listProdutosTeste_onclick(object sender, EventArgs e)
+       protected void btn_Pedido_onClick(object sender, EventArgs e)
         {
+          string area = area_Cupom.Value;
+          
+          if (area.Length != 0)
+              area += "\n";
 
+          for ( int n = 0; n < item.Count(); n++)
+              area_Cupom.Value = area + item.ToString(n);
+
+          if ( ListFrmPgto.SelectedIndex != 0 )
+            area_TEF.Value = ListFrmPgto.SelectedValue;
         }
+
+      
     }
 }

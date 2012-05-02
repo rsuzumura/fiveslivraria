@@ -26,7 +26,6 @@
                 &nbsp;&nbsp;Five'S Livraria
             </div>
             <br />
-            <asp:HyperLink ID="hlkCaixaBalcao" runat="server" Text="Balcao" NavigateUrl="~/CaixaBalcao.aspx"></asp:HyperLink>
             <br />
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
