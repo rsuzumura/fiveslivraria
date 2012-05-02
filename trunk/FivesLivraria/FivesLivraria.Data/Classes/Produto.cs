@@ -30,17 +30,17 @@ namespace FivesLivraria.Data
         private string nome;
         private double valor;
 
-        //public Produto(int codigo, string nome, double valor)
-        //{
-        //    this.codigo = codigo;
-        //    this.nome = nome;
-        //    this.valor = valor;
-        //}
+        public Produto(int codigo, string nome, double valor)
+        {
+            this.codigo = codigo;
+            this.nome = nome;
+            this.valor = valor;
+        }
 
         override
         public string ToString()
         {
-            return "codigo: " + codigo + "\n nome: " + nome + "\n valor: " + valor;
+            return "codigo: " + codigo + " nome: " + nome + " valor: " + valor;
         }        
     }
 

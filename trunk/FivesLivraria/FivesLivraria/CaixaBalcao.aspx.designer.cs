@@ -31,13 +31,13 @@ namespace FivesLivraria {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea area_Cupom;
         
         /// <summary>
-        /// btn_Acao control.
+        /// btn_Item control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Acao;
+        protected global::System.Web.UI.WebControls.Button btn_Item;
         
         /// <summary>
         /// listProdutosTeste control.
@@ -47,6 +47,51 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList listProdutosTeste;
+        
+        /// <summary>
+        /// lbl_NomeCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_NomeCliente;
+        
+        /// <summary>
+        /// box_NomeCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox box_NomeCliente;
+        
+        /// <summary>
+        /// lbl_CPFCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_CPFCliente;
+        
+        /// <summary>
+        /// box_CPFCliente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox box_CPFCliente;
+        
+        /// <summary>
+        /// btn_Pedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Pedido;
         
         /// <summary>
         /// ListFrmPgto control.
@@ -65,5 +110,23 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea area_TEF;
+        
+        /// <summary>
+        /// tbl_Itens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tbl_Itens;
+        
+        /// <summary>
+        /// lbl_Pgto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_Pgto;
     }
 }

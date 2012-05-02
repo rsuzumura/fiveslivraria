@@ -18,67 +18,65 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
+
         <asp:Label ID="Label1" runat="server" Text="Label" 
-        
-            style="position:absolute; top: 191px; left: 83px; width: 136px; height: 15px; right: 802px;"> Escolha o Item: </asp:Label>
-    </p>
-    <p>
-        &nbsp;<textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" 
+            style="position:absolute; top: 332px; left: 35px; width: 136px; height: 15px; right: 833px;"> Escolha o Item: </asp:Label>
+
+        <textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" 
             title="Cupons Impressos" runat="server"
             style="background-color: #FFFFCC; position: absolute; top: 146px; left: 735px; width: 464px; height: 344px;">
        </textarea>
             
-       <asp:Button id="btn_Acao" runat="server" Text="Ação" style="position:absolute; top: 190px; left: 349px;" OnClick="clk_itemPedido" />
+       <asp:Button id="btn_Item" runat="server" Text="Adicionar Item" style="position:absolute; top: 326px; left: 328px;" 
+            OnClick="btn_Item_onClick" />
+
             <asp:DropDownList ID="listProdutosTeste" runat="server" 
-            style="position:absolute; top: 193px; left: 225px;" 
-            OnClick="listProdutosTeste_onclick">
+                    style="position:absolute; top: 332px; left: 184px;" >
                 <asp:ListItem Selected="True" Value="1">Prod 01</asp:ListItem>
                 <asp:ListItem Value="2">Prod 02</asp:ListItem>
                 <asp:ListItem Value="3">Prod 03</asp:ListItem>
                 <asp:ListItem Value="4">Prod 04</asp:ListItem>
                 <asp:ListItem Value="5">Prod 05</asp:ListItem>
-        </asp:DropDownList>
-            </p>
-    <p>
-        <br />
-    </p>
+            </asp:DropDownList>
+
+        <asp:Label ID="lbl_NomeCliente" runat="server"
+            style="position:absolute; top: 221px; left: 15px; margin-top: 0px;"> Nome: </asp:Label>
+
+        <asp:TextBox ID="box_NomeCliente" runat="server" 
+            style="position:absolute; top: 220px; left: 63px; margin-top: 0px;"> </asp:TextBox>
+        
+        <asp:Label ID="lbl_CPFCliente" runat="server" 
+            style="position:absolute; top: 250px; left: 15px; margin-top: 20px;"> CPF: </asp:Label>
+
+        <asp:TextBox ID="box_CPFCliente" runat="server" 
+            style="position:absolute; top: 251px; left: 63px; margin-top: 20px;"> </asp:TextBox>
+        
+        <asp:Button ID="btn_Pedido" runat="server" Text="Fechar Pedido"
+            style="position:absolute; top: 182px; left: 542px;" OnClick="btn_Pedido_onClick" />
+
         <asp:RadioButtonList ID="ListFrmPgto" runat="server" 
-        style="position:absolute; top: 223px; left: 111px; margin-top: 4px;">
-            <asp:ListItem Value="1" Selected="True">Dinheiro</asp:ListItem>
-            <asp:ListItem Value="2">Crédito</asp:ListItem>
-            <asp:ListItem Value="3">Débito</asp:ListItem>
+            style="position:absolute; top: 206px; left: 315px; margin-top: 4px;">
+                <asp:ListItem Value="1" Selected="True">Dinheiro</asp:ListItem>
+                <asp:ListItem Value="2">Crédito</asp:ListItem>
+                <asp:ListItem Value="3">Débito</asp:ListItem>
         </asp:RadioButtonList>
-    <p>
-        &nbsp;</p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
+
         <textarea id="area_TEF" name="S2" cols="30" readonly="readonly" rows="1000" runat="server"
             style="background-color: #66CCFF; position: absolute; top: 503px; left: 821px; height: 115px;" 
-            title="Comprovantes TEF"></textarea></p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
-    <p>
-    </p>
+            title="Comprovantes TEF"></textarea>
+
+        <asp:Table id="tbl_Itens" runat="server" style="position:absolute; top: 405px; left: 16px; width: 558px;"
+            CellPadding="0"
+            GridLines="Horizontal"
+            HorizontalAlign="Center">
+            <asp:TableRow>
+                <asp:TableCell> Código </asp:TableCell>
+                <asp:TableCell> Produto </asp:TableCell>
+                <asp:TableCell> Valor </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+
+        <asp:Label ID="lbl_Pgto" runat="server" Text="Forma de Pagamento" 
+            style="position:absolute; top: 183px; left: 295px;"/>
+
 </asp:Content>
