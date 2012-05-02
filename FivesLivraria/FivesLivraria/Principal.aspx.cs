@@ -147,7 +147,7 @@ namespace FivesLivraria
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {
             Label id = (Label)e.Item.FindControl("idProduto");
-            Response.Redirect("Carrindo.aspx?id=" + id.Text);
+            Response.Redirect("Carrinho.aspx?id=" + id.Text);
         }
     }
 
