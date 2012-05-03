@@ -61,7 +61,9 @@
   <ItemGroup>
     <Content Include="Administrativo\Usuarios.aspx" />
     <Content Include="CadastroCliente.aspx" />
-    <Content Include="Carrinho.aspx" />
+    <Content Include="CaixaAcoes.aspx" />
+    <Content Include="CaixaOpcoes.aspx" />
+    <Content Include="CaixaPedidos.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="External\ChilkatDotNet4.dll" />
     <Content Include="External\EO.Web.dll" />
@@ -123,12 +125,26 @@
     <Compile Include="CadastroCliente.aspx.designer.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Carrinho.aspx.cs">
-      <DependentUpon>Carrinho.aspx</DependentUpon>
+    <Compile Include="CaixaAcoes.aspx.cs">
+      <DependentUpon>CaixaAcoes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Carrinho.aspx.designer.cs">
-      <DependentUpon>Carrinho.aspx</DependentUpon>
+    <Compile Include="CaixaAcoes.aspx.designer.cs">
+      <DependentUpon>CaixaAcoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaixaOpcoes.aspx.cs">
+      <DependentUpon>CaixaOpcoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaixaOpcoes.aspx.designer.cs">
+      <DependentUpon>CaixaOpcoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaixaPedidos.aspx.cs">
+      <DependentUpon>CaixaPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaixaPedidos.aspx.designer.cs">
+      <DependentUpon>CaixaPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
