@@ -10,6 +10,7 @@ using FivesLivraria.Data.Utils;
 
 namespace FivesLivraria.Data
 {
+    [Serializable]
     public class Produto
     {
         public SqlInt32 idProduto { get; set; }
