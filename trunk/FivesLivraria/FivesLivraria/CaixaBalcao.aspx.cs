@@ -22,7 +22,8 @@ namespace FivesLivraria
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           item = new ItemPedido();
+           if (!IsPostBack)
+           ViewState["item"] = new ItemPedido();
         }
 
        protected void btn_Item_onClick(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace FivesLivraria
            double vlr = double.Parse(ProdutosTeste[indice, 2]);
            string nome = ProdutosTeste[indice, 1];
 
+           item = (ItemPedido) ViewState["item"];
            item.AddProduto(codProd, nome, vlr);
 
            TableCell cel1 = new TableCell();
@@ -55,16 +57,22 @@ namespace FivesLivraria
         {
           string area = area_Cupom.Value;
           
+          item = (ItemPedido)ViewState["item"];          
+          
           if (area.Length != 0)
               area += "\n";
 
           for ( int n = 0; n < item.Count(); n++)
-              area_Cupom.Value = area + item.ToString(n);
+              area += item.ToString(n) + "\n";
+
+          // colando o conteúdo para simulação de cupom
+          area_Cupom.Value = area;
 
           if ( ListFrmPgto.SelectedIndex != 0 )
             area_TEF.Value = ListFrmPgto.SelectedValue;
+
+          item = new ItemPedido();
         }
 
-      
-    }
+   }
 }
