@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
+    [Serializable]
     public class ItemPedido
     {
        private List<Produto> produtos;
