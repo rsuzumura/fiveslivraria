@@ -1,0 +1,26 @@
+﻿.gridheader
+{
+	background-color: #31A400;
+	color: #FFFFFF;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Verdana, Tahoma;
+}
+
+.gridalt
+{
+	background-color: #C6FDCB;
+	color: #000000;
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Verdana, Tahoma;
+}
+
+.gridrow
+{
+	background-color: #FFFFFF;
+	color: #000000;
+	font-weight: normal;
+	font-size: 10pt;
+	font-family: Verdana, Tahoma;
+}

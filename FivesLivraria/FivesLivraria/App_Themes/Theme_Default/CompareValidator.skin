@@ -1,0 +1,1 @@
+﻿<asp:CompareValidator runat="server" Font-Names="Verdana, Tahoma" Font-Size="10pt" ForeColor="#FF0000" />

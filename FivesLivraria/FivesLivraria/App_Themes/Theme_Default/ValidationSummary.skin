@@ -1,0 +1,9 @@
+﻿<asp:ValidationSummary 
+    runat="server" 
+    DisplayMode="List" 
+    HeaderText="Atenção: verifique os seguintes itens:" 
+    Font-Names="Verdana, Tahoma"
+    Font-Bold="true"
+    ForeColor="Red"
+    Font-Size="10pt"
+    CssClass="validationMessage" />

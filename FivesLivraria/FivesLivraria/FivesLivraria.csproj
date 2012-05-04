@@ -59,7 +59,10 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrativo\CadastroUsuario.aspx" />
     <Content Include="Administrativo\Usuarios.aspx" />
+    <Content Include="App_Themes\Theme_Default\button.css" />
+    <Content Include="App_Themes\Theme_Default\gridview.css" />
     <Content Include="CadastroCliente.aspx" />
     <Content Include="CaixaAcoes.aspx" />
     <Content Include="CaixaOpcoes.aspx" />
@@ -72,9 +75,14 @@
     <Content Include="Images\alert.png" />
     <Content Include="Images\confirm.png" />
     <Content Include="Images\error.png" />
+    <Content Include="Images\icon_recyclebin_16px.gif" />
+    <Content Include="Images\icon_search_16px.gif" />
     <Content Include="Images\info.png" />
     <Content Include="Images\imagem1.gif" />
     <Content Include="Images\msgBoxBackGround.png" />
+    <Content Include="Images\Pen.gif" />
+    <Content Include="Images\Save.gif" />
+    <Content Include="Images\subjectselect_delete.gif" />
     <Content Include="Login.aspx" />
     <Content Include="LostPassword.aspx" />
     <Content Include="Principal.aspx" />
@@ -107,6 +115,13 @@
     </Compile>
     <Compile Include="Administrativo\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\CadastroUsuario.aspx.cs">
+      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrativo\CadastroUsuario.aspx.designer.cs">
+      <DependentUpon>CadastroUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
@@ -213,6 +228,10 @@
     <Content Include="Main.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FivesLivraria.Controls\FivesLivraria.Controls.csproj">
+      <Project>{B23CEE2F-4D6A-4800-943F-A746B455F81C}</Project>
+      <Name>FivesLivraria.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FivesLivraria.Data\FivesLivraria.Data.csproj">
       <Project>{5406BB3D-67FE-48D6-8267-C327FD19864F}</Project>
       <Name>FivesLivraria.Data</Name>
@@ -236,6 +255,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Theme_Default\ValidationSummary.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Theme_Default\Button.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Theme_Default\PagedGridView.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Theme_Default\CompareValidator.skin" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
@@ -244,7 +275,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1386</DevelopmentServerPort>
+          <DevelopmentServerPort>16021</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

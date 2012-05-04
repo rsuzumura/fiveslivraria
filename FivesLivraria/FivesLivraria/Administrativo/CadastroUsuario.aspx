@@ -1,16 +1,20 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LoginMaster.Master" AutoEventWireup="true"
-    CodeBehind="CadastroCliente.aspx.cs" Inherits="FivesLivraria.CadastroCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrativo/Admin.Master" AutoEventWireup="true"
+    CodeBehind="CadastroUsuario.aspx.cs" Inherits="FivesLivraria.Administrativo.CadastroUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div>
-        <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:" CssClass="validationMessage" />
+    <div class="toolbar">
+        <asp:Button ID="btnSave" runat="server" Text="Cadastrar" CssClass="button" OnClick="btnSave_Click"
+            CausesValidation="false" />
+        <asp:Button ID="btnCancel" runat="server" Text="Voltar" CausesValidation="false" ToolTip="Criar um novo usuário"
+            OnClick="btnCancel_Click" />
     </div>
-    <div class="divCadastro">
-        <div class="header">
-            &nbsp;&nbsp;Cadastro do Cliente
-        </div>        
+    <br />
+    <div class="divForm" style="height: 300px;">
+        <div class="divFormHeader">
+            &nbsp;&nbsp;Cadastro de Usuários
+        </div>
         <table class="data">
             <colgroup>
                 <col width="15%" />
@@ -23,7 +27,7 @@
                     Nome:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtUser" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -31,7 +35,7 @@
                     Endereço:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -43,7 +47,7 @@
                     Email:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailAddress" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -53,17 +57,17 @@
                     Login:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtLogin" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="name">
                     <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="A senha é obrigatória."
-                        ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>                    
+                        ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
                     Senha:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -71,11 +75,10 @@
                     <asp:CompareValidator ID="cmpPassword" runat="server" ControlToValidate="txtPassword"
                         ControlToCompare="txtConfirmPassword" ErrorMessage="A senha e a confirmação não correspondem."
                         Text="*"></asp:CompareValidator>
-                    Confirmação<br />
-                    de senha:
+                    Confirmação de senha:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -85,7 +88,7 @@
                     Pergunta:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtQuestion" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -95,15 +98,18 @@
                     Resposta:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtAnswer" runat="server" Width="90%"></asp:TextBox>
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <br />
-                    <asp:Button ID="btnSave" runat="server" Text="Cadastrar" CssClass="button" OnClick="btnSave_Click" CausesValidation="false" />
+                <td class="name">
+                    Tipo de permissão:
+                </td>
+                <td>
+                    <asp:DropDownList ID="dropRoles" runat="server" Width="90%"></asp:DropDownList>
                 </td>
             </tr>
         </table>
     </div>
+    <div style="float: right; height: 240px; clear: both;"></div>
 </asp:Content>
