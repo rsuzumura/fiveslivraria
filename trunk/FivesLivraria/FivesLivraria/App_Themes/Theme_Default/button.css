@@ -1,0 +1,15 @@
+﻿.button
+{
+	background-color: #2E5E22;
+	color: White;
+	font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+	height: 30px;
+	width: 100px;
+	border: solid 1px #C0C0C0;
+}
+.button:hover
+{
+	background-color: #353435;
+}

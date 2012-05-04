@@ -1,0 +1,6 @@
+﻿<%@ Register Assembly="FivesLivraria.Controls" Namespace="FivesLivraria.Controls"
+    TagPrefix="cc1" %>
+<cc1:PagedGridView runat="server"  
+    HeaderStyle-CssClass="gridheader"
+    RowStyle-CssClass="gridrow"
+    AlternatingRowStyle-CssClass="gridalt" />
