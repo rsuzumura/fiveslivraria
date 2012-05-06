@@ -9,6 +9,28 @@
     <script type="text/javascript" src="../Scripts/jquery-1.4.1.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.msgBox.js"></script>
     <link rel="Stylesheet" type="text/css" href="../Styles/msgBoxLight.css" />
+    <script type="text/javascript">
+        var confirmed = false;
+        function confirm(obj) {
+            if (!confirmed) {
+                $.msgBox({
+                    title: "Remoção de Usuário",
+                    content: "Deseja realmente remover o usuário selecionado?",
+                    type: "confirm",
+                    buttons: [{ value: "Sim" }, { value: "Não"}],
+                    success: function (result) {
+                        if (result == "Sim") {
+                            confirmed = true;
+                            obj.click();
+                        }
+                        else
+                            confirmed = false;
+                    }
+                });
+            }
+            return confirmed;
+        }
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -36,11 +58,11 @@
                                 <Items>
                                     <eo:MenuItem Text-Html="Fornecedores">
                                     </eo:MenuItem>
-                                    <eo:MenuItem Text-Html="Usuários">
+                                    <eo:MenuItem Text-Html="Usuários" NavigateUrl="Usuarios.aspx">
                                     </eo:MenuItem>
-                                    <eo:MenuItem Text-Html="Produtos">
+                                    <eo:MenuItem Text-Html="Produtos" NavigateUrl="Produtos.aspx">
                                     </eo:MenuItem>
-                                    <eo:MenuItem Text-Html="Categorias">
+                                    <eo:MenuItem Text-Html="Categorias" NavigateUrl="Categorias.aspx">
                                     </eo:MenuItem>
                                     <eo:MenuItem IsSeparator="True">
                                     </eo:MenuItem>

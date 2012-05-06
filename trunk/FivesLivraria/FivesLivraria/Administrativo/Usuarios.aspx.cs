@@ -27,7 +27,7 @@ namespace FivesLivraria.Administrativo
             DropDownList roles      = (DropDownList)gridUsuarios.Rows[e.NewEditIndex].FindControl("dropRoles");
             HiddenField hdnRole     = (HiddenField)gridUsuarios.Rows[e.NewEditIndex].FindControl("hdnRole");
             FillControlWithoutNull(roles, Roles.GetAllRoles());
-            roles.SelectedValue     = hdnRole.Value;            
+            roles.SelectedValue     = hdnRole.Value;
         }
 
         protected void gridUsuarios_RowUpdating(object sender, GridViewUpdateEventArgs e)
