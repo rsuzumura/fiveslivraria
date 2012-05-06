@@ -1,12 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrativo/Admin.Master" AutoEventWireup="true"
-    CodeBehind="Usuarios.aspx.cs" Inherits="FivesLivraria.Administrativo.Usuarios" %>
-
+    CodeBehind="Produtos.aspx.cs" Inherits="FivesLivraria.Administrativo.Produtos" %>
+<%@ Import Namespace="System.Data.SqlTypes" %>
 <%@ Register Assembly="FivesLivraria.Controls" Namespace="FivesLivraria.Controls"
     TagPrefix="cc1" %>
 
-<%@ Import Namespace="System.Data.SqlTypes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+    <script type="text/javascript" src="../Scripts/jquery-1.4.1.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.msgBox.js"></script>
+    <link rel="Stylesheet" type="text/css" href="../Styles/msgBoxLight.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="toolbar">
@@ -47,10 +48,10 @@
                     <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
                         CssClass="validationMessage" />
                 </div>                
-                <cc1:PagedGridView ID="gridUsuarios" runat="server" AutoGenerateColumns="false" Width="98%"
-                    AllowPaging="true" OnRowCancelingEdit="gridUsuarios_RowCancelingEdit" OnRowDeleting="gridUsuarios_RowDeleting"
-                    OnRowEditing="gridUsuarios_RowEditing" OnRowUpdating="gridUsuarios_RowUpdating"
-                    PageSize="10" OnPageIndexChanging="gridUsuarios_PageIndexChanging">
+                <cc1:PagedGridView ID="gridProdutos" runat="server" AutoGenerateColumns="false" Width="98%"
+                    AllowPaging="true" OnRowCancelingEdit="gridProdutos_RowCancelingEdit" OnRowDeleting="gridProdutos_RowDeleting"
+                    OnRowEditing="gridProdutos_RowEditing" OnRowUpdating="gridProdutos_RowUpdating"
+                    PageSize="10" OnPageIndexChanging="gridProdutos_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField>
                             <HeaderTemplate>Nome do Usuário</HeaderTemplate>

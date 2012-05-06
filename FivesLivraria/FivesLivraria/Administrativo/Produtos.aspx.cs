@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FivesLivraria
+namespace FivesLivraria.Administrativo
 {
     public partial class Produtos : System.Web.UI.Page
     {

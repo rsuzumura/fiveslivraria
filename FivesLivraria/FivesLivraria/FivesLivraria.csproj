@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrativo\CadastroUsuario.aspx" />
+    <Content Include="Administrativo\Categorias.aspx" />
     <Content Include="Administrativo\Usuarios.aspx" />
     <Content Include="App_Themes\Theme_Default\button.css" />
     <Content Include="App_Themes\Theme_Default\gridview.css" />
@@ -86,7 +87,7 @@
     <Content Include="Login.aspx" />
     <Content Include="LostPassword.aspx" />
     <Content Include="Principal.aspx" />
-    <Content Include="Produtos.aspx" />
+    <Content Include="Administrativo\Produtos.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="Administrativo\CadastroUsuario.aspx.designer.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrativo\Categorias.aspx.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrativo\Categorias.aspx.designer.cs">
+      <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrativo\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
@@ -208,11 +216,11 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Produtos.aspx.cs">
+    <Compile Include="Administrativo\Produtos.aspx.cs">
       <DependentUpon>Produtos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Produtos.aspx.designer.cs">
+    <Compile Include="Administrativo\Produtos.aspx.designer.cs">
       <DependentUpon>Produtos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
