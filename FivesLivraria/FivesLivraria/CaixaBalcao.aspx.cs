@@ -71,7 +71,7 @@ namespace FivesLivraria
           if ( ListFrmPgto.SelectedIndex != 0 )
             area_TEF.Value = ListFrmPgto.SelectedValue;
 
-          item = new ItemPedido();
+          ViewState["item"] = new ItemPedido();
         }
 
    }

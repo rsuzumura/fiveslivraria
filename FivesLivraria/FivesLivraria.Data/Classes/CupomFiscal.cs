@@ -20,12 +20,15 @@ namespace FivesLivraria.Data.Classes
       { return item; }
 
       private string linhaImpressao;
-      public void setLinhaImpressao(string linhaImpressao)
+      protected void setLinhaImpressao(string linhaImpressao)
       { this.linhaImpressao = linhaImpressao; }
-      public string getLinhaImpressao()
+      protected string getLinhaImpressao()
       { return linhaImpressao; }
 
-      public CupomFiscal() { }
+      public CupomFiscal(ItemPedido item ) 
+      {
+         setItem(item);
+      }
 
       public CupomFiscal(long cpf, ItemPedido item)
       {
