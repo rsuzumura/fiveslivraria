@@ -11,7 +11,8 @@ namespace FivesLivraria.Administrativo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!User.IsInRole("gestor"))
+                Response.Redirect("~/Login.aspx", false);
         }
     }
 }

@@ -40,9 +40,9 @@
         <div class="divMain">
             <div class="divUserHeader">
                 Usuário:&nbsp;
-                <asp:Label ID="lblUser" runat="server"></asp:Label>
+                <asp:Label ID="lblUser" runat="server" CssClass="link"></asp:Label>
                 &nbsp;&nbsp;
-                <asp:LinkButton ID="lnkExit" runat="server" Text="Sair" OnClick="lnkExit_Click"></asp:LinkButton>&nbsp;&nbsp;
+                <asp:LinkButton ID="lnkExit" runat="server" Text="Sair" CssClass="link" OnClick="lnkExit_Click"></asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="divHeader">
                 &nbsp;&nbsp;Five'S Livraria
@@ -53,7 +53,8 @@
                         &nbsp;&nbsp;Menu
                     </div>
                     <div>
-                        <eo:Menu ID="menu" runat="server" Width="100%" CheckIconUrl="OfficeCheckIcon2" ControlSkinID="None" bo>
+                        <eo:Menu ID="menu" runat="server" Width="100%" CheckIconUrl="OfficeCheckIcon2" ControlSkinID="None"
+                            OnItemClick="menu_ItemClick">
                             <TopGroup Orientation="Vertical">
                                 <Items>
                                     <eo:MenuItem Text-Html="Fornecedores">
@@ -66,7 +67,7 @@
                                     </eo:MenuItem>
                                     <eo:MenuItem IsSeparator="True">
                                     </eo:MenuItem>
-                                    <eo:MenuItem Text-Html="Sair">
+                                    <eo:MenuItem Text-Html="Sair" RaisesServerEvent="True" CustomItemID="Sair">
                                     </eo:MenuItem>
                                 </Items>
                             </TopGroup>

@@ -29,12 +29,7 @@ namespace FivesLivraria
 
         protected void LostPassword_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Login1.UserName))
-            {
-                //General.ShowError(3, General.GetResourceByCulture(InterfaceOcr.Designer, pagename, "LostPassword_NoLogin", Current.CultureType));
-            }
-            else
-                Response.Redirect(string.Format("LostPassword.aspx?user={0}", Login1.UserName), false);
+            Response.Redirect(string.Format("LostPassword.aspx?user={0}", Login1.UserName), false);
         }
     }
 }

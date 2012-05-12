@@ -141,3 +141,19 @@
 	padding-top: 7px;
 	padding-left: 40px;
 }
+
+.link
+{
+	color: White;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Verdana;
+}
+
+.link:visited
+{
+	color: Blue;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: Verdana;
+}

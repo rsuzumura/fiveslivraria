@@ -2,7 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Login ID="Login1" runat="server">
+    <asp:Login ID="Login1" runat="server" 
+        FailureText="O nome de usuário e/ou senha estavam inválidos. Tente novamente.">
         <LayoutTemplate>
             <div align="center" class="divLogin">
                 <div class="header">
@@ -11,22 +12,29 @@
                 <br />
                 <div>
                     <table cellspacing="2" cellpadding="2" class="data">
+                        <colgroup>
+                            <col width="25%" />
+                            <col width="75%" />
+                        </colgroup>
                         <tr>
                             <td class="name">
                                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Usuário:</asp:Label>
                             </td>
-                            <td>
+                            <td align="left">
                                 <asp:TextBox ID="UserName" runat="server" CssClass="input" TabIndex="1"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
                                     ControlToValidate="UserName" ErrorMessage="O nome de usuário é obrigatório." 
                                     ToolTip="Nome de usuário obrigatório." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="UserNameRequired1" runat="server" 
+                                    ControlToValidate="UserName" ErrorMessage="O nome de usuário é obrigatório." 
+                                    ToolTip="Nome de usuário obrigatório." ValidationGroup="UserName">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td class="name">
                                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Senha:</asp:Label>
                             </td>
-                            <td>
+                            <td align="left">
                                 <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="input" TabIndex="2"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
                                     ControlToValidate="Password" ErrorMessage="A senha é obrigatória." 
@@ -41,7 +49,7 @@
                         <tr>
                             <td align="right" colspan="2">
                                 <asp:LinkButton ID="LostPassword" runat="server" ToolTip="Recuperação de senha esquecida" TabIndex="4"
-                                    Text="Esqueci minha senha" OnClick="LostPassword_Click"></asp:LinkButton>&nbsp;&nbsp;
+                                    Text="Esqueci minha senha" ValidationGroup="UserName" OnClick="LostPassword_Click"></asp:LinkButton>&nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
@@ -64,6 +72,11 @@
                             </td>
                         </tr>
                     </table>
+                    <br />
+                    <asp:ValidationSummary ID="validationSummaryLogin" runat="server" DisplayMode="List"
+                        HeaderText="Atenção: verifique os seguintes itens:" ValidationGroup="Login1" />
+                    <asp:ValidationSummary ID="validationSummaryUserName" runat="server" DisplayMode="List"
+                    HeaderText="Atenção: verifique os seguintes itens:" ValidationGroup="UserName" />
                 </div>
             </div>
         </LayoutTemplate>

@@ -21,7 +21,7 @@ namespace FivesLivraria
         protected void lkbExit_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Login.aspx");
         }
     }
 }
