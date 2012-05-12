@@ -23,5 +23,14 @@ namespace FivesLivraria.Administrativo
             FormsAuthentication.SignOut();
             Response.Redirect("Login.aspx");
         }
+
+        protected void menu_ItemClick(object sender, EO.Web.NavigationItemEventArgs e)
+        {
+            if (e.MenuItem.CustomItemID == "Sair")
+            {
+                FormsAuthentication.SignOut();
+                Response.Redirect("~/Login.aspx", false);
+            }
+        }
     }
 }

@@ -12,6 +12,9 @@ namespace FivesLivraria.Administrativo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!User.IsInRole("gestor"))
+                Response.Redirect("~/Login.aspx", false);
+
             if (!IsPostBack)
                 BindGrid(0);
         }
@@ -25,7 +28,7 @@ namespace FivesLivraria.Administrativo
         protected void btnNew_Click(object sender, EventArgs e)
         {
             gridCategorias.EditIndex = -1;
-            BindGrid(gridCategorias.EditIndex);
+            BindGrid(gridCategorias.PageIndex);
             txtCategoria.Text = string.Empty;
             txtName.Text      = string.Empty;
             divInsert.Visible = btnCancel.Visible = btnSave.Visible = true;
