@@ -17,7 +17,11 @@ namespace FivesLivraria
                 Usuario u = Usuario.Get(User.Identity.Name);
                 Current.UserId   = u.idUsuario.Value;
                 Current.UserName = u.nmUsuario.Value;
- 
+
+                if (User.IsInRole("gestor"))
+                    Response.Redirect("~/Administrativo/Default.aspx", false);
+                if (User.IsInRole("usuario"))
+                    Response.Redirect("CaixaOpcoes.aspx", false);
             }
         }
     }

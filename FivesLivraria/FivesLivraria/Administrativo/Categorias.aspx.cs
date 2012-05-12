@@ -122,6 +122,7 @@ namespace FivesLivraria.Administrativo
             gridCategorias.PageIndex = pageIndex;
             gridCategorias.DataSource = ListaCategoria.List((string)ViewState["dsCategoria"], false, gridCategorias.PageIndex, gridCategorias.PageSize, out t);
             gridCategorias.VirtualCount = t;
+            lblRecords.Text = string.Format("Qtde de Registros: {0}", t);
             gridCategorias.DataBind();
         }
     }
