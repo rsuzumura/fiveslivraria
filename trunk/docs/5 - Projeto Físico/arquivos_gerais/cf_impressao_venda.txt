@@ -14,7 +14,7 @@ qtd   um     vlr unit       TIPOTX      vlr item
                                                   
                                                   
                                                   
-                          ------------------------                       
+                          ------------------------
   TOTAL  R$                           XXX.XXX,00  
 FORMAPGTO                              VALORPGTO  
 TROCO                                 VALORTROCO  
