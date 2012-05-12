@@ -119,6 +119,7 @@ namespace FivesLivraria.Administrativo
             gridUsuarios.PageIndex      = pageIndex;
             gridUsuarios.DataSource     = ListaUsuario.List(username, role, gridUsuarios.PageIndex, gridUsuarios.PageSize, out t);
             gridUsuarios.VirtualCount   = t;
+            lblRecords.Text             = string.Format("Qtde de Registros: {0}", t);
             gridUsuarios.DataBind();
         }
     }

@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrativo/Admin.Master" AutoEventWireup="true"
     CodeBehind="Produtos.aspx.cs" Inherits="FivesLivraria.Administrativo.Produtos" %>
+
 <%@ Import Namespace="System.Data.SqlTypes" %>
 <%@ Register Assembly="FivesLivraria.Controls" Namespace="FivesLivraria.Controls"
     TagPrefix="cc1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-1.4.1.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.msgBox.js"></script>
@@ -20,115 +20,90 @@
             &nbsp;&nbsp;Filtro
         </div>
         <div>
-            <table style="width: 98%;">
+            <table style="width: 98%;" class="data">
                 <colgroup>
-                    <col width="20%" />
-                    <col width="80%" />
+                    <col width="5%" />
+                    <col width="25%" />
+                    <col width="70%" />
                 </colgroup>
                 <tr>
-                    <td><asp:DropDownList ID="dropRoles" runat="server" Width="90%"></asp:DropDownList></td>
+                    <td class="name">Categoria:</td>
+                    <td style="text-align: left;">
+                        &nbsp;<asp:DropDownList ID="dropCategorias" runat="server" Width="90%"
+                            DataTextField="dsCategoria" DataValueField="idCategoria">
+                        </asp:DropDownList>
+                    </td>
                     <td>
                         <asp:TextBox ID="txtName" runat="server" Width="90%"></asp:TextBox>
                         &nbsp;
-                        <asp:ImageButton ID="imgSearch" runat="server" ToolTip="Efetuar consulta"
-                            ImageUrl="~/Images/icon_search_16px.gif" onclick="imgSearch_Click" />
+                        <asp:ImageButton ID="imgSearch" runat="server" ToolTip="Efetuar consulta" ImageUrl="~/Images/icon_search_16px.gif"
+                            OnClick="imgSearch_Click" />
                     </td>
                 </tr>
-            </table>            
+            </table>
         </div>
     </div>
     <br />
     <div class="divForm">
         <div class="divFormHeader">
-            &nbsp;&nbsp;Usuários
+            &nbsp;&nbsp;Produtos
         </div>
         <div>
             <div style="padding-top: 7px;">
-                <div>
-                    <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
-                        CssClass="validationMessage" />
-                </div>                
+                <div style="text-align: left; font-weight: bold;">&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRecords" runat="server"></asp:Label></div>
                 <cc1:PagedGridView ID="gridProdutos" runat="server" AutoGenerateColumns="false" Width="98%"
-                    AllowPaging="true" OnRowCancelingEdit="gridProdutos_RowCancelingEdit" OnRowDeleting="gridProdutos_RowDeleting"
-                    OnRowEditing="gridProdutos_RowEditing" OnRowUpdating="gridProdutos_RowUpdating"
-                    PageSize="10" OnPageIndexChanging="gridProdutos_PageIndexChanging">
+                    AllowPaging="true" OnRowDeleting="gridProdutos_RowDeleting" PageSize="10" OnPageIndexChanging="gridProdutos_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField>
-                            <HeaderTemplate>Nome do Usuário</HeaderTemplate>
+                            <HeaderTemplate>
+                                Nome do Produto</HeaderTemplate>
                             <ItemTemplate>
-                                <%# Eval("nmUsuario") %>
+                                <%# Eval("nmTitulo") %>
+                                <asp:HiddenField ID="hdnIdProduto" runat="server" Value='<%# Eval("idProduto") %>' />
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <%# Eval("nmUsuario") %>
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <HeaderTemplate>Login</HeaderTemplate>
-                            <ItemTemplate>
-                                <%# Eval("dsLogin") %>
-                                <asp:HiddenField ID="hdnLogin" runat="server" Value='<%# Eval("dsLogin") %>' />
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <%# Eval("dsLogin")%>
-                                <asp:HiddenField ID="hdnLogin" runat="server" Value='<%# Eval("dsLogin") %>' />
-                            </EditItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField>
-                            <HeaderTemplate>Email</HeaderTemplate>
-                            <ItemTemplate>
-                                <%# Eval("Email") %>
-                            </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txtEmail" runat="server" Text='<%# Eval("Email") %>'></asp:TextBox>
-                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="O email é obrigatório."
-                                    ControlToValidate="txtEmail" Text="*"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="O formato do email está inválido"
-                                    ControlToValidate="txtEmail" Text="*" ValidationExpression="[\w-]+(\.[\w-]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                Permissão
-                            </HeaderTemplate>
+                                Autores</HeaderTemplate>
                             <ItemTemplate>
-                                <%# Eval("RoleName") %>
-                                <asp:HiddenField ID="hdnRole" runat="server" Value='<%# Eval("RoleName") %>' />
+                                <%# Eval("dsAutores") %>
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:HiddenField ID="hdnRole" runat="server" Value='<%# Eval("RoleName") %>' />
-                                <asp:DropDownList ID="dropRoles" runat="server"></asp:DropDownList>
-                            </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <HeaderTemplate>
-                                Bloqueado
+                                Editora</HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("nmEditora") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Ano
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <%# ((SqlBoolean)Eval("IsLocked")).Value ? "Sim" : "Não" %>
+                                <%# Eval("nrAno") %>
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:CheckBox ID="ckbLocked" runat="server" Checked='<%# ((SqlBoolean)Eval("IsLocked")).Value %>' />
-                            </EditItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                Qtde
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <%# Eval("qtdProduto") %>
+                            </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:ImageButton ID="imgEdit" CommandName="Edit" runat="server" ImageUrl="~/Images/Pen.gif"
-                                    ToolTip="Editar" CausesValidation="false" />
+                                <asp:ImageButton ID="imgEdit" CommandArgument='<%# Eval("idProduto") %>' runat="server" OnClick="imgEdit_Click"
+                                    ImageUrl="~/Images/Pen.gif" ToolTip="Editar" CausesValidation="false" />
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:ImageButton ID="imgSave" CommandName="Update" runat="server" ImageUrl="~/Images/Save.gif"
-                                    ToolTip="Salvar" CausesValidation="false" />
-                            </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:ImageButton ID="imgDelete" CausesValidation="false" CommandName="Delete" runat="server" ImageUrl="~/Images/icon_recyclebin_16px.gif"
-                                    ToolTip="Apagar" OnClientClick="javascript:return confirm(this);" />
+                                <asp:ImageButton ID="imgDelete" CausesValidation="false" CommandName="Delete" CommandArgument='<%# Eval("idProduto") %>'
+                                    runat="server" ImageUrl="~/Images/icon_recyclebin_16px.gif" ToolTip="Apagar"
+                                    OnClientClick="javascript:return confirm(this);" />
                             </ItemTemplate>
-                            <EditItemTemplate>
-                                <asp:ImageButton ID="imgCancel" CommandName="Cancel" CausesValidation="false" runat="server" ImageUrl="~/Images/subjectselect_delete.gif"
-                                    ToolTip="Cancelar" />
-                            </EditItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </cc1:PagedGridView>

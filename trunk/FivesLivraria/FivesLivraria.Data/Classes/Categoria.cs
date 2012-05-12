@@ -52,7 +52,7 @@ namespace FivesLivraria.Data
 
         public static DataSet List()
         {
-            return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaCategoria>.Select("spLista_categorias", new SqlXmlParams("nada", 0)));
+            return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaCategoria>.Select("spLista_categorias", new SqlXmlParams()));
         }
     }
 }

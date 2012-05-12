@@ -46,7 +46,8 @@
                 <div>
                     <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
                         CssClass="validationMessage" />
-                </div>                
+                </div>
+                <div style="text-align: left; font-weight: bold;">&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRecords" runat="server"></asp:Label></div>
                 <cc1:PagedGridView ID="gridUsuarios" runat="server" AutoGenerateColumns="false" Width="98%"
                     AllowPaging="true" OnRowCancelingEdit="gridUsuarios_RowCancelingEdit" OnRowDeleting="gridUsuarios_RowDeleting"
                     OnRowEditing="gridUsuarios_RowEditing" OnRowUpdating="gridUsuarios_RowUpdating"

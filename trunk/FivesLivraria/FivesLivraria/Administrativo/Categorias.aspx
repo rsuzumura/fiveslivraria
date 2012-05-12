@@ -68,6 +68,7 @@
         <div>
             <div style="padding-top: 7px;">
                 <div>
+                    <div style="text-align: left; font-weight: bold;">&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRecords" runat="server"></asp:Label></div>
                     <cc1:PagedGridView ID="gridCategorias" runat="server" AutoGenerateColumns="false"
                         Width="98%" AllowPaging="true" OnRowCancelingEdit="gridCategorias_RowCancelingEdit"
                         OnRowDeleting="gridCategorias_RowDeleting" OnRowEditing="gridCategorias_RowEditing"

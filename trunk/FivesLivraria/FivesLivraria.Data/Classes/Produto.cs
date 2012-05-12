@@ -25,32 +25,62 @@ namespace FivesLivraria.Data
         public SqlInt32 qtdProduto { get; set; }
         public SqlString nmImagem { get; set; }
         public SqlDecimal vlPreco { get; set; }
-        public SqlString dsCategoria { get; set; }       
+        public SqlInt32 idCategoria { get; set; }
+        public SqlString dsCategoria { get; set; }
 
-        private int codigo;
-        private string nome;
-        private double valor;
+        //[XmlIgnore]
+        //public int codigo { get; set; }
+        //[XmlIgnore]
+        //public string nome { get; set; }
+        //[XmlIgnore]
+        //public double valor { get; set; }
 
-        public Produto(int codigo, string nome, double valor)
+        //public Produto(int codigo, string nome, double valor)
+        //{
+        //    this.codigo = codigo;
+        //    this.nome = nome;
+        //    this.valor = valor;
+        //}
+                
+        public override string ToString()
         {
-            this.codigo = codigo;
-            this.nome = nome;
-            this.valor = valor;
+            return "codigo: " + (idProduto.IsNull ? 0 : idProduto.Value) + " nome: " + (nmTitulo.IsNull ? ""  : nmTitulo.Value) + " valor: " + vlPreco;
         }
 
-        override
-        public string ToString()
+        public void Insert()
         {
-            return "codigo: " + codigo + " nome: " + nome + " valor: " + valor;
-        }        
+            int t = 0;
+            SqlXmlRun.Execute("spCadastra_produto", this, "idProduto", out t);
+            idProduto = t;
+        }
+
+        public void Update()
+        {
+            SqlXmlRun.Execute("spUpdate_produto", this);
+        }
+
+        public static void Delete(int idProduto)
+        {
+            SqlXmlRun.Execute("spRemove_produto", new SqlXmlParams("idProduto", idProduto));
+        }
+
+        public static Produto Get(int idProduto)
+        {
+            return SqlXmlGet<Produto>.Select("spGet_produto", new SqlXmlParams("idProduto", idProduto));
+        }
     }
 
     [XmlRoot("ListaProduto")]
     public class ListaProdutos : List<Produto>
     {
+        public static ListaProdutos ListByFilter(int idCategoria, string nmProduto, int pageIndex, int pageSize, out int totalRowCount)
+        {
+            return SqlXmlGet<ListaProdutos>.Select("spLista_produto", pageIndex, pageSize, out totalRowCount, new SqlXmlParams("categoria", idCategoria, "nmProduto", nmProduto));
+        }
+
         public static DataSet List(int categoria, string nmProduto, int pageIndex, int pageSize, out int totalRowCount)
         {
             return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaProdutos>.Select("spLista_produtos", pageIndex, pageSize, out totalRowCount, new SqlXmlParams("categoria", categoria, "nmProduto", nmProduto)));
-        }                
+        }
     }
 }

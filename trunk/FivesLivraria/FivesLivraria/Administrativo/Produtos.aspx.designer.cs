@@ -22,13 +22,13 @@ namespace FivesLivraria.Administrativo {
         protected global::System.Web.UI.WebControls.Button btnNew;
         
         /// <summary>
-        /// dropRoles control.
+        /// dropCategorias control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropRoles;
+        protected global::System.Web.UI.WebControls.DropDownList dropCategorias;
         
         /// <summary>
         /// txtName control.
@@ -49,13 +49,13 @@ namespace FivesLivraria.Administrativo {
         protected global::System.Web.UI.WebControls.ImageButton imgSearch;
         
         /// <summary>
-        /// validationResume control.
+        /// lblRecords control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary validationResume;
+        protected global::System.Web.UI.WebControls.Label lblRecords;
         
         /// <summary>
         /// gridProdutos control.

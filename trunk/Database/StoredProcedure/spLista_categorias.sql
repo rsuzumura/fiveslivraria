@@ -4,18 +4,13 @@ if object_id(@o, 'P') is not null begin
 	execute sp_executesql @d;
 end;
 go
-create procedure spLista_categorias(
-@nada int = null
-) 
+create procedure spLista_categorias
 as
-begin
-	
+begin	
 	select 			
-			 idCategoria
-			,dsCategoria
-		from 
-			Categoria
-			
-			
+		 idCategoria
+		,dsCategoria
+	from 
+		Categoria
 	for xml auto, elements, root('ListaCategoria')
 end

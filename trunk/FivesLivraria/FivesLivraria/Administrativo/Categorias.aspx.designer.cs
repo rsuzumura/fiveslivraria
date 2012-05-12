@@ -103,6 +103,15 @@ namespace FivesLivraria.Administrativo {
         protected global::System.Web.UI.WebControls.CheckBox ckbAtivo;
         
         /// <summary>
+        /// lblRecords control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecords;
+        
+        /// <summary>
         /// gridCategorias control.
         /// </summary>
         /// <remarks>
