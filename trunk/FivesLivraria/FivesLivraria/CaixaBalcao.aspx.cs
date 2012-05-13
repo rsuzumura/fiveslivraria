@@ -26,7 +26,7 @@ namespace FivesLivraria
            ViewState["item"] = new ItemPedido();
         }
 
-       protected void btn_Item_onClick(object sender, EventArgs e)
+       protected void btnItem_onClick(object sender, EventArgs e)
         {
            int indice = listProdutosTeste.SelectedIndex;
            
@@ -53,7 +53,7 @@ namespace FivesLivraria
                 
         }
 
-       protected void btn_Pedido_onClick(object sender, EventArgs e)
+       protected void btnPedido_onClick(object sender, EventArgs e)
         {
           string area = area_Cupom.Value;
           

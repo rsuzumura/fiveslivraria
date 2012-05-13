@@ -13,5 +13,22 @@ namespace FivesLivraria
       {
 
       }
+
+      protected void btnAbrirCaixa_onClick(object sender, EventArgs e)
+      {
+
+      }
+
+      protected void btnReducao_onClick(object sender, EventArgs e)
+      {
+      }
+
+      protected void btnLeitura_onClick(object sender, EventArgs e)
+      {
+      }
+
+      protected void btnHistorico_onClick(object sender, EventArgs e)
+      {
+      }
    }
 }
