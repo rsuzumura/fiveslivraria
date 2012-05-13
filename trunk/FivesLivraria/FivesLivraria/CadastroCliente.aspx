@@ -335,7 +335,7 @@
                                 </asp:DropDownList>
                             </td>
                         </tr>
-                        <tr>
+                        <tr align="center">
                             <td colspan="7">
                                 <asp:Button ID="btnAddEndereco" runat="server" Text="Adicionar Endereço" Width="200px"
                                     OnClick="btnAddEndereco_Click" ValidationGroup="Endereco" CausesValidation="false" />

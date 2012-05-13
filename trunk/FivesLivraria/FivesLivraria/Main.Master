@@ -15,13 +15,16 @@
             <div class="loginHeader">
                 Seja bem vindo,
                 <asp:Label ID="lblUser" runat="server" CssClass="labelHeader" />!&nbsp;&nbsp;
-                <asp:LinkButton ID="lkbExit" runat="server" Text="Sair" OnClick="lkbExit_Click" CssClass="link"></asp:LinkButton>
+                <asp:LinkButton ID="lkbExit" runat="server" Text="Sair" OnClick="lkbExit_Click" CssClass="link"></asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="header">
                 &nbsp;&nbsp;Five'S Livraria
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+        </div>
+        <div class="divFooter">
+            FATEC-SP - Laboratório de Engenharia de Software - Grupo 4
         </div>
     </div>
     </form>

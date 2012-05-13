@@ -31,6 +31,9 @@
         
             </asp:ContentPlaceHolder>
         </div>
+        <div class="divFooter">
+            FATEC-SP - Laboratório de Engenharia de Software - Grupo 4
+        </div>
     </div>
     </form>
 </body>

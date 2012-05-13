@@ -32,7 +32,15 @@ namespace FivesLivraria.Administrativo
                     txtISBN.Text            = !p.ISBN.IsNull ? p.ISBN.Value : string.Empty;
                     txtAutor.Text           = !p.dsAutores.IsNull ? p.dsAutores.Value : string.Empty;
                     txtEditora.Text         = !p.nmEditora.IsNull ? p.nmEditora.Value : string.Empty;
-                    imgPhoto.ImageUrl       = !p.nmImagem.IsNull ? string.Format("~/Images/{0}", p.nmImagem.Value) : string.Empty;
+                    if (!p.nmImagem.IsNull)
+                    {
+                        if (File.Exists(Server.MapPath(string.Format("~/Images/{0}", p.nmImagem.Value))))
+                            imgPhoto.ImageUrl = !p.nmImagem.IsNull ? string.Format("~/Images/{0}", p.nmImagem.Value) : string.Empty;
+                        else
+                            imgPhoto.ImageUrl = "~/Images/imagem_nao_disponivel.jpg";
+                    }
+                    else
+                        imgPhoto.ImageUrl = "~/Images/imagem_nao_disponivel.jpg";
                     txtValue.Text           = p.vlPreco.Value.ToString();
                     dropCategorias.SelectedValue = !p.idCategoria.IsNull ? p.idCategoria.Value.ToString() : string.Empty;
                     txtQuantity.Text        = !p.qtdProduto.IsNull ? p.qtdProduto.Value.ToString() : string.Empty;
@@ -76,7 +84,8 @@ namespace FivesLivraria.Administrativo
                         p.nrAno             = Convert.ToInt32(txtYear.Text);
                         p.dsEdicao          = txtEdition.Text;
                         p.qtdProduto        = Convert.ToInt32(txtQuantity.Text);
-                        p.nmImagem          = Server.MapPath(imgPhoto.ImageUrl).Replace(Server.MapPath("~/Images/"), string.Empty);
+                        if (imgPhoto.ImageUrl != "~/Images/imagem_nao_disponivel.jpg")
+                            p.nmImagem          = Server.MapPath(imgPhoto.ImageUrl).Replace(Server.MapPath("~/Images/"), string.Empty);
                         p.vlPreco           = Convert.ToDecimal(txtValue.Text);
                         if (!string.IsNullOrEmpty(dropCategorias.SelectedValue)) p.idCategoria = Convert.ToInt32(dropCategorias.SelectedValue);
 
@@ -94,10 +103,11 @@ namespace FivesLivraria.Administrativo
                             nmEditora        = txtEditora.Text,
                             nrAno            = Convert.ToInt32(txtYear.Text),
                             dsEdicao         = txtEdition.Text,
-                            qtdProduto       = Convert.ToInt32(txtQuantity.Text),
-                            nmImagem         = Server.MapPath(imgPhoto.ImageUrl).Replace(Server.MapPath("~/Images/"), string.Empty),
+                            qtdProduto       = Convert.ToInt32(txtQuantity.Text),                            
                             vlPreco          = Convert.ToDecimal(txtValue.Text)
                         };
+                        if (imgPhoto.ImageUrl != "~/Images/imagem_nao_disponivel.jpg")
+                            p.nmImagem = Server.MapPath(imgPhoto.ImageUrl).Replace(Server.MapPath("~/Images/"), string.Empty);
                         if (!string.IsNullOrEmpty(dropCategorias.SelectedValue)) p.idCategoria = Convert.ToInt32(dropCategorias.SelectedValue);
                         
                         p.Insert();

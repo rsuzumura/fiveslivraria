@@ -63,7 +63,7 @@
                     <br />
                     <table class="data" cellpadding="2" cellspacing="2">
                         <tr>
-                            <td class="label">&nbsp;&nbsp;&nbsp;Ainda não sou cliente</td>
+                            <td class="label" align="center">&nbsp;&nbsp;&nbsp;Ainda não sou cliente</td>
                         </tr>
                         <tr>
                             <td align="center">
