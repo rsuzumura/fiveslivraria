@@ -7,6 +7,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
+            CssClass="validationMessage" ValidationGroup="cadastro" />
+        <asp:ValidationSummary ID="ValidationSummaryEndereco" runat="server" DisplayMode="List"
+            HeaderText="Atenção: verifique os seguintes itens:" ValidationGroup="Endereco"
             CssClass="validationMessage" />
     </div>
     <div class="divCadastro">
@@ -15,7 +18,8 @@
         </div>
         <div>
             <br />
-            <eo:TabStrip ID="TabStripCadastro" runat="server" ControlSkinID="None" Width="98%" MultiPageID="tabs">
+            <eo:TabStrip ID="TabStripCadastro" runat="server" ControlSkinID="None" Width="98%"
+                MultiPageID="tabs">
                 <LookItems>
                     <eo:TabItem Height="21" HoverStyle-CssText="position: relative; top: 2px; background-image: url(00010502); background-repeat: repeat-x"
                         ItemID="_Default" LeftIcon-HoverUrl="00010506" LeftIcon-SelectedUrl="00010508"
@@ -33,6 +37,8 @@
                         </eo:TabItem>
                         <eo:TabItem Text-Html="Dados Cadastrais" PageViewID="cadastro">
                         </eo:TabItem>
+                        <eo:TabItem Text-Html="Endereços de Entrega" PageViewID="endereco">
+                        </eo:TabItem>
                     </Items>
                 </TopGroup>
             </eo:TabStrip>
@@ -46,7 +52,7 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvUser" runat="server" ErrorMessage="O nome é obrigatório."
-                                    ControlToValidate="txtUser" Text="*"></asp:RequiredFieldValidator>
+                                    ControlToValidate="txtUser" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
                                 Nome:
                             </td>
                             <td>
@@ -64,9 +70,9 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="O email é obrigatório."
-                                    ControlToValidate="txtEmailAddress" Text="*"></asp:RequiredFieldValidator>
+                                    ControlToValidate="txtEmailAddress" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="O formato do email está inválido"
-                                    ControlToValidate="txtEmailAddress" Text="*" ValidationExpression="[\w-]+(\.[\w-]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                    ValidationGroup="cadastro" ControlToValidate="txtEmailAddress" Text="*" ValidationExpression="[\w-]+(\.[\w-]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                 Email:
                             </td>
                             <td>
@@ -76,7 +82,7 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvLogin" runat="server" ErrorMessage="O login é obrigatório."
-                                    ControlToValidate="txtLogin" Text="*"></asp:RequiredFieldValidator>
+                                    ValidationGroup="cadastro" ControlToValidate="txtLogin" Text="*"></asp:RequiredFieldValidator>
                                 Login:
                             </td>
                             <td>
@@ -86,7 +92,7 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="A senha é obrigatória."
-                                    ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
+                                    ValidationGroup="cadastro" ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
                                 Senha:
                             </td>
                             <td>
@@ -96,7 +102,7 @@
                         <tr>
                             <td class="name">
                                 <asp:CompareValidator ID="cmpPassword" runat="server" ControlToValidate="txtPassword"
-                                    ControlToCompare="txtConfirmPassword" ErrorMessage="A senha e a confirmação não correspondem."
+                                    ValidationGroup="cadastro" ControlToCompare="txtConfirmPassword" ErrorMessage="A senha e a confirmação não correspondem."
                                     Text="*"></asp:CompareValidator>
                                 Confirmação<br />
                                 de senha:
@@ -108,7 +114,7 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvQuestion" runat="server" ErrorMessage="A pergunta é obrigatória."
-                                    ControlToValidate="txtQuestion" Text="*"></asp:RequiredFieldValidator>
+                                    ValidationGroup="cadastro" ControlToValidate="txtQuestion" Text="*"></asp:RequiredFieldValidator>
                                 Pergunta:
                             </td>
                             <td>
@@ -118,7 +124,7 @@
                         <tr>
                             <td class="name">
                                 <asp:RequiredFieldValidator ID="rfvAnswer" runat="server" ErrorMessage="A resposta é obrigatória."
-                                    ControlToValidate="txtAnswer" Text="*"></asp:RequiredFieldValidator>
+                                    ValidationGroup="cadastro" ControlToValidate="txtAnswer" Text="*"></asp:RequiredFieldValidator>
                                 Resposta:
                             </td>
                             <td>
@@ -138,9 +144,9 @@
                                 Tipo de Cliente:
                             </td>
                             <td style="text-align: left;">
-                                <asp:RadioButtonList ID="rdoTipoCliente" runat="server" RepeatDirection="Horizontal" AutoPostBack="true"
-                                    OnSelectedIndexChanged="rdoTipoCliente_SelectedIndexChanged" Font-Names="Verdana,Tahoma"
-                                    Font-Size="10pt">
+                                <asp:RadioButtonList ID="rdoTipoCliente" runat="server" RepeatDirection="Horizontal"
+                                    AutoPostBack="true" OnSelectedIndexChanged="rdoTipoCliente_SelectedIndexChanged"
+                                    Font-Names="Verdana,Tahoma" Font-Size="10pt">
                                     <asp:ListItem Text="Pessoa Física" Value="false" Selected="True"></asp:ListItem>
                                     <asp:ListItem Text="Pessoa Jurídica" Value="true"></asp:ListItem>
                                 </asp:RadioButtonList>
@@ -157,11 +163,12 @@
                                         <tr>
                                             <td class="name">
                                                 <asp:RequiredFieldValidator ID="rfvCPF" runat="server" Text="*" ErrorMessage="O CPF é obrigatório."
-                                                    ControlToValidate="txtCPF"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="rexCPF" runat="server" Text="*" ControlToValidate="txtCPF" ValidationExpression="^\d{2,3}.\d{3}.\d{3}-\d{2}$"
+                                                    ValidationGroup="cadastro" ControlToValidate="txtCPF"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="rexCPF" runat="server" Text="*" ControlToValidate="txtCPF"
+                                                    ValidationExpression="^\d{2,3}.\d{3}.\d{3}-\d{2}$" ValidationGroup="cadastro"
                                                     ErrorMessage="O formato do CPF está inválido.Utilize o formato {999.999.999-99}"></asp:RegularExpressionValidator>
                                                 <asp:CustomValidator ID="cvCPF" runat="server" Text="*" ErrorMessage="CPF inválido, dígito verificador não confere."
-                                                    OnServerValidate="cvCPF_ServerValidate"></asp:CustomValidator>
+                                                    ValidationGroup="cadastro" OnServerValidate="cvCPF_ServerValidate"></asp:CustomValidator>
                                                 CPF:&nbsp;&nbsp;
                                             </td>
                                             <td style="text-align: left;">
@@ -181,10 +188,9 @@
                                                 Data de Nascimento:&nbsp;&nbsp;
                                             </td>
                                             <td style="text-align: left;">
-                                                <eo:DatePicker ID="datePickerNascimento" runat="server" Width="150px"
-                                                    ControlSkinID="None" DayCellHeight="16" DayCellWidth="19" 
-                                                    DayHeaderFormat="FirstLetter" DisabledDates="" OtherMonthDayVisible="True" 
-                                                    SelectedDates="" TitleLeftArrowImageUrl="DefaultSubMenuIconRTL" 
+                                                <eo:DatePicker ID="datePickerNascimento" runat="server" Width="150px" ControlSkinID="None"
+                                                    DayCellHeight="16" DayCellWidth="19" DayHeaderFormat="FirstLetter" DisabledDates=""
+                                                    OtherMonthDayVisible="True" SelectedDates="" TitleLeftArrowImageUrl="DefaultSubMenuIconRTL"
                                                     TitleRightArrowImageUrl="DefaultSubMenuIcon">
                                                     <PickerStyle CssText="font-family:Courier New; padding-left:5px; padding-right: 5px;" />
                                                     <CalendarStyle CssText="background-color: white; border-right: #7f9db9 1px solid; padding-right: 4px; border-top: #7f9db9 1px solid; padding-left: 4px; font-size: 9px; padding-bottom: 4px; border-left: #7f9db9 1px solid; padding-top: 4px; border-bottom: #7f9db9 1px solid; font-family: tahoma" />
@@ -220,7 +226,7 @@
                                         <tr>
                                             <td class="name">
                                                 <asp:RequiredFieldValidator ID="rfvRazaoSocial" runat="server" ControlToValidate="txtRazaoSocial"
-                                                    Text="*" ErrorMessage="A Razão Social é obrigatória."></asp:RequiredFieldValidator>
+                                                    ValidationGroup="cadastro" Text="*" ErrorMessage="A Razão Social é obrigatória."></asp:RequiredFieldValidator>
                                                 Razão Social:
                                             </td>
                                             <td style="text-align: left;">
@@ -230,12 +236,12 @@
                                         <tr>
                                             <td class="name">
                                                 <asp:RequiredFieldValidator ID="rfvCNPJ" runat="server" ControlToValidate="txtCNPJ"
-                                                    Text="*" ErrorMessage="O CNPJ é obrigatório."></asp:RequiredFieldValidator>
+                                                    ValidationGroup="cadastro" Text="*" ErrorMessage="O CNPJ é obrigatório."></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator ID="rexCNPJ" runat="server" ControlToValidate="txtCNPJ"
-                                                    Text="*" ValidationExpression="^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$" ErrorMessage="O formato do CNPJ está inválido. Utilize o formato {99.999.999/9999-99}"></asp:RegularExpressionValidator>
-                                                <asp:CustomValidator ID="cvCNPJ" runat="server" Text="*" 
-                                                    ErrorMessage="CJPJ inválido, dígito verificador não confere." 
-                                                    onservervalidate="cvCNPJ_ServerValidate"></asp:CustomValidator>
+                                                    ValidationGroup="cadastro" Text="*" ValidationExpression="^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$"
+                                                    ErrorMessage="O formato do CNPJ está inválido. Utilize o formato {99.999.999/9999-99}"></asp:RegularExpressionValidator>
+                                                <asp:CustomValidator ID="cvCNPJ" runat="server" Text="*" ValidationGroup="cadastro"
+                                                    ErrorMessage="CJPJ inválido, dígito verificador não confere." OnServerValidate="cvCNPJ_ServerValidate"></asp:CustomValidator>
                                                 CNPJ:
                                             </td>
                                             <td style="text-align: left;">
@@ -261,8 +267,97 @@
                                     </table>
                                 </asp:Panel>
                             </td>
-                        </tr>                        
+                        </tr>
                     </table>
+                </eo:PageView>
+                <eo:PageView ID="endereco" runat="server" Width="100%">
+                    <table class="data">
+                        <colgroup>
+                            <col width="15%" />
+                            <col width="25%" />
+                            <col width="10%" />
+                            <col width="15%" />
+                            <col width="10%" />
+                            <col width="17%" />
+                            <col width="9%" />
+                        </colgroup>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvEnderecoCliente" runat="server" Text="*" ErrorMessage="O endereço é obrigatório"
+                                    ControlToValidate="txtEnderecoCliente" ValidationGroup="Endereco"></asp:RequiredFieldValidator>
+                                Endereço:
+                            </td>
+                            <td colspan="4" style="text-align: left;">
+                                <asp:TextBox ID="txtEnderecoCliente" runat="server" Width="90%"></asp:TextBox>
+                            </td>
+                            <td class="name">
+                                Nº:
+                            </td>
+                            <td style="text-align: left;">
+                                <asp:TextBox ID="txtNumero" runat="server" Width="74%"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                Complemento:
+                            </td>
+                            <td style="text-align: left;">
+                                <asp:TextBox ID="txtComplemento" runat="server" Width="90%"></asp:TextBox>
+                            </td>
+                            <td class="name">
+                                CEP:
+                            </td>
+                            <td style="text-align: left;">
+                                <asp:TextBox ID="txtCEP" runat="server" Width="90%"></asp:TextBox>
+                            </td>
+                            <td class="name">
+                                Bairro:
+                            </td>
+                            <td colspan="2" style="text-align: left;">
+                                <asp:TextBox ID="txtBairro" runat="server" Width="92%"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                Município:
+                            </td>
+                            <td colspan="2" style="text-align: left;">
+                                <asp:DropDownList ID="dropMunicipio" runat="server" DataTextField="nmMunicipio" DataValueField="idMunicipio"
+                                    Width="100%">
+                                </asp:DropDownList>
+                            </td>
+                            <td class="name">
+                                Estado:
+                            </td>
+                            <td colspan="3" style="text-align: left;">
+                                <asp:DropDownList ID="dropEstado" runat="server" DataTextField="nmEstado" DataValueField="idEstado"
+                                    Width="96%" AutoPostBack="true" OnSelectedIndexChanged="dropEstado_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <asp:Button ID="btnAddEndereco" runat="server" Text="Adicionar Endereço" Width="200px"
+                                    OnClick="btnAddEndereco_Click" ValidationGroup="Endereco" CausesValidation="false" />
+                            </td>
+                        </tr>
+                    </table>
+                    <div style="width: 98%; height: 100px; overflow-y: scroll;">
+                        <asp:GridView ID="gridEnderecos" runat="server" Width="99%" AutoGenerateColumns="false"
+                            OnRowDeleting="gridEnderecos_RowDeleting">
+                            <Columns>
+                                <asp:BoundField DataField="dsEndereco" HeaderText="Endereço" />
+                                <asp:BoundField DataField="nrEndereco" HeaderText="Nº" />
+                                <asp:BoundField DataField="dsBairro" HeaderText="Bairro" />
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="btnDelete" runat="server" CommandName="Delete" ImageUrl="~/Images/icon_recyclebin_16px.gif"
+                                            CausesValidation="false" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                        </asp:GridView>
+                    </div>
                 </eo:PageView>
             </eo:MultiPage>
         </div>

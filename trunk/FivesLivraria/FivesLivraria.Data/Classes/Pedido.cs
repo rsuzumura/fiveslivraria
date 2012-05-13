@@ -9,7 +9,7 @@ namespace FivesLivraria.Data.Classes
    {
       public int codigoPedido { get; set; }
       public FormaPagamento pagamento { get; set; }
-      public double totalPedido { get; }
+      public double totalPedido { get; set; }
       public ItemPedido itens { get; set; }
 
       public Pedido()

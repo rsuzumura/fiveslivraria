@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data.SqlTypes;
+using System.Xml.Serialization;
 
 namespace FivesLivraria.Data
 {
@@ -11,6 +12,10 @@ namespace FivesLivraria.Data
         public SqlInt32 idCliente { get; set; }
         public SqlString nmCliente { get; set; }
         public SqlInt32 idUsuario { get; set; }
+
+        [XmlArray("EnderecoCollection")]
+        [XmlArrayItem("Endereco")]
+        public EnderecoCollection Enderecos;
     }
 
     public class Pessoa : Cliente
