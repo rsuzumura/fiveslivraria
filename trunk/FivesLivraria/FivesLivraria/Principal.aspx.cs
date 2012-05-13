@@ -148,9 +148,8 @@ namespace FivesLivraria
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
         {   
             Label id = (Label)e.Item.FindControl("idProduto");
-            //FivesLivraria.Data.Classes.Carrinho.Insert(Convert.ToInt32(id.Text, Current.
-            //c.
-            Response.Redirect("Carrinho.aspx?id=" + id.Text);
+            FivesLivraria.Data.Classes.Carrinho.Insert(Convert.ToInt32(id.Text), Current.UserId);
+            Response.Redirect("Carrinho.aspx");
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)

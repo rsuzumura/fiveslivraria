@@ -76,6 +76,7 @@
     <Content Include="External\ChilkatDotNet4.dll" />
     <Content Include="External\EO.Web.dll" />
     <Content Include="External\x64\ChilkatDotNet4.dll" />
+    <Content Include="FinalizarCompra.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\alert.png" />
     <Content Include="Images\confirm.png" />
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="Carrinho.aspx.designer.cs">
       <DependentUpon>Carrinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.designer.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

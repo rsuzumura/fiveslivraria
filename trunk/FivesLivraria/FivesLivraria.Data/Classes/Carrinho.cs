@@ -24,14 +24,14 @@ namespace FivesLivraria.Data.Classes
         public SqlInt32 qtdProduto { get; set; }
         public SqlString nmImagem { get; set; }
         public SqlDecimal vlPreco { get; set; }
-        public SqlInt32 idCliente { get; set; }
+        public SqlInt32 idUsuario { get; set; }
         public SqlInt32 nrQtdProduto { get; set; }
         public SqlDecimal vlFinal { get; set; }
         public SqlString dvStatus { get; set; }
 
-        public static void Insert(int idProduto, int idCliente)
+        public static void Insert(int idProduto, int idUsuario)
         {
-            SqlXmlRun.Execute("spInsere_item_carrinho", new SqlXmlParams("idProduto", idProduto, "idCliente", idCliente));
+            SqlXmlRun.Execute("spInsere_item_carrinho", new SqlXmlParams("idProduto", idProduto, "idUsuario", idUsuario));
         }
         
         public static void Update(int idCarrinho, int nrQtdProduto)
@@ -49,9 +49,9 @@ namespace FivesLivraria.Data.Classes
     [XmlRoot("ListaCarrinho")]
     public class ListaCarrinho : List<Carrinho>
     {
-        public static DataSet List(int idCliente)
+        public static DataSet List(int idUsuario)
         {
-            return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaCarrinho>.Select("spLista_item_carrinho", new SqlXmlParams("idCliente", idCliente)));
+            return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaCarrinho>.Select("spLista_item_carrinho", new SqlXmlParams("idUsuario", idUsuario)));
         }
     }
 }

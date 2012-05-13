@@ -6,10 +6,16 @@ end;
 go
 create procedure spInsere_item_carrinho (
 	@idProduto int
-	,@idCliente	int
+	,@idUsuario	int
 ) as
 begin
 	
+	declare @idCliente int
+	
+	select @idCliente = idCliente 
+	from Cliente c
+	inner join Usuarios u ON
+	c.idUsuario = @idUsuario
 	
 	insert into Carrinho(
 	idProduto

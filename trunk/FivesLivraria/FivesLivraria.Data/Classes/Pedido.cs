@@ -13,9 +13,14 @@ namespace FivesLivraria.Data.Classes
       public double valorTotalPedido { get; set; }
       public ItemPedido itens { get; set; }
 
-      public Pedido()
+      //public Pedido()
+      //{
+      //   this.codigoPedido = 1000;
+      //}
+
+      public static void finalizaPedido(string dsPagamento, int idUsuario, int nrParcelas)
       {
-         this.codigoPedido = 1000;
+          SqlXmlRun.Execute("spFinaliza_compra", new SqlXmlParams("dsPagamento", dsPagamento, "idUsuario", idUsuario, "nrParcelas", nrParcelas));
       }
 
       public double getValorTotalPedido()

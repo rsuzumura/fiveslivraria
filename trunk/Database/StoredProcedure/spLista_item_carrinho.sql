@@ -5,10 +5,17 @@ if object_id(@o, 'P') is not null begin
 end;
 go
 create procedure spLista_item_carrinho (
-	@idCliente int
+	 @idUsuario int
 	,@vlTotal decimal(10,2) = null out
 ) as
 begin
+	
+	declare @idCliente int
+	
+	select @idCliente = c.idCliente
+	from Cliente c
+	INNER JOIN Usuarios u ON
+	c.idUsuario = @idUsuario
 	
 	select @vlTotal = SUM(vlFinal) 
 	from Carrinho

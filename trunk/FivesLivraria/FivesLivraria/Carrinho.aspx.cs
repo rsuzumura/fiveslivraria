@@ -11,9 +11,17 @@ namespace FivesLivraria
 {
     public partial class Carrinho : System.Web.UI.Page
     {
+
+        private int idUsuario 
+        {
+            get { return Current.UserId; }
+        
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregaGrid(1);
+            CarregaGrid(idUsuario);
         }
 
         protected void CarregaGrid(int idCliente) 
@@ -21,8 +29,19 @@ namespace FivesLivraria
             DataSet ds = ListaCarrinho.List(idCliente);
             gvCarrinho.DataSource = ds;
             gvCarrinho.DataBind();
+            calculaTotal();
         } 
 
+
+        protected void calculaTotal()
+        {
+            double total = 0;
+            foreach(GridViewRow row in gvCarrinho.Rows)
+            {
+                total = total + Convert.ToDouble(row.Cells[5].Text.Replace(".",","));
+            }
+            txtTotal.Text = total.ToString("N2");
+        }
         protected void gvCarrinho_RowDeleted(object sender, GridViewDeletedEventArgs e)
         {
             int rowIndex = gvCarrinho.SelectedIndex;
@@ -43,12 +62,13 @@ namespace FivesLivraria
                     FivesLivraria.Data.Classes.Carrinho.Delete(idCarrinho);
                     break;
                 case "atualizar" :
-                    TextBox qtd = (TextBox)((GridView)sender).Rows[rowIndex].Cells[2].FindControl("nrQtdProduto");
+                    TextBox qtd = (TextBox)gvCarrinho.Rows[rowIndex].FindControl("nrQtdProduto");
+                    TextBox teste = (TextBox)gvCarrinho.Rows[rowIndex].FindControl("teste");
                     FivesLivraria.Data.Classes.Carrinho.Update(idCarrinho, int.Parse(qtd.Text));
                     break;
             }
 
-            CarregaGrid(1);           
+            CarregaGrid(idUsuario);           
         }
 
         protected void btnContinuarComprando_Click(object sender, EventArgs e)
@@ -58,7 +78,7 @@ namespace FivesLivraria
 
         protected void btnFecharPedido_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("FinalizarCompra.aspx");
         }
     }
 }

@@ -105,9 +105,10 @@
 	color: White;
 	font-family: Verdana;
 	font-weight: bold;
+	font-size: small;
 	text-align: center;
 	height: 30px;
-	width: 160px;
+	width: 200px;
 	border: solid 1px #C0C0C0;
 }
 .buttonAcao:hover

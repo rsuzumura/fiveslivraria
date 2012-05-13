@@ -17,9 +17,7 @@
             <asp:ButtonField ButtonType="Button" CommandName="excluir" Text="Excluir" />
              <asp:TemplateField HeaderText="Quantidade">
                 <ItemTemplate>
-                    <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' width="40" />
-                    <%--<asp:Button id="btn" runat="server" Text="Atualizar" CommandName="atualizar"/>--%>
-                    <%--<asp:Image ID="nrQtdProduto" runat="server" Text="Quantidade" src='<%#"/Images/"+ Eval("nrQtdProduto") %>'  width="200"/> --%>                   
+                    <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' width="40" />                 
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:ButtonField ButtonType="Button" CommandName="atualizar" Text="Atualizar" />
@@ -34,4 +32,6 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnFecharPedido" runat="server" Text="Fechar Pedido" 
         CssClass="buttonAcao" onclick="btnFecharPedido_Click"/>
+    <asp:Label ID="lblTotal" runat="server" Text="Total" />
+    <asp:Label ID="txtTotal" runat="server" />
 </asp:Content>
