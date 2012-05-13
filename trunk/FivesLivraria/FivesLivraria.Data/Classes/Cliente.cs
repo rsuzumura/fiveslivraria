@@ -20,6 +20,12 @@ namespace FivesLivraria.Data
         public SqlString rg { get; set; }
         public SqlDateTime dtNascimento { get; set; }
         public SqlString nmMae { get; set; }
+
+        public void Insert()
+        {
+            int id = 0;
+            SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
+        }
     }
 
     public class Empresa : Cliente
@@ -29,5 +35,11 @@ namespace FivesLivraria.Data
         public SqlString cnpj { get; set; }
         public SqlString inscricaoEstadual { get; set; }
         public SqlString inscricaoMunicipal { get; set; }
+
+        public void Insert()
+        {
+            int id = 0;
+            SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
+        }
     }
 }
