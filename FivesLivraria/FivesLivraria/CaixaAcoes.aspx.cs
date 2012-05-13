@@ -60,6 +60,8 @@ namespace FivesLivraria
          // que utilizará o objeto cupom na Session para 
          // recuperar os valores ocorridos durante as transações
          // -----------------------------------------------------
+         // CupomFiscal cupom = (CupomFiscal)Session["cupom"];
+         // cupom.LeituraX();
       }
 
       protected void btnHistorico_onClick(object sender, EventArgs e)

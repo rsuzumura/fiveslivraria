@@ -11,17 +11,8 @@ namespace FivesLivraria.Data.Classes
       public const int PAGAMENTOCREDITO = 2;
       public const int PAGAMENTODEBITO = 3;
 
-      protected int id;
-         public void setId(int id)
-            { this.id = id; }
-         public int getId()
-            { return id; }
-
-      protected double valor;
-         protected void setValor(double valor)
-            { this.valor = valor; }
-         public double getValor()
-            { return valor; }
+      public int id { get; set; }
+      public double valor { get; set; }
 
       // construtor sem argumentos 
       // para inicialização posterior

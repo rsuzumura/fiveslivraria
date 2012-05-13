@@ -45,7 +45,7 @@ namespace FivesLivraria.Data.Classes
       {
       }
 
-      protected string cabecalho()
+      public string cabecalho()
       {
          string cabec = "";
 

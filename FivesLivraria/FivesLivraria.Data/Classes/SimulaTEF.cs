@@ -2,47 +2,46 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
+using System.Collections;
 
 namespace FivesLivraria.Data.Classes
 {
    public class SimulaTEF
    {
-      public const string ARQUIVO = "c:\\fives\\files\\simulatef.ini";
+      public const string ARQUIVO = "c:\\fives\\files\\simulatef.dat";
+
       public long numeroCartao { get; set; }
       public int codigoVerificador {get; set; }
       public bool statusAprovacao {get; set;}
-      protected int handle { get; set; }
-      protected static string[,,] Dados;
+      protected ArrayList Dados;
 
-      public SimulaTEF(long numeroCartao, int codigoVerificador, bool statusAprovacao)
+      public SimulaTEF()
       {
       }
 
-      public bool verificarPasta()
+      private void loadDados()
       {
-         return true;
+         Dados = new ArrayList();
+         StreamReader inFile = new StreamReader("c:\\test.txt");
+         string sLine = "";
+
+         while (sLine != null)
+         {
+            sLine = inFile.ReadLine();
+            if (sLine != null)
+               Dados.Add(sLine);
+         }
       }
 
-      protected bool avaliarCredito()
+      private bool confirmar()
       {
-         return true;
-      }
-
-      public void buscarDados()
-      {
-
-      }
-
-      public void gravarStatus()
-      {
-      }
-
-      public void transmitirResposta()
-      {
-      }
-
-      protected bool validarDados()
-      {
+         string keyCard = "";
+         Dados.Sort();
+         // ----------------------------------------------------------
+         // inserir iteração no objeto Dados 
+         // procurando pela chave recebida nos atributos da classe
+         // ----------------------------------------------------------
          return true;
       }
    }

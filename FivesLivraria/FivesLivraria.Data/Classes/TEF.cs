@@ -8,33 +8,28 @@ namespace FivesLivraria.Data.Classes
    public class TEF : FormaPagamento
    {
       
-      private long numeroCartao;
-         public void setNumeroCartao(long numeroCartao)
-            { this.numeroCartao = numeroCartao; }
-         protected long geNumeroCartao()
-            { return numeroCartao; }
-
-      private int codigoCartao;
-         public void setCodigoCartao(int codigoCartao)
-            { this.codigoCartao = codigoCartao; }
-         protected long geCodigoCartao()
-            { return codigoCartao; }
+      public long numeroCartao { get; set; }
+      public int codigoCartao { get; set; }
+      public double valorTransacao { get; set; }
+      public bool statusConexao { get; set; }
 
       public TEF()
-      { }
-
-      public TEF( int id, double valor)
-      {
-         setId(id); // método da classe superior
-         setValor(valor); // método da classe superior
+      { 
       }
 
-      public TEF(int id, double valor, long numeroCartao, int codigoCartao)
+      public bool confirmarTransacao()
       {
-         setId(id); // método da classe superior
-         setValor(valor); // método da classe superior
-         setNumeroCartao(numeroCartao);
-         setCodigoCartao(codigoCartao);
+         SimulaTEF sTef = new SimulaTEF {
+            numeroCartao = numeroCartao;
+            codigoVerificador = codigoCartao;
+         }
+
+         return sTef.;
+      }
+
+      public bool cancelarTransacao()
+      {
+         return true;
       }
    }
 }
