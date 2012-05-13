@@ -50,7 +50,7 @@
     <Compile Include="Utils\Dataset.cs" />
     <Compile Include="Classes\CupomFiscal.cs" />
     <Compile Include="Classes\Pedido.cs" />
-    <Compile Include="Utils\SimulaTEF.cs" />
+    <Compile Include="Classes\SimulaTEF.cs" />
     <Compile Include="Classes\TEF.cs" />
     <Compile Include="Classes\Usuario.cs" />
     <Compile Include="Global.cs" />

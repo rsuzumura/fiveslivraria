@@ -13,7 +13,6 @@
     <p> 
         <asp:HyperLink ID="Caixa" runat="server" NavigateUrl="~/CaixaAcoes.aspx"> Ações de Caixa </asp:HyperLink>
     </p>
-    <p> &nbsp;</p>
-    <p> &nbsp;</p>
+
 </asp:Content>
 
