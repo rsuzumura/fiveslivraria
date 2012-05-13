@@ -59,7 +59,7 @@ namespace FivesLivraria
                  if (cupom == null)
                  {
                     ShowMessage(MessageType.Error, "Problemas na geração do cupom", "Erro: Cupom");
-                    cupom = new CupomFiscal();
+                    cupom = new CupomFiscal();  // remover
                  }
 
                   cupom.setItem(item);
