@@ -1,5 +1,5 @@
 ---------------- LEITURA X -----------------------|
-        NOME DA EMPRESA [FONTE 13 OU 14]          |>>> fabricante do equipamento
+             FIVEs LIVRARIA ME.                   |>>> fabricante do equipamento
 CNPJ                                              |>>> fabricante do equipamento
 IE                                                |>>> fabricante do equipamento
 IM                                                |>>> fabricante do equipamento

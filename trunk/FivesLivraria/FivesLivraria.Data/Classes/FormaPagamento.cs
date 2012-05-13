@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
+   [Serializable]
    public class FormaPagamento
    {
       public const int PAGAMENTODINHEIRO = 1;
@@ -14,14 +15,8 @@ namespace FivesLivraria.Data.Classes
       public int id { get; set; }
       public double valor { get; set; }
 
-      // construtor sem argumentos 
-      // para inicialização posterior
-      public FormaPagamento() { }
-
-      public FormaPagamento(int id, double valor)
-      {
-         this.id = id;
-         this.valor = valor;
+      public FormaPagamento() 
+      { 
       }
 
       public bool gravar()

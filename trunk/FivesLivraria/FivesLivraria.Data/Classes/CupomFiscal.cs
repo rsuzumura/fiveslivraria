@@ -14,23 +14,19 @@ namespace FivesLivraria.Data.Classes
       {
       }
 
-      public CupomFiscal(ItemPedido item ) 
+      public void setItem(ItemPedido item)
       {
          this.item = item;
       }
 
-      public CupomFiscal(long cpf, ItemPedido item)
+      public void setCliente(long cliente)
       {
-         this.cliente = cpf;
-         this.item = item;
+         this.cliente = cliente;
       }
 
       public void imprimeCupom()
       {
-      }
 
-      public void cancelaCupom()
-      {
       }
 
       public void leituraX()
@@ -43,22 +39,8 @@ namespace FivesLivraria.Data.Classes
 
       public void imprimirLinha()
       {
+
       }
 
-      public string cabecalho()
-      {
-         string cabec = "";
-
-         cabec += "\n";
-         cabec += " ";
-         cabec += " ";
-         cabec += " ";
-         cabec += " ";
-         cabec += " ";
-         cabec += " ";
-         cabec += " ";
-
-            return cabec;
-      }
    }
 }

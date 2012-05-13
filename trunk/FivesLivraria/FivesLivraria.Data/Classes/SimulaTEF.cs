@@ -9,20 +9,23 @@ namespace FivesLivraria.Data.Classes
 {
    public class SimulaTEF
    {
-      public const string ARQUIVO = "c:\\fives\\files\\simulatef.dat";
+      public const string ARQUIVO = @"c:\fives\files\simulatef.dat";  // configurar conforme o servidor
 
       public long numeroCartao { get; set; }
       public int codigoVerificador {get; set; }
       public bool statusAprovacao {get; set;}
-      protected ArrayList Dados;
+      public double valorTransacao { get; set; }
+      protected List<String> Dados;
 
       public SimulaTEF()
       {
+         this.loadDados();
+         this.statusAprovacao = this.confirmar();
       }
 
       private void loadDados()
       {
-         Dados = new ArrayList();
+         Dados = new List<string>();
          StreamReader inFile = new StreamReader("c:\\test.txt");
          string sLine = "";
 
@@ -36,13 +39,28 @@ namespace FivesLivraria.Data.Classes
 
       private bool confirmar()
       {
-         string keyCard = "";
-         Dados.Sort();
-         // ----------------------------------------------------------
-         // inserir iteração no objeto Dados 
-         // procurando pela chave recebida nos atributos da classe
-         // ----------------------------------------------------------
-         return true;
+         bool retorno = false;
+         string keyCard = (numeroCartao.ToString()) + (codigoVerificador.ToString());
+         int tamDados = Dados.Count;
+         
+         if ( tamDados > 0)
+         {
+              Dados.Sort();
+            // ----------------------------------------------------------
+            // inserir iteração no objeto Dados 
+            // procurando pela chave recebida nos atributos da classe
+            // ----------------------------------------------------------
+            for (int k = 0; k < Dados.Count; ++k)
+            {
+               string[] stream = Dados[k].Split(';');
+               if (stream[0]+stream[1] == keyCard && double.Parse(stream[2]) >= valorTransacao)
+               {
+                  retorno = true;
+                  break;
+               }
+            }
+         }
+         return retorno;
       }
    }
 }
