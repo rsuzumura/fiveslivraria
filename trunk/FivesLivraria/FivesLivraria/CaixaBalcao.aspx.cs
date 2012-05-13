@@ -83,7 +83,7 @@ namespace FivesLivraria
               // colando o conteúdo para simulação de cupom
               cupom.setItem(item);
               cupom.setCliente(long.Parse(box_CPFCliente.Text));
-              area_Cupom.Value = cupom.cabecalho();
+              area_Cupom.Value = cupom.imprimeCupom();
 
               if (ListFrmPgto.SelectedIndex != 0)
               {

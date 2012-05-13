@@ -11,6 +11,8 @@ namespace FivesLivraria.Data.Classes
       public long cliente { get; set; }
       public long codOperacao { get; set; }
       public double valorPagamento { get; set; }
+      public int idFormaPgto { get; set; }
+
 
       public CupomFiscal()
       {
@@ -26,22 +28,27 @@ namespace FivesLivraria.Data.Classes
          this.cliente = cliente;
       }
 
-      public void imprimeCupom()
-      {
-
-      }
-
       public void leituraX()
       {
+         string fileName = "leitura_" + DateTime.Today.ToString();
+         string result = modelo(false);
+         Comprovante oper = new Comprovante
+         {
+            texto = result,
+            nomeArquivo = fileName
+         };
+         oper.gravar();
       }
 
       public void reducaoZ()
       {
-      }
-
-      public void imprimirLinha()
-      {
-
+         string fileName = "reducao_"+DateTime.Today.ToString();
+         string result = modelo(true);
+         Comprovante oper = new Comprovante{
+            texto = result,
+            nomeArquivo = fileName
+         };
+         oper.gravar();
       }
 
       public string modelo( bool reducao )
@@ -55,7 +62,7 @@ namespace FivesLivraria.Data.Classes
          txtModelo += "MOVIMENTO DIA: " + DateTime.Today.ToString() + '\n';
          
          txtModelo += "            CONTADORES" + '\n';
-         txtModelo += "Geral de operações não fiscal:          " +/* numNaoFiscal  + */'\n';
+         txtModelo += "Geral de operações não fiscal:          " + 000000 + '\n';
          txtModelo += "Contador de reduções Z:                 " +/* numReducoes + */ '\n';
          txtModelo += "Contador de cupom fiscal:               " +/* numContadorFiscal + */ '\n';
          txtModelo += "Comprovante de Credito ou Debito:       " +/* numComprovanteTEF + */ '\n';
@@ -78,7 +85,7 @@ namespace FivesLivraria.Data.Classes
          return txtModelo;
       }
 
-      public string venda()
+      public string imprimeCupom()
       {
          string txtVenda = "";
 
@@ -107,6 +114,5 @@ namespace FivesLivraria.Data.Classes
 
          return txtVenda;
       }
-
    }
 }
