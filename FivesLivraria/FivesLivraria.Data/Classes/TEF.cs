@@ -19,12 +19,12 @@ namespace FivesLivraria.Data.Classes
 
       public bool confirmarTransacao()
       {
-         SimulaTEF sTef = new SimulaTEF {
-            numeroCartao = numeroCartao;
-            codigoVerificador = codigoCartao;
-         }
+         SimulaTEF sTef = new SimulaTEF(){
+            numeroCartao = numeroCartao,
+            codigoVerificador = codigoCartao
+         };
 
-         return sTef.;
+         return sTef.statusAprovacao;
       }
 
       public bool cancelarTransacao()

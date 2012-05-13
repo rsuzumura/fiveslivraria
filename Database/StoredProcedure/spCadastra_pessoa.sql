@@ -7,7 +7,7 @@ go
 
 create procedure spCadastra_pessoa (
 	@xml xml,
-	@idCliente bit output
+	@idCliente int output
 ) as
 begin
 	set @idCliente = 0;	
@@ -33,13 +33,34 @@ begin
 			nmMae
 		)
 		select
-			x.n.value('idCliente[1]','int'),
+			@idCliente,
 			x.n.value('cpf[1]','char(11)'),
 			x.n.value('rg[1]','char(10)'),
 			x.n.value('dtNascimento[1]','datetime'),
 			x.n.value('nmMae[1]','varchar(200)')
 		from
 			@xml.nodes('/*[1]') x(n);
+			
+		insert into Endereco (
+			dsEndereco,
+			nrEndereco,
+			compEndereco,
+			cep,
+			dsBairro,
+			idMunicipio,
+			idCliente
+		)
+		select
+			x.n.value('dsEndereco[1]','varchar(200)'),
+			x.n.value('nrEndereco[1]','varchar(10)'),
+			x.n.value('compEndereco[1]','varchar(20)'),
+			x.n.value('cep[1]','varchar(10)'),
+			x.n.value('dsBairro[1]','varchar(100)'),
+			x.n.value('idMunicipio[1]','int'),
+			@idCliente
+		from
+			@xml.nodes('/*[1]/EnderecoCollection/Endereco') x(n);
+		
 		commit tran
 	end try
 	begin catch

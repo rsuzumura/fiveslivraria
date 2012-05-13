@@ -9,25 +9,27 @@ using FivesLivraria.Data;
 
 namespace FivesLivraria
 {
-    public partial class CadastroCliente : System.Web.UI.Page
+    public partial class CadastroCliente : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                FillControl<Estado>(dropEstado, EstadoCollection.List());
+                FillControl<Municipio>(dropMunicipio, null);
                 EnableFields(Convert.ToBoolean(rdoTipoCliente.SelectedValue));
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Page.Validate();
+            Page.Validate("cadastro");
             if (Page.IsValid)
             {
                 MembershipCreateStatus s;
                 Membership.CreateUser(txtLogin.Text, txtPassword.Text, txtEmailAddress.Text, txtQuestion.Text, txtAnswer.Text, true, out s);
                 if (s != MembershipCreateStatus.Success)
-                { }//General.ShowError(3, TraduzMensagem(s));
+                    ShowMessage(MessageType.Error, TraduzMensagem(s), "Erro");
                 else
                 {
                     Roles.AddUsersToRoles(new string[]{ txtLogin.Text }, new string[] { "cliente" });
@@ -49,6 +51,8 @@ namespace FivesLivraria
                             inscricaoMunicipal  = txtInscricaoMunicipal.Text,
                             inscricaoEstadual   = txtInscricaoEstadual.Text
                         };
+                        if (ViewState["enderecos"] != null)
+                            emp.Enderecos = (EnderecoCollection)ViewState["enderecos"];
                         emp.Insert();
                     }
                     else
@@ -63,6 +67,8 @@ namespace FivesLivraria
                         };
                         if (!string.IsNullOrEmpty(datePickerNascimento.SelectedDateString))
                             p.dtNascimento = datePickerNascimento.SelectedDate;
+                        if (ViewState["enderecos"] != null)
+                            p.Enderecos = (EnderecoCollection)ViewState["enderecos"];
                         p.Insert();
                     }
                     Response.Redirect("Login.aspx", false);
@@ -199,6 +205,58 @@ namespace FivesLivraria
             {
                 args.IsValid = false;
             }
+        }
+
+        protected void dropEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(dropEstado.SelectedValue))
+                FillControl<Municipio>(dropMunicipio, MunicipioCollection.List(Convert.ToInt32(dropEstado.SelectedValue)));
+            else
+                FillControl<Municipio>(dropMunicipio, null);
+        }
+
+        protected void btnAddEndereco_Click(object sender, EventArgs e)
+        {
+            Page.Validate("Endereco");
+            if (Page.IsValid)
+            {
+                EnderecoCollection ec = null;
+                if (ViewState["enderecos"] != null)
+                    ec = (EnderecoCollection)ViewState["enderecos"];
+                else
+                    ec = new EnderecoCollection();
+
+                Endereco end = new Endereco()
+                {
+                    dsEndereco   = txtEnderecoCliente.Text,
+                    nrEndereco   = txtNumero.Text,
+                    compEndereco = txtComplemento.Text,
+                    cep          = txtCEP.Text,
+                    dsBairro     = txtBairro.Text
+                };
+                if (!string.IsNullOrEmpty(dropMunicipio.SelectedValue))
+                    end.idMunicipio = Convert.ToInt32(dropMunicipio.SelectedValue);
+                ec.Add(end);
+                ViewState["enderecos"] = ec;
+
+                gridEnderecos.DataSource = ec;
+                gridEnderecos.DataBind();
+                ClearFields();
+            }
+        }
+
+        protected void gridEnderecos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            EnderecoCollection ec = (EnderecoCollection)ViewState["enderecos"];
+            ec.Remove(ec[e.RowIndex]);
+            gridEnderecos.DataSource = ec;
+            gridEnderecos.DataBind();
+        }
+
+        protected void ClearFields()
+        {
+            txtEnderecoCliente.Text = txtNumero.Text = txtBairro.Text = txtComplemento.Text = txtCEP.Text = string.Empty;
+            dropMunicipio.SelectedIndex = dropEstado.SelectedIndex = -1;
         }
     }
 }

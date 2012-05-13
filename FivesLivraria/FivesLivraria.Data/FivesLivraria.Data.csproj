@@ -45,8 +45,11 @@
     <Compile Include="Classes\Categoria.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Comprovante.cs" />
+    <Compile Include="Classes\Endereco.cs" />
+    <Compile Include="Classes\Estado.cs" />
     <Compile Include="Classes\FormaPagamento.cs" />
     <Compile Include="Classes\ItemPedido.cs" />
+    <Compile Include="Classes\Municipio.cs" />
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Utils\Dataset.cs" />
     <Compile Include="Classes\CupomFiscal.cs" />
