@@ -18,6 +18,7 @@ namespace FivesLivraria
                                    {"3", "Produto 03", "35,00" },
                                    {"4", "Produto 04", "20,00" },
                                    {"5", "Produto 05", "10,00" } };
+       Pedido pedido;
        ItemPedido item;
        bool vendaOk = true;
 
@@ -28,7 +29,8 @@ namespace FivesLivraria
               vendaOk = ((bool)Session["statusAberturaCaixa"]);
               if ( vendaOk )
               {
-                 ViewState["item"] = new ItemPedido();
+                 ViewState["pedidoCaixa"] = new Pedido();
+                 ViewState["itemCaixa"] = new ItemPedido();
                  area_Cupom.Visible = true;
                  area_TEF.Visible = true;
               }
@@ -49,7 +51,7 @@ namespace FivesLivraria
               double vlr = double.Parse(ProdutosTeste[indice, 2]);
               string nome = ProdutosTeste[indice, 1];
 
-              item = (ItemPedido)ViewState["item"];
+              item = (ItemPedido)ViewState["itemCaixa"];
               item.AddProduto(codProd, nome, vlr);
 
               TableCell cel1 = new TableCell();
@@ -65,6 +67,9 @@ namespace FivesLivraria
               linha.Cells.Add(cel3);
 
               tbl_Itens.Rows.Add(linha);
+
+                 CupomFiscal cupom = (CupomFiscal) ViewState["cupom"];
+                 cupom.item = item;
            }
            else
            {
@@ -74,25 +79,22 @@ namespace FivesLivraria
 
        protected void btnPedido_onClick(object sender, EventArgs e)
         {
+           CupomFiscal cupom = (CupomFiscal) Session["cupom"];
            if (vendaOk)
            {
-              string area = area_Cupom.Value;
-
-              item = (ItemPedido)ViewState["item"];
-
-              if (area.Length != 0)
-                 area += "\n";
-
-              for (int n = 0; n < item.Count(); n++)
-                 area += item.ToString(n) + "\n";
+              pedido = (Pedido)ViewState["pedidoCaixa"];
+              item = (ItemPedido)ViewState["itemCaixa"];
 
               // colando o conteúdo para simulação de cupom
-              area_Cupom.Value = area;
+              area_Cupom.Value = cupom.cabecalho();
 
-              if (ListFrmPgto.SelectedIndex != 0)
-                 area_TEF.Value = ListFrmPgto.SelectedValue;
-
-              ViewState["item"] = new ItemPedido();
+              if (ListFrmPgto.SelectedIndex != 0) 
+              {
+                 TEF tef = new TEF();
+                 // continuar
+              }
+              ViewState["itemCaixa"] = new ItemPedido();
+              ViewState["pedidoCaixa"] = new Pedido();
            }
            else
            {

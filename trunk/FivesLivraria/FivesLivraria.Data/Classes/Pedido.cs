@@ -7,25 +7,16 @@ namespace FivesLivraria.Data.Classes
 {
    public class Pedido
    {
-      private FormaPagamento pagamento;
-         public void setPagamento(int id, double valor)
-            {
-               if (id != FormaPagamento.PAGAMENTODINHEIRO)
-                  this.pagamento = new TEF(id, valor);
-               else
-                  this.pagamento = new FormaPagamento(id, valor);
-            }
-
-         public FormaPagamento getPagamento()
-            { return pagamento; }
-
-      private int codigoPedido;
-      private double totalPedido;
+      public int codigoPedido { get; set; }
+      public FormaPagamento pagamento { get; set; }
+      public double totalPedido { get; }
+      public ItemPedido itens { get; set; }
 
       public Pedido()
       {
-
+         this.codigoPedido = 1000;
       }
+      
 
    }
 }
