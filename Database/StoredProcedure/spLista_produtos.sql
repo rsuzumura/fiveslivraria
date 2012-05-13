@@ -1,10 +1,10 @@
-declare @o varchar(100); set @o = 'spLista_produtos';
+declare @o varchar(100); set @o = 'spLista_parcelas';
 if object_id(@o, 'P') is not null begin
 	declare @d nvarchar(250); set @d = 'drop procedure ' + @o;
 	execute sp_executesql @d;
 end;
 go
-create procedure spLista_produtos (
+create procedure spLista_parcelas (
 	@categoria int = 0,
 	@nmProduto varchar(100) = '%%',
 	@pageindex int = 0,

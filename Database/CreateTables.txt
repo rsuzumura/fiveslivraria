@@ -131,6 +131,41 @@ create table FornecedorProduto (
 )
 go
 
+CREATE TABLE [dbo].[Carrinho](
+	[idCarrinho] [int] IDENTITY(1,1) NOT NULL,
+	[idProduto] [int] NOT NULL,
+	[idCliente] [int] NOT NULL,
+	[nrQtdProduto] [int] NOT NULL,
+	[vlFinal] [decimal](10, 2) NOT NULL,
+	[dvStatus] [char](1) NOT NULL,
+ CONSTRAINT [PK_Carrinho] PRIMARY KEY CLUSTERED 
+(
+	[idCarrinho] ASC
+)
+
+GO
+
+
+ALTER TABLE [dbo].[Carrinho]  WITH CHECK ADD  CONSTRAINT [FK_Carrinho_Cliente] FOREIGN KEY([idCliente])
+REFERENCES [dbo].[Cliente] ([idCliente])
+GO
+
+ALTER TABLE [dbo].[Carrinho] CHECK CONSTRAINT [FK_Carrinho_Cliente]
+GO
+
+ALTER TABLE [dbo].[Carrinho]  WITH CHECK ADD  CONSTRAINT [FK_Carrinho_Produtos] FOREIGN KEY([idProduto])
+REFERENCES [dbo].[Produtos] ([idProduto])
+GO
+
+ALTER TABLE [dbo].[Carrinho] CHECK CONSTRAINT [FK_Carrinho_Produtos]
+GO
+
+CREATE TABLE [dbo].[Tipo_pagamento](
+	[tpPagamento] [int] IDENTITY(1,1) NOT NULL,
+	[dsPagamento] [varchar](100) NOT NULL
+) ON [PRIMARY]
+
+GO
 
 /*--------------------------------------------------*/
 
