@@ -32,5 +32,10 @@ namespace FivesLivraria.Administrativo
                 Response.Redirect("~/Login.aspx", false);
             }
         }
+
+        protected void lnkHelp_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminHelp.htm", false);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace FivesLivraria
         {
             if (!IsPostBack)
             {
-                lblUser.Text = Current.UserName;
+                lblUser.Text = !string.IsNullOrEmpty(Current.UserName) ? Current.UserName : "Visitante";
             }
         }
 

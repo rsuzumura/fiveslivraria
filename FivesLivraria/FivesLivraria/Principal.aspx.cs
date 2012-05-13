@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using FivesLivraria.Data.Classes;
 using FivesLivraria.Data;
 using System.Data;
+using System.IO;
 
 namespace FivesLivraria
 {
@@ -150,6 +151,13 @@ namespace FivesLivraria
             //FivesLivraria.Data.Classes.Carrinho.Insert(Convert.ToInt32(id.Text, Current.
             //c.
             Response.Redirect("Carrinho.aspx?id=" + id.Text);
+        }
+
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Image imagem = (Image)e.Item.FindControl("imagem");
+            if (!File.Exists(Server.MapPath(imagem.ImageUrl)))
+                imagem.ImageUrl = "~/Images/imagem_nao_disponivel.jpg";
         }
     }
 
