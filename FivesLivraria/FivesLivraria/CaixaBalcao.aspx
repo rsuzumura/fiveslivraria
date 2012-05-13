@@ -76,11 +76,13 @@
 <div id="areas">
         <textarea id="area_TEF" name="S2" cols="30" readonly="readonly" rows="1000" runat="server"
             style="background-color: #66CCFF; position: absolute; top: 503px; left: 821px; height: 115px;" 
-            title="Comprovantes TEF"></textarea>
+            title="Comprovantes TEF" visible="False"></textarea>
 
         <textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" 
             title="Cupons Impressos" runat="server"
-            style="background-color: #FFFFCC; position: absolute; top: 146px; left: 735px; width: 464px; height: 344px;">
+            
+            style="background-color: #FFFFCC; position: absolute; top: 146px; left: 735px; width: 464px; height: 344px;" 
+            visible="False">
        </textarea>
 </div>
 
