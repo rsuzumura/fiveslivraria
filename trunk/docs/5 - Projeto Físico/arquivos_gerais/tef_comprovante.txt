@@ -15,7 +15,6 @@ COO DOCUMENTO VINCULADO:                000000    |
 VALOR DA COMPRA  R$                     000,00    |
 VALOR DO PAGAMENTO  R$                  000,00    |
 --------------------------------------------------|
-            bandeira do cartão                    |
         comprovante de operação                   | :>>> sendo operação contido em { débito; crédito }
 empresa responsavel                               |
         endereco                                  |
@@ -31,7 +30,6 @@ V. 001                              ESTACAO       |
 ==================================================|
                 2ª via - cliente                  |
 ==================================================|
-            bandeira do cartão                    |
         comprovante de operação                   | :>>> sendo operação contido em { débito; crédito }
 empresa responsavel                               |
 cnpj: 11.222.333/0001-99                          |
