@@ -19,14 +19,14 @@ VALOR DO PAGAMENTO  R$                  000,00    |
         comprovante de operação                   | :>>> sendo operação contido em { débito; crédito }
 empresa responsavel                               |
         endereco                                  |
-term:               doc:            lote:         |
+term: 0001          doc: 000000     lote: 0000    |
 dd/mm/aaaa hh:mm:ss     aut: 000000     onl-X     | :>>> onl-X, sendo X contido em { D; C }
 venda operação a vista                            |
 valor venda:                000,00                |
                                                   |
 --------------------------------------------------|
-MARCA EQUIPAMENTO ECF               USUARIO       |
-VERSÃO DO EQUIPAMENTO               ESTACAO       |
+EMULADOR DE ECF                     USUARIO       |
+V. 001                              ESTACAO       |
                            dd/mm/aaaa  hh:mm:ss   | :>>> A DATA E HORA DO FIM DA TRANSAÇÃO
 ==================================================|
                 2ª via - cliente                  |
@@ -47,11 +47,3 @@ term:               doc:            lote:         |
 dd/mm/aaaa hh:mm:ss     aut: 000000     onl-X     | :>>> onl-X, sendo X contido em { D; C }
 venda operação a vista                            |
 valor venda:                000,00                |
-                                                  |
-                                                  |
-                                                  |
-                                                  |
-                                                  |
-                                                  |
-                                                  |
-                                                  

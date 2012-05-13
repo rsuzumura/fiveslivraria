@@ -16,11 +16,11 @@ namespace FivesLivraria
 
       protected void btnAbrirCaixa_onClick(object sender, EventArgs e)
       {
-         bool statusAbertura = false;
+         bool statusAbertura = true;
          bool statusFechamento = false;
 
-         statusAbertura = (bool) Session["statusAberturaCaixa"];
-         statusFechamento = (bool) Session["statusFechamentoCaixa"];
+         statusAbertura = (bool) Session["statusAberturaCaixa"];  
+         statusFechamento = (bool) Session["statusFechamentoCaixa"]; 
 
          if (!statusAbertura && !statusFechamento)
          {

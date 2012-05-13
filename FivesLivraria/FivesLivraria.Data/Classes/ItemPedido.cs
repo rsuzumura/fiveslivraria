@@ -8,16 +8,12 @@ namespace FivesLivraria.Data.Classes
     [Serializable]
     public class ItemPedido
     {
-       private List<Produto> produtos;
-       private int qtde;
-       private double valor;
-       private double desconto;
+       public List<Produto> produtos { get; set; }
+       public int qtde { get; set; }
+       public double valor { get; set; }
+       public double desconto { get; set; }
+       public int numeroPeiddo { get; set; }
 
-       private int numeroPeiddo;
-         public void setPedido( int numeroPedido )
-            { this.numeroPeiddo = numeroPedido; }
-         public int getPedido()
-            { return numeroPeiddo; }
 
         public ItemPedido()
         {
@@ -55,6 +51,16 @@ namespace FivesLivraria.Data.Classes
         public int Count()
         {
            return produtos.Count;
+        }
+
+        public double totalizarItens()
+        {
+           double valorTotal = 0.00;
+
+           foreach (Produto k in produtos)
+              valorTotal = (double)(k.qtdProduto.Value * k.vlPreco.Value);
+
+           return valorTotal;
         }
     }
 }
