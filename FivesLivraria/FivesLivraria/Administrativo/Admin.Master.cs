@@ -21,7 +21,7 @@ namespace FivesLivraria.Administrativo
         protected void lnkExit_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("Login.aspx");
+            Response.Redirect("~/Login.aspx");
         }
 
         protected void menu_ItemClick(object sender, EO.Web.NavigationItemEventArgs e)

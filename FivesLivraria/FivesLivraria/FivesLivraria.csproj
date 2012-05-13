@@ -81,6 +81,7 @@
     <Content Include="Images\error.png" />
     <Content Include="Images\icon_recyclebin_16px.gif" />
     <Content Include="Images\icon_search_16px.gif" />
+    <Content Include="Images\imagem_nao_disponivel.jpg" />
     <Content Include="Images\info.png" />
     <Content Include="Images\msgBoxBackGround.png" />
     <Content Include="Images\Pen.gif" />

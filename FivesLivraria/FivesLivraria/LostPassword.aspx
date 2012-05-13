@@ -41,7 +41,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" align="center">
                         <br />
                         <asp:Button ID="btnRequestPassword" runat="server" Text="Solicitar&#10;Senha" CssClass="button"
                             CausesValidation="false" Width="130px" Height="50px" OnClick="btnRequestPassword_Click" />

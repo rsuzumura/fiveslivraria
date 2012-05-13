@@ -32,6 +32,7 @@
         }
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
+        
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -57,14 +58,12 @@
                             OnItemClick="menu_ItemClick">
                             <TopGroup Orientation="Vertical">
                                 <Items>
-                                    <eo:MenuItem Text-Html="Fornecedores">
+                                    <eo:MenuItem Text-Html="Categorias" NavigateUrl="Categorias.aspx">
                                     </eo:MenuItem>
                                     <eo:MenuItem Text-Html="Usuários" NavigateUrl="Usuarios.aspx">
                                     </eo:MenuItem>
                                     <eo:MenuItem Text-Html="Produtos" NavigateUrl="Produtos.aspx">
-                                    </eo:MenuItem>
-                                    <eo:MenuItem Text-Html="Categorias" NavigateUrl="Categorias.aspx">
-                                    </eo:MenuItem>
+                                    </eo:MenuItem>                                    
                                     <eo:MenuItem IsSeparator="True">
                                     </eo:MenuItem>
                                     <eo:MenuItem Text-Html="Sair" RaisesServerEvent="True" CustomItemID="Sair">
@@ -98,11 +97,11 @@
                 <div class="divContent">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
-                </div>
-                <div class="divFooter">
-                    FATEC-SP - Laboratório de Engenharia de Software - Grupo 4
-                </div>
+                </div>                
             </div>
+        </div>
+        <div class="divFooter">
+            FATEC-SP - Laboratório de Engenharia de Software - Grupo 4
         </div>
     </div>
     </form>
