@@ -59,6 +59,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrativo\AdminHelp.htm" />
     <Content Include="Administrativo\CadastroProduto.aspx" />
     <Content Include="Administrativo\CadastroUsuario.aspx" />
     <Content Include="Administrativo\Categorias.aspx" />

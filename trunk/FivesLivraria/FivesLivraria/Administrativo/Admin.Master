@@ -42,7 +42,8 @@
             <div class="divUserHeader">
                 Usuário:&nbsp;
                 <asp:Label ID="lblUser" runat="server" CssClass="link"></asp:Label>
-                &nbsp;&nbsp;
+                &nbsp;&nbsp;|
+                <asp:LinkButton ID="lnkHelp" runat="server" Text="Ajuda" CssClass="link" OnClick="lnkHelp_Click"></asp:LinkButton>&nbsp;&nbsp;|
                 <asp:LinkButton ID="lnkExit" runat="server" Text="Sair" CssClass="link" OnClick="lnkExit_Click"></asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="divHeader">
