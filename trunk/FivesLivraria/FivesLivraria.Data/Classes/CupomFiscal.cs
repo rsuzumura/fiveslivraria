@@ -12,6 +12,12 @@ namespace FivesLivraria.Data.Classes
       public long codOperacao { get; set; }
       public double valorPagamento { get; set; }
       public int idFormaPgto { get; set; }
+      public int numContadorFiscal { get; set; }
+      public int numComprovanteTEF { get; set; }
+      public double sumVendasGerais { get; set; }
+      public double sumPgtoDinheiro { get; set; }
+      public double sumPgtoCredito { get; set; }
+      public double sumPgtoDebito { get; set; }
 
 
       public CupomFiscal()
@@ -62,22 +68,22 @@ namespace FivesLivraria.Data.Classes
          txtModelo += "MOVIMENTO DIA: " + DateTime.Today.ToString() + '\n';
          
          txtModelo += "            CONTADORES" + '\n';
-         txtModelo += "Geral de operações não fiscal:          " + 000000 + '\n';
-         txtModelo += "Contador de reduções Z:                 " +/* numReducoes + */ '\n';
-         txtModelo += "Contador de cupom fiscal:               " +/* numContadorFiscal + */ '\n';
-         txtModelo += "Comprovante de Credito ou Debito:       " +/* numComprovanteTEF + */ '\n';
-         txtModelo += "Cumpom Fiscal Cancelado:                " +/* numCupomCancelado + */ '\n';
+         txtModelo += "Geral de operações não fiscal:          000000" + '\n';
+         txtModelo += "Contador de reduções Z:                 000000" + '\n';
+         txtModelo += "Contador de cupom fiscal:               " + numContadorFiscal.ToString() +'\n';
+         txtModelo += "Comprovante de Credito ou Debito:       " + numComprovanteTEF.ToString() + '\n';
+         txtModelo += "Cumpom Fiscal Cancelado:                000000" + '\n';
 
          txtModelo += "            TOTALIZADORES" + '\n';
-         txtModelo += "Venda Bruta Diária:              " + /* sumVendasGerais + */'\n';
-         txtModelo += "Total de ICMS:                   " + /* sumICMS + */'\n';
-         txtModelo += "Venda Líquida:                   " + /* (double)(sumVendasGerais - sumICMS).toString()*/ '\n';
+         txtModelo += "Venda Bruta Diária:              " + sumVendasGerais.ToString() + '\n';
+         txtModelo += "Total de ICMS:                   0000,00" + '\n';
+         txtModelo += "Venda Líquida:                   " + sumVendasGerais.ToString() + '\n';
 
          txtModelo += "            MEIOS DE PAGAMENTO" + '\n';
          txtModelo += "Nº   MEIO PAGAMENTO         VALOR ACUMULADO (R$)" + /*  + */'\n';
-         txtModelo += "01    DINHEIRO                  " + /* sumPgtoDinheiro + */'\n';
-         txtModelo += "02    CARTÃO DE CRÉDITO         " + /* sumPgtoCredito + */'\n';
-         txtModelo += "03    CARTÃO DE DÉBITO          " + /* sumPgtoDebito + */'\n';
+         txtModelo += "01    DINHEIRO                  " + sumPgtoDinheiro.ToString() + '\n';
+         txtModelo += "02    CARTÃO DE CRÉDITO         " + sumPgtoCredito.ToString() + '\n';
+         txtModelo += "03    CARTÃO DE DÉBITO          " + sumPgtoDebito.ToString() + '\n';
 
          txtModelo += Comprovante.linhaDIV + '\n';
          txtModelo += "   CAIXA: " + /* usuariologado + */ '\n';
@@ -105,14 +111,39 @@ namespace FivesLivraria.Data.Classes
          }
          txtVenda += "                          ------------------------" + '\n';
          txtVenda += "  TOTAL  R$                           " + item.totalizarItens().ToString() + '\n';
-         txtVenda += "FORMAPGTO                             " + /* valorPagamento + */'\n'; // identificar via get na interface
+         txtVenda += "FORMAPGTO                             " + /* valorPagamento + */'\n'; // identificar via get na interface?
          txtVenda += "TROCO                                 " + /* diferenca */ '\n'; // calcular diferenca dinheiro superior ao total
          txtVenda += Comprovante.linhaDIV + '\n';
          txtVenda += "EMULADOR DE ECF                     " + /* usuariologado +*/ '\n';
          txtVenda += "V. 001                              " + /* id maquina + */ '\n';
          txtVenda += "                            " + DateTime.Today.ToString() + " " + DateTime.Now.ToString() +'\n';
 
+            // ----------------------------------------------------------
+            //  Executa atualização das variáveis de totalizadores
+            // a serem usados na 
+            // ----------------------------------------------------------
+            this.atualizaDados();
          return txtVenda;
       }
+      protected void atualizaDados()
+      {
+         double valorTransacao = item.totalizarItens();
+         numContadorFiscal++;
+         sumVendasGerais += valorTransacao;
+            switch ( idFormaPgto ) {
+               case FormaPagamento.PAGAMENTODINHEIRO : 
+                     sumPgtoDinheiro += valorTransacao;
+                     break;
+               case FormaPagamento.PAGAMENTOCREDITO :
+                  sumPgtoCredito += valorTransacao;
+                  numComprovanteTEF++;
+                  break;
+               case FormaPagamento.PAGAMENTODEBITO :
+                  sumPgtoDebito += valorTransacao;
+                  numComprovanteTEF++;
+                  break;
+         }
+      }
+
    }
 }
