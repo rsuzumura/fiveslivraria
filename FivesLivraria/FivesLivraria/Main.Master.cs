@@ -23,5 +23,10 @@ namespace FivesLivraria
             FormsAuthentication.SignOut();
             Response.Redirect("~/Login.aspx");
         }
+
+        protected void lkbCarrinho_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Carrinho.aspx");
+        }
     }
 }
