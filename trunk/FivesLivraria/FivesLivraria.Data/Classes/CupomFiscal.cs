@@ -146,9 +146,22 @@ namespace FivesLivraria.Data.Classes
          }
       }
 
-      protected void gerarCodigo()
+      public void gerarCodigo()
       {
+         Random rdn = new Random();
+         long cod = rdn.Next(100000, 999999);
+         this.codigoCupom = cod;
+      }
 
+      public void saveFile()
+      {
+         string dados = this.imprimeCupom();
+         string fileName = @Comprovante.PATH + this.codigoCupom;
+         Comprovante comp = new Comprovante {
+            texto = dados,
+            nomeArquivo = fileName
+         };
+         comp.saveFile();
       }
    }
 }

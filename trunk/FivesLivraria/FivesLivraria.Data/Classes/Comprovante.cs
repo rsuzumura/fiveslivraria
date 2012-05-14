@@ -8,7 +8,11 @@ namespace FivesLivraria.Data.Classes
 {
    public class Comprovante
    {
-
+      // ------------------------------------------------------------------
+      //  A referência das outras classes é para esta constante, alterando 
+      // aqui a gravação em todos os demais será alterada também
+      // ------------------------------------------------------------------
+      public const string PATH = @"c:\fives\files\";
       public const string CNPJ = "12.345.678/0001-90";
       public const string IncE = "123.345.578.890";
       public const string IncM = "1.234.567-0";
@@ -23,7 +27,7 @@ namespace FivesLivraria.Data.Classes
       {
       }
 
-      public bool gravar()
+      public bool saveFile()
       {
          bool retorno = false;
          try
@@ -38,7 +42,7 @@ namespace FivesLivraria.Data.Classes
          return retorno;
       }
 
-      public bool buscar()
+      public bool openFile()
       {
          bool retorno = false;
          try

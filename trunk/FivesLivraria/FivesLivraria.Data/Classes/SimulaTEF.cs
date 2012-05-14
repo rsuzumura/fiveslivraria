@@ -9,7 +9,13 @@ namespace FivesLivraria.Data.Classes
 {
    public class SimulaTEF
    {
-      public const string ARQUIVO = @"c:\fives\files\simulatef.txt";  // configurar conforme o servidor
+      public const string ARQUIVO = @Comprovante.PATH+"simulatef.txt";  // configurar conforme o servidor
+      // -------------------------------------------------
+      // Utiliza como base para validação um arquivo com 
+      // lista, simulando numeros e códigos de cartão
+      // o formato é:
+      // numero_cartao;digito_verificador;valor_limite
+      // -------------------------------------------------
 
       public long numeroCartao { get; set; }
       public int codigoVerificador {get; set; }

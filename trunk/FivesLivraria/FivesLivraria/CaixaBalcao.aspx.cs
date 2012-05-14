@@ -83,6 +83,7 @@ namespace FivesLivraria
               // colando o conteúdo para simulação de cupom
               cupom.setItem(item);
               cupom.setCliente(long.Parse(box_CPFCliente.Text));
+              cupom.gerarCodigo();
               area_Cupom.Value = cupom.imprimeCupom();
 
               if (ListFrmPgto.SelectedIndex != 0)
@@ -93,19 +94,34 @@ namespace FivesLivraria
                         id = ListFrmPgto.SelectedIndex,
                         numeroCartao = cardNumber,
                         codigoCartao = cardId,
-                        valorTransacao = cupom.item.totalizarItens()
+                        valorTransacao = cupom.item.totalizarItens(),
+                        codigoCupom = cupom.codigoCupom
                     };
                   pagamento = tef.confirmarTransacao();
+                  if (pagamento)
+                  {
+                     tef.saveFile();
+                     area_TEF.Value = tef.imprimir();
+                  }
               }
               else
                  pagamento = true;
 
-              //-------------------------------------------------------------------
-              //   Implementar gravação da venda no banco
-              //-------------------------------------------------------------------
+              if (pagamento)
+              {
+                 //-------------------------------------------------------------------
+                 //   Implementar gravação da venda no banco
+                 //-------------------------------------------------------------------
 
-              ViewState["itemCaixa"] = new ItemPedido();
-              ViewState["pedidoCaixa"] = new Pedido();
+
+                 //-------------------------------------------------------------------
+                 //   Reiniciando variáveis relacionadas com o Pedido
+                 //-------------------------------------------------------------------
+                 ViewState["itemCaixa"] = new ItemPedido();
+                 ViewState["pedidoCaixa"] = new Pedido();
+              }
+              else
+                 ShowMessage(MessageType.Warning, "Dados para pagamento inválidos.", "Pagamento inválido");
            }
            else
            {

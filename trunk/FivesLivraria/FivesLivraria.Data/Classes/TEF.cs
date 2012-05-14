@@ -86,7 +86,27 @@ namespace FivesLivraria.Data.Classes
 
       protected void criarAutorizacao()
       {
+         Random rdn = new Random();
+         long cod = rdn.Next(10000, 99999);
+         if (FormaPagamento.PAGAMENTODEBITO == id)
+            cod += 200000;
+         else
+            cod += 100000;
+         
+         this.codigoAutorizacao = cod;
+      }
 
+      public void saveFile()
+      {
+         string dados = this.imprimir();
+         string fileName = @Comprovante.PATH+codigoAutorizacao.ToString();
+
+         Comprovante comp = new Comprovante
+         {
+            texto = dados,
+            nomeArquivo = fileName
+         };
+         comp.saveFile();
       }
    }
 }
