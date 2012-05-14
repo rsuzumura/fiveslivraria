@@ -75,6 +75,8 @@ namespace FivesLivraria.Data
     {
         public static ListaProdutos ListByFilter(int idCategoria, string nmProduto, int pageIndex, int pageSize, out int totalRowCount)
         {
+            if (!string.IsNullOrEmpty(nmProduto))
+                nmProduto = string.Concat("%", nmProduto, "%");
             return SqlXmlGet<ListaProdutos>.Select("spLista_produto", pageIndex, pageSize, out totalRowCount, new SqlXmlParams("categoria", idCategoria, "nmProduto", nmProduto));
         }
 

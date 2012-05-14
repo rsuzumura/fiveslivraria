@@ -34,7 +34,8 @@ namespace FivesLivraria.Administrativo
                     txtEditora.Text         = !p.nmEditora.IsNull ? p.nmEditora.Value : string.Empty;
                     if (!p.nmImagem.IsNull)
                     {
-                        if (File.Exists(Server.MapPath(string.Format("~/Images/{0}", p.nmImagem.Value))))
+                        string imagePath = string.Format("~/Images/{0}", p.nmImagem.Value);
+                        if (File.Exists(Server.MapPath(imagePath)))
                             imgPhoto.ImageUrl = !p.nmImagem.IsNull ? string.Format("~/Images/{0}", p.nmImagem.Value) : string.Empty;
                         else
                             imgPhoto.ImageUrl = "~/Images/imagem_nao_disponivel.jpg";

@@ -11,11 +11,12 @@ using System.IO;
 
 namespace FivesLivraria
 {
-    public partial class Principal : System.Web.UI.Page
+    public partial class Principal : BasePage
     {
         private const int pagesize = 20;
 
-        int page {
+        int page 
+        {
             get
             {
                 if (string.IsNullOrEmpty(Request.QueryString["page"]))
@@ -30,7 +31,8 @@ namespace FivesLivraria
         {
             if (!Page.IsPostBack)
             {
-                CarregaDropDown();
+                int t = 0;
+                FillControl<Categoria>(ddlCategoria, ListaCategoria.List(null, true, 0, int.MaxValue - 1, out t), "<< TODOS >>", "0");
                 CarregaPagina(0,"");
             }
         }

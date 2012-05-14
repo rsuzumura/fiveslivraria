@@ -17,7 +17,7 @@ namespace FivesLivraria
                 Usuario u = Usuario.Get(User.Identity.Name);
                 Current.UserId   = u.idUsuario.Value;
                 Current.UserName = u.nmUsuario.Value;
-                Response.Redirect("FinalizarCompra.aspx");
+                //Response.Redirect("FinalizarCompra.aspx");
                 if (User.IsInRole("gestor"))
                     Response.Redirect("~/Administrativo/Default.aspx", false);
                 if (User.IsInRole("usuario"))
