@@ -83,5 +83,10 @@ namespace FivesLivraria.Data.Classes
 
          return txtImprimir;
       }
+
+      protected void criarAutorizacao()
+      {
+
+      }
    }
 }

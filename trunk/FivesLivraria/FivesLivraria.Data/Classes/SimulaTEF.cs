@@ -9,7 +9,7 @@ namespace FivesLivraria.Data.Classes
 {
    public class SimulaTEF
    {
-      public const string ARQUIVO = @"c:\fives\files\simulatef.dat";  // configurar conforme o servidor
+      public const string ARQUIVO = @"c:\fives\files\simulatef.txt";  // configurar conforme o servidor
 
       public long numeroCartao { get; set; }
       public int codigoVerificador {get; set; }
@@ -26,7 +26,7 @@ namespace FivesLivraria.Data.Classes
       private void loadDados()
       {
          Dados = new List<string>();
-         StreamReader inFile = new StreamReader("c:\\test.txt");
+         StreamReader inFile = new StreamReader(ARQUIVO);
          string sLine = "";
 
          while (sLine != null)
