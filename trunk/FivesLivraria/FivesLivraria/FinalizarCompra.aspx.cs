@@ -9,7 +9,7 @@ using System.Data;
 
 namespace FivesLivraria
 {
-    public partial class FinalizarCompra : System.Web.UI.Page
+    public partial class FinalizarCompra : BasePage
     {
         private int idUsuario
         {
@@ -20,8 +20,11 @@ namespace FivesLivraria
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            CarregaGrid(idUsuario);
-            carregaParcelas();
+            if (!Page.IsPostBack)
+            {
+                CarregaGrid(idUsuario);
+                carregaParcelas();
+            }
         }
 
         protected void CarregaGrid(int idCliente)
@@ -51,14 +54,13 @@ namespace FivesLivraria
 
         protected void carregaParcelas()
         {
-            List<string> parcelas = new List<string>();
             for (int i = 1; i <= 12; i++)
             {
                 string parcela = string.Format("{0}x sem juros de \tR${1}", i.ToString(), ((Double)Convert.ToDouble(txtTotal.Text) / i).ToString("N2"));
-                parcelas.Add(parcela);
+                rblParcelas.Items.Add(new ListItem(parcela, i.ToString()));
             }
-
-            rblParcelas.DataSource = parcelas;
+            //rblParcelas.DataSource = parcelas;
+            rblParcelas.SelectedIndex = 0;
             rblParcelas.DataBind();
         }
 
@@ -66,11 +68,20 @@ namespace FivesLivraria
         {
             if (rbBoleto.Checked)
             {
+                RequiredFieldValidator1.Enabled = false;
+                RequiredFieldValidator2.Enabled = false;
+                RequiredFieldValidator3.Enabled = false;
+                RequiredFieldValidator4.Enabled = false;
                 Pedido.finalizaPedido(rbBoleto.Value, idUsuario, 0);
+                ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns");
             }
             if (rbCredito.Checked)
             {
-                Pedido.finalizaPedido(rbCredito.Value, idUsuario, rblParcelas.SelectedIndex + 2);
+                if (Page.IsValid)
+                {
+                    Pedido.finalizaPedido(rbCredito.Value, idUsuario, rblParcelas.SelectedIndex + 1);
+                    ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns");
+                }
             }
         }
 
@@ -78,5 +89,6 @@ namespace FivesLivraria
         {
 
         }
+
     }
 }
