@@ -11,11 +11,11 @@
     <link rel="Stylesheet" type="text/css" href="../Styles/msgBoxLight.css" />
     <script type="text/javascript">
         var confirmed = false;
-        function confirm(obj) {
+        function confirm(obj, messageTitle, messageContent) {
             if (!confirmed) {
                 $.msgBox({
-                    title: "Remoção de Usuário",
-                    content: "Deseja realmente remover o usuário selecionado?",
+                    title: messageTitle,
+                    content: messageContent,
                     type: "confirm",
                     buttons: [{ value: "Sim" }, { value: "Não"}],
                     success: function (result) {

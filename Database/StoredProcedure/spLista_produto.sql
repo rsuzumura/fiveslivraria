@@ -17,7 +17,7 @@ begin
 	from
 		Produtos
 	where
-		@nmProduto = '' or nmTitulo like @nmProduto and
+		(@nmProduto = '' or nmTitulo like @nmProduto) and
 		(@categoria = 0 or idCategoria = @categoria);
 	
 	declare @startRow int, @endRow int;

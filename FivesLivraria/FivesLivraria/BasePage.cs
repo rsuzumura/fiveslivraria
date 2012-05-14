@@ -103,6 +103,35 @@ namespace FivesLivraria
             }
         }
 
+        protected void FillControl<T>(DropDownList dropDownList, List<T> list, string nullMessage, string nullValue)
+        {
+            if (dropDownList != null)
+            {
+                PropertyInfo propertyInfoTextField = null;
+                PropertyInfo propertyInfoValueField = null;
+
+                dropDownList.Items.Clear();
+                dropDownList.Items.Insert(0, new ListItem(nullMessage, nullValue));
+
+                string dataTextField = null;
+                string dataValueField = null;
+
+                if (list != null)
+                {
+                    foreach (T item in list)
+                    {
+                        propertyInfoTextField = (PropertyInfo)item.GetType().GetProperty(dropDownList.DataTextField);
+                        if (propertyInfoTextField != null) dataTextField = Convert.ToString(propertyInfoTextField.GetValue(item, null));
+
+                        propertyInfoValueField = (PropertyInfo)item.GetType().GetProperty(dropDownList.DataValueField);
+                        if (propertyInfoValueField != null) dataValueField = Convert.ToString(propertyInfoValueField.GetValue(item, null));
+
+                        dropDownList.Items.Add(new ListItem(dataTextField, dataValueField));
+                    }
+                }
+            }
+        }
+
         protected void FillControlWithoutNull<T>(DropDownList dropDownList, List<T> list)
         {
             if (dropDownList != null)

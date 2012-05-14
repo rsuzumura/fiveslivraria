@@ -109,7 +109,7 @@
                             <asp:TemplateField>
                                 <ItemTemplate>
                                     <asp:ImageButton ID="imgDelete" CausesValidation="false" CommandName="Delete" runat="server"
-                                        ImageUrl="~/Images/icon_recyclebin_16px.gif" ToolTip="Apagar" OnClientClick="javascript:return confirm(this);" />
+                                        ImageUrl="~/Images/icon_recyclebin_16px.gif" ToolTip="Apagar" OnClientClick="javascript:return confirm(this, 'Remoção de Categoria', 'Deseja realmente remover a categoria selecionada?');" />
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:ImageButton ID="imgCancel" CommandName="Cancel" CausesValidation="false" runat="server"

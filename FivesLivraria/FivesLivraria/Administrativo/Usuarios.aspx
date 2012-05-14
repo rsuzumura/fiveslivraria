@@ -123,7 +123,7 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:ImageButton ID="imgDelete" CausesValidation="false" CommandName="Delete" runat="server" ImageUrl="~/Images/icon_recyclebin_16px.gif"
-                                    ToolTip="Apagar" OnClientClick="javascript:return confirm(this);" />
+                                    ToolTip="Apagar" OnClientClick="javascript:return confirm(this, 'Remoção de Usuário', 'Deseja realmente remover o usuário selecionado?');" />
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:ImageButton ID="imgCancel" CommandName="Cancel" CausesValidation="false" runat="server" ImageUrl="~/Images/subjectselect_delete.gif"

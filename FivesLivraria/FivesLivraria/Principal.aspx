@@ -7,16 +7,17 @@
     <p>
         <asp:Label ID="lblBusca" runat="server" Text="Buscar por nome: "></asp:Label>
         <asp:TextBox ID="txtBusca" runat="server" Width="400px"></asp:TextBox>
-        <asp:DropDownList ID="ddlCategoria" runat="server" Width="170px">
+        <asp:DropDownList ID="ddlCategoria" runat="server" Width="170px" DataTextField="dsCategoria"
+            DataValueField="idCategoria">
         </asp:DropDownList>
         <asp:Button ID="btnBusca" runat="server" Text="Buscar" CssClass="button" OnClick="btnBusca_Click" />
         <br />
         <br />
-        <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" 
-            OnItemCommand="DataList1_ItemCommand" onitemdatabound="DataList1_ItemDataBound">
+        <asp:DataList ID="DataList1" runat="server" RepeatColumns="4" OnItemCommand="DataList1_ItemCommand"
+            OnItemDataBound="DataList1_ItemDataBound">
             <ItemTemplate>
                 <asp:Label ID="idProduto" runat="server" Text='<%# Eval("idProduto") %>' Visible="false" />
-                <asp:Image ID="imagem" runat="server" Text="Imagem" ImageUrl='<%#"/Images/"+ Eval("nmImagem") %>'
+                <asp:Image ID="imagem" runat="server" Text="Imagem" ImageUrl='<%#"~/Images/"+ Eval("nmImagem") %>'
                     Width="120px" Height="188px" />
                 <br />
                 <asp:Button ID="btnComprar" runat="server" Text="Comprar" CssClass="button" align="center" />
@@ -34,17 +35,17 @@
         <br />
         <br />
         <br />
-        Page
+        Página
         <asp:Label ID="currentPageLabel" runat="server" />
-        of
+        de
         <asp:Label ID="howManyPagesLabel" runat="server" />
         |
-        <asp:HyperLink ID="previousLink" runat="server">Previous</asp:HyperLink>
+        <asp:HyperLink ID="previousLink" runat="server">Anterior</asp:HyperLink>
         <asp:Repeater ID="pagesRepeater" runat="server">
             <ItemTemplate>
                 <asp:HyperLink ID="hyperlink" runat="server" Text='<%# Eval("Page") %>' NavigateUrl='<%# Eval("Url") %>' />
             </ItemTemplate>
         </asp:Repeater>
-        <asp:HyperLink ID="nextLink" runat="server">Next</asp:HyperLink>
+        <asp:HyperLink ID="nextLink" runat="server">Próximo</asp:HyperLink>
     </p>
 </asp:Content>

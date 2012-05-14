@@ -6,9 +6,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="toolbar">
         <asp:Button ID="btnSave" runat="server" Text="Cadastrar" CssClass="button" OnClick="btnSave_Click"
-            CausesValidation="false" />
-        <asp:Button ID="btnCancel" runat="server" Text="Voltar" CausesValidation="false" ToolTip="Criar um novo usuário"
-            OnClick="btnCancel_Click" />
+            TabIndex="9" CausesValidation="false" />
+        <asp:Button ID="btnCancel" runat="server" Text="Voltar" CausesValidation="false"
+            ToolTip="Criar um novo usuário" OnClick="btnCancel_Click" TabIndex="10" />
     </div>
     <br />
     <div class="divForm" style="height: 300px;">
@@ -27,7 +27,7 @@
                     Nome:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtUser" runat="server" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtUser" runat="server" Width="90%" TabIndex="1"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     Endereço:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAddress" runat="server" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtAddress" runat="server" Width="90%" TabIndex="2"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@
                     Email:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtEmailAddress" runat="server" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtEmailAddress" runat="server" Width="90%" TabIndex="3"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -67,7 +67,7 @@
                     Senha:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Width="90%" TabIndex="4"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -78,7 +78,8 @@
                     Confirmação de senha:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" Width="90%"
+                        TabIndex="5"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -88,7 +89,7 @@
                     Pergunta:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtQuestion" runat="server" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtQuestion" runat="server" Width="90%" TabIndex="6"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -98,7 +99,7 @@
                     Resposta:
                 </td>
                 <td>
-                    <asp:TextBox ID="txtAnswer" runat="server" Width="90%"></asp:TextBox>
+                    <asp:TextBox ID="txtAnswer" runat="server" Width="90%" TabIndex="7"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -106,10 +107,12 @@
                     Tipo de permissão:
                 </td>
                 <td>
-                    <asp:DropDownList ID="dropRoles" runat="server" Width="90%"></asp:DropDownList>
+                    <asp:DropDownList ID="dropRoles" runat="server" Width="90%" TabIndex="8">
+                    </asp:DropDownList>
                 </td>
             </tr>
         </table>
     </div>
-    <div style="float: right; height: 240px; clear: both;"></div>
+    <div style="float: right; height: 240px; clear: both;">
+    </div>
 </asp:Content>

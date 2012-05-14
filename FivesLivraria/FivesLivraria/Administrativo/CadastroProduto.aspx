@@ -10,31 +10,60 @@
         }
 
         function validateValue(obj, evt) {
-            if (typeof obj == 'object') {
-                var key = evt.keyCode;
-                if ((key < 48 || key > 57) && key != 44)
-                    return false;
-                else {
-                    if (key == 44) {
-                        if (obj.value.indexOf(',') > -1)
-                            return false;
+            if (navigator.userAgent.indexOf('Internet Explorer') > (-1)) {
+                if (typeof obj == 'object') {
+                    var key = evt.keyCode;
+                    if ((key < 48 || key > 57) && key != 44)
+                        return false;
+                    else {
+                        if (key == 44) {
+                            if (obj.value.indexOf(',') > -1)
+                                return false;
+                            else
+                                return true;
+                        }
                         else
                             return true;
                     }
-                    else
-                        return true;
                 }
+                return true;
+            } else if (navigator.userAgent.indexOf('Firefox') > (-1)) {
+                if (typeof obj == 'object') {
+                    var key = evt.charCode;
+                    if ((key < 48 || key > 57) && (key != 44) && (key != 0))
+                        return false;
+                    else {
+                        if (key == 44) {
+                            if (obj.value.indexOf(',') > -1)
+                                return false;
+                            else
+                                return true;
+                        }
+                        else
+                            return true;
+                    }
+                }
+                return true;
             }
-            return true;
         }
 
         function validateInt(obj, evt) {
-            if (typeof obj == 'object') {
-                var key = evt.keyCode;
-                if (key < 48 || key > 57)
-                    return false;
-                else 
-                    return true;
+            if (navigator.userAgent.indexOf('Internet Explorer') > (-1)) {
+                if (typeof obj == 'object') {
+                    var key = evt.keyCode;
+                    if (key < 48 || key > 57)
+                        return false;
+                    else
+                        return true;
+                }
+            } else if (navigator.userAgent.indexOf('Firefox') > (-1)) {
+                if (typeof obj == 'object') {
+                    var key = evt.charCode;
+                    if ((key < 48 || key > 57) && key != 0)
+                        return false;
+                    else
+                        return true;
+                }
             }
         }
     </script>
