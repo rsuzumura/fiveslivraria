@@ -18,6 +18,7 @@ namespace FivesLivraria.Data.Classes
       public double sumPgtoDinheiro { get; set; }
       public double sumPgtoCredito { get; set; }
       public double sumPgtoDebito { get; set; }
+      public long codigoCupom { get; set; }
 
 
       public CupomFiscal()
@@ -145,5 +146,9 @@ namespace FivesLivraria.Data.Classes
          }
       }
 
+      protected void gerarCodigo()
+      {
+
+      }
    }
 }
