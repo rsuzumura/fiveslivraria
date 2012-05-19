@@ -13,5 +13,20 @@ namespace FivesLivraria
       {
 
       }
+
+      protected void btnBalcao_Click(object sender, EventArgs e)
+      {
+          Response.Redirect("~/CaixaBalcao.aspx", false);
+      }
+
+      protected void btnPedidos_Click(object sender, EventArgs e)
+      {
+          Response.Redirect("~/CaixaPedidos.aspx", false);
+      }
+
+      protected void btnCaixa_Click(object sender, EventArgs e)
+      {
+          Response.Redirect("~/CaixaAcoes.aspx", false);
+      }
    }
 }

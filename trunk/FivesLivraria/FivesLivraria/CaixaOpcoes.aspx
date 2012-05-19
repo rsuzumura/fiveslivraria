@@ -1,18 +1,21 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CaixaOpcoes.aspx.cs" Inherits="FivesLivraria.CaixaOpcoes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
+    CodeBehind="CaixaOpcoes.aspx.cs" Inherits="FivesLivraria.CaixaOpcoes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p> Página com as opções para o funcionário </p>
-    <p> &nbsp;</p>
-    <p> 
-        <asp:HyperLink ID="Balcao" runat="server" NavigateUrl="~/CaixaBalcao.aspx"> Caixa / Balcão </asp:HyperLink>
-    </p>
-    <p> 
-        <asp:HyperLink ID="Pedidos" runat="server" NavigateUrl="~/CaixaPedidos.aspx"> Consulta dos Pedidos </asp:HyperLink>
-    </p>
-    <p> 
-        <asp:HyperLink ID="Caixa" runat="server" NavigateUrl="~/CaixaAcoes.aspx"> Ações de Caixa </asp:HyperLink>
-    </p>
-
+    <h2>
+        Funcionários - Menu Geral
+    </h2>
+    <p>
+        &nbsp;</p>
+    <div align="center" style="margin-bottom: 5px;">
+        <asp:Button ID="btnBalcao" runat="server" Text="Caixa / Balcão" OnClick="btnBalcao_Click" Width="200px" Height="50px" />
+    </div>
+    <div align="center" style="margin-bottom: 5px;">
+        <asp:Button ID="btnPedidos" runat="server" Text="Consulta dos Pedidos" OnClick="btnPedidos_Click" Width="200px" Height="50px" />
+    </div>
+    <div align="center" style="margin-bottom: 5px;">
+        <asp:Button ID="btnCaixa" runat="server" Text="Ações de Caixa" OnClick="btnCaixa_Click" Width="200px" Height="50px" />
+    </div>
 </asp:Content>
-

@@ -67,6 +67,7 @@
     <Content Include="Administrativo\Usuarios.aspx" />
     <Content Include="App_Themes\Theme_Default\button.css" />
     <Content Include="App_Themes\Theme_Default\gridview.css" />
+    <Content Include="BuscaCliente.aspx" />
     <Content Include="CadastroCliente.aspx" />
     <Content Include="CaixaAcoes.aspx" />
     <Content Include="CaixaOpcoes.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscaCliente.aspx.cs">
+      <DependentUpon>BuscaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscaCliente.aspx.designer.cs">
+      <DependentUpon>BuscaCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="CadastroCliente.aspx.cs">
       <DependentUpon>CadastroCliente.aspx</DependentUpon>

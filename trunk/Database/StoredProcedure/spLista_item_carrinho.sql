@@ -12,10 +12,13 @@ begin
 	
 	declare @idCliente int
 	
-	select @idCliente = c.idCliente
-	from Cliente c
-	INNER JOIN Usuarios u ON
-	c.idUsuario = @idUsuario
+	select 
+		@idCliente = idCliente 
+	from 
+		Cliente c
+		inner join Usuarios u ON c.idUsuario = u.idUsuario
+	where
+		c.idUsuario = @idUsuario;
 	
 	select @vlTotal = SUM(vlFinal) 
 	from Carrinho

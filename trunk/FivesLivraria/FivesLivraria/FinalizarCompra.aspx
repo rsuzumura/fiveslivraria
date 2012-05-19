@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script language="javascript" src="Scripts/jquery-1.4.1.min.js"></script>
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
         CssClass="validationMessage"  />
 
@@ -14,9 +13,17 @@
                 <Columns>
                     <asp:TemplateField HeaderText="Descrição">
                         <ItemTemplate>
-                            <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"/Images/"+ Eval("nmImagem") %>'
-                                Width="80px" />
-                            <asp:Label ID="nmTitulo" runat="server" Text='<%#Eval("nmTitulo")%>' />
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"/Images/"+ Eval("nmImagem") %>'
+                                            Width="80px" />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="nmTitulo" runat="server" Text='<%#Eval("nmTitulo")%>' />
+                                    </td>
+                                </tr>
+                            </table>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="nrQtdProduto" HeaderText="Quantidade" SortExpression="idProduto" />
@@ -28,10 +35,10 @@
             <br />
             <asp:Button ID="btnContinuarComprando" runat="server" Text="Continuar Comprando"
                 CssClass="buttonAcao" OnClick="btnContinuarComprando_Click" 
-                CausesValidation="false"/>
+                CausesValidation="false" Width="200px"/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnfinalizarCompra" runat="server" Text="Finalizar Compra" CssClass="buttonAcao"
-                OnClick="btnfinalizarCompra_Click"  />
+                OnClick="btnfinalizarCompra_Click" Width="200px" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Label ID="lblTotal" runat="server" Text="Total: " />
             <asp:Label ID="txtTotal" runat="server" />
@@ -63,7 +70,7 @@
             </div>
             <br />
             <div id="divBoleto" style="float: left; margin-left: 50px;">
-                <asp:Button ID="btnGerarBoleto" runat="server" Text="Imprimir Boleto" CssClass="buttonAcao"
+                <asp:Button ID="btnGerarBoleto" runat="server" Text="Imprimir Boleto" CssClass="buttonAcao" Width="150px"
                     OnClick="btnGerarBoleto_Click" />
             </div>
             <div id="divDebito" style="float: left; display: none; margin-left: 50px; ">
@@ -122,7 +129,7 @@
             <br />
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         function seleciona(id) {
             $("#divBoleto").hide();
             $("#divCredito").hide();

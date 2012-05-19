@@ -22,6 +22,8 @@ namespace FivesLivraria
                     Response.Redirect("~/Administrativo/Default.aspx", false);
                 if (User.IsInRole("usuario"))
                     Response.Redirect("CaixaOpcoes.aspx", false);
+                if (User.IsInRole("cliente"))
+                    Response.Redirect("Principal.aspx", false);
             }
         }
     }

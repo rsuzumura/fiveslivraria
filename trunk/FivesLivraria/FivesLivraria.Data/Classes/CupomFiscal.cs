@@ -44,7 +44,7 @@ namespace FivesLivraria.Data.Classes
             texto = result,
             nomeArquivo = fileName
          };
-         oper.gravar();
+         oper.saveFile();
       }
 
       public void reducaoZ()
@@ -55,7 +55,7 @@ namespace FivesLivraria.Data.Classes
             texto = result,
             nomeArquivo = fileName
          };
-         oper.gravar();
+         oper.saveFile();
       }
 
       public string modelo( bool reducao )
