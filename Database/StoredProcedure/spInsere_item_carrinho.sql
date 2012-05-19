@@ -12,10 +12,13 @@ begin
 	
 	declare @idCliente int
 	
-	select @idCliente = idCliente 
-	from Cliente c
-	inner join Usuarios u ON
-	c.idUsuario = @idUsuario
+	select 
+		@idCliente = idCliente 
+	from 
+		Cliente c
+		inner join Usuarios u ON c.idUsuario = u.idUsuario
+	where
+		c.idUsuario = @idUsuario
 	
 	insert into Carrinho(
 	idProduto

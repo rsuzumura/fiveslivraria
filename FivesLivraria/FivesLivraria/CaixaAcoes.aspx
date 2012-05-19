@@ -1,17 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="CaixaAcoes.aspx.cs" Inherits="FivesLivraria.CaixaAcoes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
+    CodeBehind="CaixaAcoes.aspx.cs" Inherits="FivesLivraria.CaixaAcoes" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <asp:Button ID="btnAbrirCaixa" runat="server" Text="Abrir Caixa"
-          style="position:absolute; top: 228px; left: 422px;" 
-            OnClick="btnAbrirCaixa_onClick"/> 
-        <asp:Button ID="btnReducao" runat="server" Text="Fechar Caixa | Redução Z"
-          style="position:absolute; top: 225px; left: 569px; margin-top: 4px;" 
-            OnClick="btnReducao_onClick"/> 
-        <asp:Button ID="btnLeitura" runat="server" Text="Leitura X"
-          style="position:absolute; top: 323px; left: 427px;" 
-            OnClick="btnLeitura_onClick"/> 
-        <asp:Button ID="btnHistorico" runat="server" Text="Historico do Caixa"
-          style="position:absolute; top: 323px; left: 604px;" 
-            OnClick="btnHistorico_onClick"/> 
+    <br />
+    <br />
+    <div align="center">
+        <asp:Button ID="btnAbrirCaixa" runat="server" Text="Abrir Caixa" OnClick="btnAbrirCaixa_onClick"
+            Width="200px" Height="60px" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnReducao" runat="server" Text="Fechar Caixa | Redução Z" OnClick="btnReducao_onClick"
+            Width="200px" Height="60px" />
+    </div>
+    <br />
+    <br />
+    <div align="center">
+        <asp:Button ID="btnLeitura" runat="server" Text="Leitura X" OnClick="btnLeitura_onClick"
+            Width="200px" Height="60px" />&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnHistorico" runat="server" Text="Historico do Caixa" OnClick="btnHistorico_onClick"
+            Width="200px" Height="60px" />
+    </div>
+    <br />
+    <br />
 </asp:Content>

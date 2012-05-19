@@ -21,7 +21,9 @@ namespace FivesLivraria
         protected void lkbExit_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            Response.Redirect("~/Login.aspx");
+            Current.UserId = 0;
+            Current.UserName = string.Empty;
+            Response.Redirect("~/Login.aspx");            
         }
 
         protected void lkbCarrinho_Click(object sender, EventArgs e)

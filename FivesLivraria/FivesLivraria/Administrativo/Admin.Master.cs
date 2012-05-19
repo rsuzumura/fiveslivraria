@@ -21,6 +21,8 @@ namespace FivesLivraria.Administrativo
         protected void lnkExit_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            Current.UserId = 0;
+            Current.UserName = string.Empty;
             Response.Redirect("~/Login.aspx");
         }
 
@@ -29,6 +31,8 @@ namespace FivesLivraria.Administrativo
             if (e.MenuItem.CustomItemID == "Sair")
             {
                 FormsAuthentication.SignOut();
+                Current.UserId = 0;
+                Current.UserName = string.Empty;
                 Response.Redirect("~/Login.aspx", false);
             }
         }

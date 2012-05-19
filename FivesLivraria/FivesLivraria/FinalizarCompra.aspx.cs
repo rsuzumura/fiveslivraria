@@ -73,14 +73,14 @@ namespace FivesLivraria
                 RequiredFieldValidator3.Enabled = false;
                 RequiredFieldValidator4.Enabled = false;
                 Pedido.finalizaPedido(rbBoleto.Value, idUsuario, 0);
-                ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns");
+                ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns", "Principal.aspx");
             }
             if (rbCredito.Checked)
             {
                 if (Page.IsValid)
                 {
                     Pedido.finalizaPedido(rbCredito.Value, idUsuario, rblParcelas.SelectedIndex + 1);
-                    ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns");
+                    ShowMessage(MessageType.Info, "Compra realizada com sucesso", "Parabéns", "Principal.aspx");
                 }
             }
         }

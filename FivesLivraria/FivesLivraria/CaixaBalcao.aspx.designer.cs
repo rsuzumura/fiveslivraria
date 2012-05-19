@@ -13,15 +13,6 @@ namespace FivesLivraria {
     public partial class CaixaBalcao {
         
         /// <summary>
-        /// lbl_NomeCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_NomeCliente;
-        
-        /// <summary>
         /// box_NomeCliente control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox box_NomeCliente;
-        
-        /// <summary>
-        /// lbl_CPFCliente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_CPFCliente;
         
         /// <summary>
         /// box_CPFCliente control.
@@ -49,13 +31,31 @@ namespace FivesLivraria {
         protected global::System.Web.UI.WebControls.TextBox box_CPFCliente;
         
         /// <summary>
-        /// btnPedido control.
+        /// btnSearchCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPedido;
+        protected global::System.Web.UI.WebControls.ImageButton btnSearchCustomer;
+        
+        /// <summary>
+        /// btnAddProduto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddProduto;
+        
+        /// <summary>
+        /// gvTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvTable;
         
         /// <summary>
         /// ListFrmPgto control.
@@ -67,13 +67,13 @@ namespace FivesLivraria {
         protected global::System.Web.UI.WebControls.RadioButtonList ListFrmPgto;
         
         /// <summary>
-        /// lbl_Pgto control.
+        /// tblCartao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Pgto;
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblCartao;
         
         /// <summary>
         /// txtNumCartao control.
@@ -92,6 +92,15 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCodCartao;
+        
+        /// <summary>
+        /// btnPedido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPedido;
         
         /// <summary>
         /// Label1 control.
@@ -137,14 +146,5 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea area_Cupom;
-        
-        /// <summary>
-        /// gvTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTable;
     }
 }

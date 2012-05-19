@@ -13,30 +13,30 @@ namespace FivesLivraria {
     public partial class CaixaOpcoes {
         
         /// <summary>
-        /// Balcao control.
+        /// btnBalcao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Balcao;
+        protected global::System.Web.UI.WebControls.Button btnBalcao;
         
         /// <summary>
-        /// Pedidos control.
+        /// btnPedidos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Pedidos;
+        protected global::System.Web.UI.WebControls.Button btnPedidos;
         
         /// <summary>
-        /// Caixa control.
+        /// btnCaixa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Caixa;
+        protected global::System.Web.UI.WebControls.Button btnCaixa;
     }
 }

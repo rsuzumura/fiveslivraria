@@ -7,10 +7,9 @@ go
 create procedure spExclui_item_carrinho (
 	@idCarrinho int
 ) as
-begin
-	
-	
-	delete from Carrinho where idCarrinho = @idCarrinho
-	
-	
+begin	
+	delete from 
+		Carrinho 
+	where 
+		idCarrinho = @idCarrinho;
 end

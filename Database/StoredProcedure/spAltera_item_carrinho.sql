@@ -5,18 +5,16 @@ if object_id(@o, 'P') is not null begin
 end;
 go
 create procedure spAltera_item_carrinho (
-	@nrQtdProduto int
+	 @nrQtdProduto  int
 	,@idCarrinho	int
 ) as
-begin
-	
-	
-			
+begin		
 	update c set 
-	c.nrQtdProduto = @nrQtdProduto
-	,c.vlFinal = @nrQtdProduto * p.vlPreco
-	from Carrinho c 
-	inner join Produtos p ON
-	c.idProduto = p.idProduto
-	where idCarrinho = @idCarrinho
+		 c.nrQtdProduto = @nrQtdProduto
+		,c.vlFinal		= @nrQtdProduto * p.vlPreco
+	from 
+		Carrinho c 
+		inner join Produtos p ON c.idProduto = p.idProduto
+	where 
+		idCarrinho = @idCarrinho;
 end
