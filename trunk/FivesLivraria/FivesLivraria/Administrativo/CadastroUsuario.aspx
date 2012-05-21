@@ -11,6 +11,8 @@
             ToolTip="Criar um novo usuário" OnClick="btnCancel_Click" TabIndex="10" />
     </div>
     <br />
+    <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
+        CssClass="validationMessage" />
     <div class="divForm" style="height: 300px;">
         <div class="divFormHeader">
             &nbsp;&nbsp;Cadastro de Usuários
