@@ -1,0 +1,11 @@
+Cadastro de Categorias (Perfil Administrador)
+
+
+Botões:
+
+Novo: Permite incluir uma nova categoria à base de dados.
+
+--
+
+Filtro: Localiza a categoria pelo nome ou parte dela.
+

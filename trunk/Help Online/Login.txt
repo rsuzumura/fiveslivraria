@@ -1,0 +1,39 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>
+
+Help Online - [transação]
+
+</TITLE>
+
+</HEAD>
+
+<BODY>
+
+
+Login
+
+A tela de Login é responsável pela transação de autenticação dos usuários que utilizam o sistema.
+
+Campos:
+
+Usuário: campo alfanumérico que identifica o usuário no sistema.
+
+Senha: campo alfanumérico <colocar a regra de caracteres>. 
+
+Links: 
+
+Esqueci minha Senha: Abre a transação de resgate da senha cadastrada.
+
+Botões:
+
+Entrar: Efetua a autenticação do usuário no sistema, segundo seu perfil, através das credenciais acima digitadas.
+
+Cadastrar: Abre a transação de cadastro de novos clientes para acesso ao sistema.
+
+
+</BODY>
+
+</HTML>

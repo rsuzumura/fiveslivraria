@@ -1,0 +1,15 @@
+Produtos
+
+Permite incluir, excluir e localizar produtos através de todo ou parte de seu nome na caixa de texto, podendo ainda ser filtrado por categoria (combo box à esquerda).
+
+--
+
+Novo:
+
+Abre a transação para criar novos produtos na base do sistema.
+
+--
+
+Filtro:
+
+Permite localizar produtos através de todo ou parte de seu nome na caixa de texto, podendo ainda ser filtrado por categoria (combo box à esquerda).
