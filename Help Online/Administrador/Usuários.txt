@@ -1,0 +1,16 @@
+Usuários cadastro
+
+
+Permite localizar ou cadastrar novos usuários à base do sistema.
+
+
+Botões:
+
+Novo: Abre o formulário para criação de novos usuários.
+
+--
+
+Filtro
+
+Permite localizar usuários na base de dados através de todo ou parte do seu nome. O filtro pode ser feito também por perfil de acesso, através da caixa de combo à esquerda.
+
