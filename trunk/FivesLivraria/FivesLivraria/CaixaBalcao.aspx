@@ -4,140 +4,128 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br />
-    <div>
-        <div class="formHeader">
-            Atendimento - Balcão
-        </div>
-        <div>
-            <table class="data">
-                <colgroup>
-                    <col width="10%" />
-                    <col width="60%" />
-                    <col width="10%" />
-                    <col width="20%" />
-                </colgroup>
-                <tr>
-                    <td class="name">
-                        Cliente:
-                    </td>
-                    <td>
-                        <asp:TextBox ID="box_NomeCliente" runat="server" ReadOnly="true" Width="90%"></asp:TextBox>
-                    </td>
-                    <td class="name">
-                        CPF/CNPJ:
-                    </td>
-                    <td>
-                        <asp:TextBox ID="box_CPFCliente" runat="server" Width="80%"> </asp:TextBox>
-                        <asp:ImageButton ID="btnSearchCustomer" runat="server" ToolTip="Buscar Cliente" ImageUrl="~/Images/icon_search_16px.gif" />
-                    </td>
-                </tr>
-            </table>
-        </div>
+
+    <p>
         <br />
-        <div>
-            <asp:Button ID="btnAddProduto" runat="server" Text="Adicionar Produto" Width="200px" />
-        </div>
-        <br />
-        <div style="height: 200px; overflow-y: scroll;">
-            Produtos
-            <asp:GridView ID="gvTable" runat="server" AutoGenerateColumns="False" Style="width: 182px;
-                margin-top: 0px;" DataKeyNames="idTable" OnRowCommand="gvTable_RowCommand" EmptyDataText="Nenhum produto foi selecionado.">
-                <Columns>
-                    <asp:TemplateField HeaderText="Descrição">
-                        <ItemTemplate>
-                            <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"/Images/"+ Eval("nmImagem") %>'
-                                Width="170" />
-                            <asp:Label ID="nmTitulo" runat="server" Text='<%#Eval("nmTitulo")%>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:ButtonField ButtonType="Button" CommandName="excluir" Text="Excluir" />
-                    <asp:TemplateField HeaderText="Quantidade">
-                        <ItemTemplate>
-                            <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' Width="40" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:ButtonField ButtonType="Button" CommandName="atualizar" Text="Atualizar" />
-                    <asp:BoundField DataField="vlPreco" HeaderText="Preço Unitário" SortExpression="idProduto" />
-                    <asp:BoundField DataField="vlFinal" HeaderText="Valor Final" SortExpression="nmTitulo" />
-                </Columns>
-            </asp:GridView>
-        </div>        
-    </div>
-    <div id="Pedido">
-        <div align="left">
-            <table class="data">
-                <colgroup>
-                    <col width="10%" />
-                    <col width="20%" />
-                    <col width="70%" />
-                </colgroup>
-                <tr>
-                    <td class="name">
-                        Forma de pagamento:
-                    </td>
-                    <td>
-                        <asp:RadioButtonList ID="ListFrmPgto" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ListFrmPgto_SelectedIndexChanged">
-                            <asp:ListItem Value="1" Selected="True">Dinheiro</asp:ListItem>
-                            <asp:ListItem Value="2">Crédito</asp:ListItem>
-                            <asp:ListItem Value="3">Débito</asp:ListItem>
-                        </asp:RadioButtonList>
-                    </td>
-                    <td>
-                        <table id="tblCartao" runat="server" visible="false">
-                            <tr>
-                                <td>
-                                    Nº do Cartão:
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtNumCartao" runat="server" Visible="false" MaxLength="16" Style="width: 204px;" />
-                                </td>
-                                <td>
-                                    Código de segurança:
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtCodCartao" runat="server" Visible="false" MaxLength="3" Style="width: 47px;" />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <asp:Button ID="btnPedido" runat="server" Text="Gerar Pedido" OnClick="btnPedido_onClick" />
-    </div>
-    <div id="itensPedido">
-        <asp:Label ID="Label1" runat="server" Text="Label" Style="width: 136px; height: 15px;"> Escolha o Item: </asp:Label>
-        <asp:Button ID="btnItem" runat="server" Text="Adicionar Item" OnClick="btnItem_onClick" />
-        <asp:DropDownList ID="listProdutosTeste" runat="server" Style="width: 182px; margin-top: 0px;">
-            <asp:ListItem Selected="True" Value="1">Prod 01</asp:ListItem>
-            <asp:ListItem Value="2">Prod 02</asp:ListItem>
-            <asp:ListItem Value="3">Prod 03</asp:ListItem>
-            <asp:ListItem Value="4">Prod 04</asp:ListItem>
-            <asp:ListItem Value="5">Prod 05</asp:ListItem>
+    </p>
+    <p>
+        <asp:Label ID="lblNome" 
+            style="position:absolute; top: 227px; left: 121px; width: 65px;" runat="server" 
+            Text="Nome: " ></asp:Label>
+        <asp:Label ID="lblArea_Cupom" 
+            style="position:absolute; top: 181px; left: 848px;" runat="server" 
+            Text="Simulação Cupom"></asp:Label>
+    </p>
+    <p>
+        <asp:TextBox ID="box_NomeCliente" 
+            style="position:absolute; top: 225px; left: 185px;" runat="server"></asp:TextBox>
+        <asp:TextBox ID="box_CPFCliente" 
+            style="position:absolute; top: 259px; left: 183px;" runat="server"></asp:TextBox>
+    <asp:RadioButtonList ID="ListFrmPgto" runat="server" AutoPostBack="True" 
+        Height="83px" Width="97px" 
+        style="position:absolute; top: 220px; left: 359px;" 
+            onselectedindexchanged="ListFrmPgto_SelectedIndexChanged">
+        <asp:ListItem Selected="True" Value="0">Dinheiro</asp:ListItem>
+        <asp:ListItem Value="1">Crédito</asp:ListItem>
+        <asp:ListItem Value="2">Débito</asp:ListItem>
+    </asp:RadioButtonList>
+        
+        <asp:Label ID="lblFrmPgto" style="position:absolute; top: 200px; left: 352px; margin-top: 0px;" 
+            runat="server" Text="Forma de Pagamento"></asp:Label>
+        <asp:Label ID="lblCartao" style="position:absolute; top: 200px; left: 578px;" 
+            runat="server" Text="Dados Cartão" Visible="False"></asp:Label>
+    </p>
+    <p>
+        <asp:Label ID="lblCPF" 
+            style="position:absolute; top: 259px; left: 119px; width: 62px;" runat="server" 
+            Text="CPF"></asp:Label>
+        <asp:Label ID="lblNumCartao" 
+            style="position:absolute; top: 229px; left: 499px;" runat="server" 
+            Text="Numero Cartão" Visible="False"></asp:Label>
+        <asp:Label ID="lblCodCartao" 
+            style="position:absolute; top: 262px; left: 500px; height: 15px; width: 103px;" 
+            runat="server" Text="Codigo Cartão" Visible="False"></asp:Label>
+
+        <asp:TextBox ID="txtNumCartao" 
+            style="position:absolute; top: 229px; left: 601px; width: 196px;" 
+            runat="server" MaxLength="16" Rows="1" Visible="False" ></asp:TextBox>
+        <asp:TextBox ID="txtCodCartao" 
+            style="position:absolute; top: 258px; left: 604px; width: 59px; margin-top: 0px;" 
+            runat="server" MaxLength="3" Rows="1" Visible="False"></asp:TextBox>
+
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        <asp:DropDownList ID="listProdutosTeste" 
+            style="position:absolute; top: 327px; left: 233px; width: 210px;" 
+            runat="server" >
+            <asp:ListItem Value="1">Produto 01</asp:ListItem>
+            <asp:ListItem Value="2">Produto 02</asp:ListItem>
+            <asp:ListItem Value="03">Produto 03</asp:ListItem>
+            <asp:ListItem Value="04">Produto 04</asp:ListItem>
+            <asp:ListItem Value="05">Produto 05</asp:ListItem>
         </asp:DropDownList>
-    </div>
-    <div id="areas">
-        <textarea id="area_TEF" name="S2" cols="30" readonly="readonly" rows="1000" runat="server"
-            style="background-color: #66CCFF; height: 115px;" title="Comprovantes TEF" visible="True"></textarea>
-        <textarea id="area_Cupom" name="S1" readonly="readonly" rows="1000" cols="50" title="Cupons Impressos"
-            runat="server" style="background-color: #FFFFCC; width: 464px; height: 344px;"
-            visible="True">
-       </textarea>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />        
-    </div>
+        
+        <textarea id="area_Cupom" runat="server" rows="1000" cols="60"
+            style="position:absolute; height: 215px; top: 197px; left: 815px; width: 420px;" 
+            name="S1"></textarea>
+        
+        <asp:Button ID="btnPedido" style="position:absolute; top: 327px; left: 619px;" 
+            runat="server" Text="Finalizar" 
+            Width="105px" onclick="btnPedido_Click" />
+
+
+        <asp:Button ID="btnItem" runat="server" 
+            style="position:absolute; top: 326px; left: 477px;" Text="Adicionar" 
+            onclick="btnItem_Click" />
+
+    </p>
+        <textarea id="area_TEF" runat="server" rows="1000" cols="60"
+        style="position:absolute; top: 453px; left: 815px; width: 420px; height: 99px;" 
+        name="S1"></textarea>
+        
+        <asp:Table ID="tblItensTeste" style="position:absolute; top: 381px; left: 208px; width: 517px;" 
+        runat="server" GridLines="Horizontal">
+            <asp:TableHeaderRow> 
+                <asp:TableHeaderCell Text="Código"> </asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Produto"> </asp:TableHeaderCell>
+                <asp:TableHeaderCell Text="Valor"> </asp:TableHeaderCell>
+            </asp:TableHeaderRow>
+        </asp:Table>
+
+
+<br />
+<br />
+
+<br />
+<br />
+<br />
+    <asp:Label ID="lblArea_TEF" style="position:absolute; top: 434px; left: 849px;" 
+        runat="server" Text="Simulação TEF"></asp:Label>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 </asp:Content>

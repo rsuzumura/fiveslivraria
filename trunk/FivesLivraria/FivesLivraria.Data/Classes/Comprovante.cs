@@ -6,6 +6,7 @@ using System.IO;
 
 namespace FivesLivraria.Data.Classes
 {
+   [Serializable]
    public class Comprovante
    {
       // ------------------------------------------------------------------
