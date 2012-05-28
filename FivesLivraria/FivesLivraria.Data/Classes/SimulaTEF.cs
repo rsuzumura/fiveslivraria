@@ -7,6 +7,7 @@ using System.Collections;
 
 namespace FivesLivraria.Data.Classes
 {
+   [Serializable]
    public class SimulaTEF
    {
       public const string ARQUIVO = @Comprovante.PATH+"simulatef.txt";  // configurar conforme o servidor
@@ -17,8 +18,8 @@ namespace FivesLivraria.Data.Classes
       // numero_cartao;digito_verificador;valor_limite
       // -------------------------------------------------
 
-      public long numeroCartao { get; set; }
-      public int codigoVerificador {get; set; }
+      public string numeroCartao { get; set; }
+      public string codigoVerificador {get; set; }
       public bool statusAprovacao {get; set;}
       public double valorTransacao { get; set; }
       protected List<String> Dados;
@@ -26,7 +27,6 @@ namespace FivesLivraria.Data.Classes
       public SimulaTEF()
       {
          this.loadDados();
-         this.statusAprovacao = this.confirmar();
       }
 
       private void loadDados()
@@ -43,10 +43,10 @@ namespace FivesLivraria.Data.Classes
          }
       }
 
-      private bool confirmar()
+      public bool confirmar()
       {
          bool retorno = false;
-         string keyCard = (numeroCartao.ToString()) + (codigoVerificador.ToString());
+         string keyCard = (numeroCartao + codigoVerificador);
          int tamDados = Dados.Count;
          
          if ( tamDados > 0)
@@ -66,6 +66,7 @@ namespace FivesLivraria.Data.Classes
                }
             }
          }
+         this.statusAprovacao = retorno;
          return retorno;
       }
    }

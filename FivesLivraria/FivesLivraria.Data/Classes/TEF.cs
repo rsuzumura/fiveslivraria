@@ -5,13 +5,14 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
+   [Serializable]
    public class TEF : FormaPagamento
    {
       public const string linhaDiv = "==================================================";
       public const string CNPJ = "11.222.333/0001-99";
       
-      public long numeroCartao { get; set; }
-      public int codigoCartao { get; set; }
+      public string numeroCartao { get; set; }
+      public string codigoCartao { get; set; }
       public double valorTransacao { get; set; }
       public bool statusConexao { get; set; }
       public long codigoCupom { get; set; }
@@ -28,6 +29,7 @@ namespace FivesLivraria.Data.Classes
             codigoVerificador = codigoCartao,
             valorTransacao = valorTransacao
          };
+         sTef.confirmar();
 
          return sTef.statusAprovacao;
       }
@@ -47,15 +49,15 @@ namespace FivesLivraria.Data.Classes
             txtImprimir += "                1ª VIA" + '\n';
             txtImprimir += " " + '\n';
             txtImprimir += "COO DOCUMENTO VINCULADO:                " + codigoCupom.ToString() + '\n';
-            txtImprimir += "VALOR DA COMPRA  R$                     " + valorTransacao.ToString() + '\n';
-            txtImprimir += "VALOR DO PAGAMENTO  R$                  " + valorTransacao.ToString() + '\n';
+            txtImprimir += "VALOR DA COMPRA  R$                     " + valorTransacao.ToString("#0.00") + '\n';
+            txtImprimir += "VALOR DO PAGAMENTO  R$                  " + valorTransacao.ToString("#0.00") + '\n';
             txtImprimir += Comprovante.linhaDIV + '\n';
 
             txtImprimir += "        comprovante de " + operacao + '\n';
             txtImprimir += "CRED FACIL" + '\n';
             txtImprimir += "        Av. Paulista, 534, São Paulo" + '\n';
-            txtImprimir += "term: " + 0001 + "         doc: " + codigoCupom.ToString() + "     lote: " + 0000 + '\n';
-            txtImprimir += DateTime.Today.ToString() + " " + DateTime.Now.ToString() + "     aut: " + codigoAutorizacao.ToString() + "     onl-X" + '\n';
+            txtImprimir += "term: 0001         doc: " + codigoCupom.ToString() + "     lote: 0000" + '\n';
+            txtImprimir += DateTime.Now.ToString() + "     aut: " + codigoAutorizacao.ToString("#000000") + "     onl-X" + '\n';
             txtImprimir += "venda " + operacao + "  a vista" + '\n';
             txtImprimir += "valor venda:                " + valorTransacao.ToString() + '\n';
             txtImprimir += '\n';
@@ -63,7 +65,7 @@ namespace FivesLivraria.Data.Classes
 
             txtImprimir += "EMULADOR DE ECF                     " + /* usuariologado +*/ '\n';
             txtImprimir += "V. 001                              " + /* id maquina + */ '\n';
-            txtImprimir += "                           " + DateTime.Today.ToString() + " " + DateTime.Now.ToString() + '\n';
+            txtImprimir += "                           " + DateTime.Now.ToString() + '\n';
 
             txtImprimir += linhaDiv + '\n';
             txtImprimir += "                2ª via - cliente" + '\n';
@@ -76,10 +78,10 @@ namespace FivesLivraria.Data.Classes
             txtImprimir += Comprovante.cabecalho();
             txtImprimir += "" + '\n';
 
-            txtImprimir += "term: " + 0001 + "         doc: " + codigoCupom.ToString() + "     lote: " + 0000 + '\n';
-            txtImprimir += DateTime.Today.ToString() + " " + DateTime.Now.ToString() + "     aut: " + codigoAutorizacao.ToString() + "     onl-X" + '\n';
+            txtImprimir += "term: 0001         doc: " + codigoCupom.ToString("#000000") + "     lote: 0000" + '\n';
+            txtImprimir += DateTime.Now.ToString() + "     aut: " + codigoAutorizacao.ToString() + "     onl-X" + '\n';
             txtImprimir += "venda " + operacao + "  a vista" + '\n';
-            txtImprimir += "valor venda:                " + valorTransacao.ToString() + '\n';
+            txtImprimir += "valor venda:                " + valorTransacao.ToString("#0.00") + '\n';
 
          return txtImprimir;
       }

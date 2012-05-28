@@ -58,8 +58,11 @@ namespace FivesLivraria.Data.Classes
            double valorTotal = 0.00;
 
            foreach (Produto k in produtos)
+           {
+              if (k.qtdProduto.IsNull)
+                 k.qtdProduto = 1;
               valorTotal = (double)(k.qtdProduto.Value * k.vlPreco.Value);
-
+           }
            return valorTotal;
         }
     }

@@ -5,11 +5,11 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
+   [Serializable]
    public class CupomFiscal
    {
       public ItemPedido item { get; set; }
       public long cliente { get; set; }
-      public long codOperacao { get; set; }
       public double valorPagamento { get; set; }
       public int idFormaPgto { get; set; }
       public int numContadorFiscal { get; set; }
@@ -37,7 +37,7 @@ namespace FivesLivraria.Data.Classes
 
       public void leituraX()
       {
-         string fileName = "leitura_" + DateTime.Today.ToString();
+         string fileName = "leitura_" + DateTime.Now.ToString();
          string result = modelo(false);
          Comprovante oper = new Comprovante
          {
@@ -49,7 +49,7 @@ namespace FivesLivraria.Data.Classes
 
       public void reducaoZ()
       {
-         string fileName = "reducao_"+DateTime.Today.ToString();
+         string fileName = "reducao_"+DateTime.Now.ToString();
          string result = modelo(true);
          Comprovante oper = new Comprovante{
             texto = result,
@@ -64,7 +64,7 @@ namespace FivesLivraria.Data.Classes
          string operacao = ( reducao ? "REDUÇÃO Z" : "LEITURA X" );
 
          txtModelo += Comprovante.cabecalho() + '\n';
-         txtModelo += DateTime.Today.ToString() + " " + DateTime.Now.ToString() +  "                COD: " + codOperacao.ToString()+ '\n';
+         txtModelo += DateTime.Now.ToString() + "                COD: " + codigoCupom.ToString() + '\n';
          txtModelo += "                " + operacao + '\n';
          txtModelo += "MOVIMENTO DIA: " + DateTime.Today.ToString() + '\n';
          
@@ -97,7 +97,7 @@ namespace FivesLivraria.Data.Classes
          string txtVenda = "";
 
          txtVenda += Comprovante.cabecalho();
-         txtVenda += DateTime.Today.ToString() + " " + DateTime.Now.ToString() + "                  COO: " + /* codCupom.ToString() + */ '\n';
+         txtVenda += DateTime.Now.ToString() + "                  COO: " + /* codCupom.ToString() + */ '\n';
          txtVenda += "            CUPOM FISCAL" + '\n';
          txtVenda += "item codprod        descricao" + '\n';
          txtVenda += "qtd   um     vlr unit       TIPOTX      vlr item  " + '\n';
@@ -105,9 +105,10 @@ namespace FivesLivraria.Data.Classes
          for (int pos = 0; pos < item.Count(); ++pos )
          {
             Produto prodTmp = item.produtos[pos];
+            prodTmp.qtdProduto = 1;
             double vlrTotal = (double)(prodTmp.vlPreco.Value * prodTmp.qtdProduto.Value);
             txtVenda += pos.ToString() +"  " + prodTmp.idProduto.ToString() + "  " 
-                     + prodTmp.dsProduto.ToString() + '\n';
+                     +  prodTmp.dsProduto.ToString() + '\n';
             txtVenda += prodTmp.qtdProduto.ToString() + "  UN   " + prodTmp.vlPreco.ToString() + "         " + vlrTotal.ToString() + '\n';
          }
          txtVenda += "                          ------------------------" + '\n';
@@ -117,7 +118,7 @@ namespace FivesLivraria.Data.Classes
          txtVenda += Comprovante.linhaDIV + '\n';
          txtVenda += "EMULADOR DE ECF                     " + /* usuariologado +*/ '\n';
          txtVenda += "V. 001                              " + /* id maquina + */ '\n';
-         txtVenda += "                            " + DateTime.Today.ToString() + " " + DateTime.Now.ToString() +'\n';
+         txtVenda += "                            " + DateTime.Now.ToString() + " " + '\n';
 
             // ----------------------------------------------------------
             //  Executa atualização das variáveis de totalizadores
