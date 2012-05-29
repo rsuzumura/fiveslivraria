@@ -3,14 +3,24 @@
 
 <%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript" src="Scripts/keyScripts.js" ></script>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
+    <ajaxToolkit:ToolkitScriptManager ID="ScriptManager" runat="server">
+    </ajaxToolkit:ToolkitScriptManager>
     <div>
-        <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
-            CssClass="validationMessage" ValidationGroup="cadastro" />
-        <asp:ValidationSummary ID="ValidationSummaryEndereco" runat="server" DisplayMode="List"
-            HeaderText="Atenção: verifique os seguintes itens:" ValidationGroup="Endereco"
-            CssClass="validationMessage" />
+        <asp:UpdatePanel ID="updatePanelValidate" runat="server">
+            <ContentTemplate>
+                <asp:ValidationSummary ID="validationResume" runat="server" DisplayMode="List" HeaderText="Atenção: verifique os seguintes itens:"
+                    CssClass="validationMessage" ValidationGroup="cadastro" />
+                <asp:ValidationSummary ID="ValidationSummaryEndereco" runat="server" DisplayMode="List"
+                    HeaderText="Atenção: verifique os seguintes itens:" ValidationGroup="Endereco"
+                    CssClass="validationMessage" />
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+            </Triggers>
+        </asp:UpdatePanel>
     </div>
     <div class="divCadastro">
         <div class="header">
@@ -172,7 +182,7 @@
                                                 CPF:&nbsp;&nbsp;
                                             </td>
                                             <td style="text-align: left;">
-                                                <asp:TextBox ID="txtCPF" runat="server"></asp:TextBox>
+                                                <asp:TextBox ID="txtCPF" runat="server" onkeypress="validateCPF(this, event);"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -271,93 +281,97 @@
                     </table>
                 </eo:PageView>
                 <eo:PageView ID="endereco" runat="server" Width="100%">
-                    <table class="data">
-                        <colgroup>
-                            <col width="15%" />
-                            <col width="25%" />
-                            <col width="10%" />
-                            <col width="15%" />
-                            <col width="10%" />
-                            <col width="17%" />
-                            <col width="9%" />
-                        </colgroup>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvEnderecoCliente" runat="server" Text="*" ErrorMessage="O endereço é obrigatório"
-                                    ControlToValidate="txtEnderecoCliente" ValidationGroup="Endereco"></asp:RequiredFieldValidator>
-                                Endereço:
-                            </td>
-                            <td colspan="4" style="text-align: left;">
-                                <asp:TextBox ID="txtEnderecoCliente" runat="server" Width="90%"></asp:TextBox>
-                            </td>
-                            <td class="name">
-                                Nº:
-                            </td>
-                            <td style="text-align: left;">
-                                <asp:TextBox ID="txtNumero" runat="server" Width="74%"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                Complemento:
-                            </td>
-                            <td style="text-align: left;">
-                                <asp:TextBox ID="txtComplemento" runat="server" Width="90%"></asp:TextBox>
-                            </td>
-                            <td class="name">
-                                CEP:
-                            </td>
-                            <td style="text-align: left;">
-                                <asp:TextBox ID="txtCEP" runat="server" Width="90%"></asp:TextBox>
-                            </td>
-                            <td class="name">
-                                Bairro:
-                            </td>
-                            <td colspan="2" style="text-align: left;">
-                                <asp:TextBox ID="txtBairro" runat="server" Width="92%"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                Município:
-                            </td>
-                            <td colspan="2" style="text-align: left;">
-                                <asp:DropDownList ID="dropMunicipio" runat="server" DataTextField="nmMunicipio" DataValueField="idMunicipio"
-                                    Width="100%">
-                                </asp:DropDownList>
-                            </td>
-                            <td class="name">
-                                Estado:
-                            </td>
-                            <td colspan="3" style="text-align: left;">
-                                <asp:DropDownList ID="dropEstado" runat="server" DataTextField="nmEstado" DataValueField="idEstado"
-                                    Width="96%" AutoPostBack="true" OnSelectedIndexChanged="dropEstado_SelectedIndexChanged">
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr align="center">
-                            <td colspan="7">
-                                <asp:Button ID="btnAddEndereco" runat="server" Text="Adicionar Endereço" Width="200px"
-                                    OnClick="btnAddEndereco_Click" ValidationGroup="Endereco" CausesValidation="false" />
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="width: 98%; height: 100px; overflow-y: scroll;">
-                        <asp:GridView ID="gridEnderecos" runat="server" Width="99%" AutoGenerateColumns="false"
-                            OnRowDeleting="gridEnderecos_RowDeleting">
-                            <Columns>
-                                <asp:BoundField DataField="dsEndereco" HeaderText="Endereço" />
-                                <asp:BoundField DataField="nrEndereco" HeaderText="Nº" />
-                                <asp:BoundField DataField="dsBairro" HeaderText="Bairro" />
-                                <asp:TemplateField>
-                                    <ItemTemplate>
-                                        <asp:ImageButton ID="btnDelete" runat="server" CommandName="Delete" ImageUrl="~/Images/icon_recyclebin_16px.gif"
-                                            CausesValidation="false" />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
+                    <asp:UpdatePanel ID="UpdateEndereco" runat="server">
+                        <ContentTemplate>
+                            <table class="data">
+                                <colgroup>
+                                    <col width="15%" />
+                                    <col width="25%" />
+                                    <col width="10%" />
+                                    <col width="15%" />
+                                    <col width="10%" />
+                                    <col width="17%" />
+                                    <col width="9%" />
+                                </colgroup>
+                                <tr>
+                                    <td class="name">
+                                        <asp:RequiredFieldValidator ID="rfvEnderecoCliente" runat="server" Text="*" ErrorMessage="O endereço é obrigatório"
+                                            ControlToValidate="txtEnderecoCliente" ValidationGroup="Endereco"></asp:RequiredFieldValidator>
+                                        Endereço:
+                                    </td>
+                                    <td colspan="4" style="text-align: left;">
+                                        <asp:TextBox ID="txtEnderecoCliente" runat="server" Width="90%"></asp:TextBox>
+                                    </td>
+                                    <td class="name">
+                                        Nº:
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <asp:TextBox ID="txtNumero" runat="server" Width="74%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        Complemento:
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <asp:TextBox ID="txtComplemento" runat="server" Width="90%"></asp:TextBox>
+                                    </td>
+                                    <td class="name">
+                                        CEP:
+                                    </td>
+                                    <td style="text-align: left;">
+                                        <asp:TextBox ID="txtCEP" runat="server" Width="90%"></asp:TextBox>
+                                    </td>
+                                    <td class="name">
+                                        Bairro:
+                                    </td>
+                                    <td colspan="2" style="text-align: left;">
+                                        <asp:TextBox ID="txtBairro" runat="server" Width="92%"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        Município:
+                                    </td>
+                                    <td colspan="2" style="text-align: left;">
+                                        <asp:DropDownList ID="dropMunicipio" runat="server" DataTextField="nmMunicipio" DataValueField="idMunicipio"
+                                            Width="100%">
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td class="name">
+                                        Estado:
+                                    </td>
+                                    <td colspan="3" style="text-align: left;">
+                                        <asp:DropDownList ID="dropEstado" runat="server" DataTextField="nmEstado" DataValueField="idEstado"
+                                            Width="96%" AutoPostBack="true" OnSelectedIndexChanged="dropEstado_SelectedIndexChanged">
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr align="center">
+                                    <td colspan="7">
+                                        <asp:Button ID="btnAddEndereco" runat="server" Text="Adicionar Endereço" Width="200px"
+                                            OnClick="btnAddEndereco_Click" ValidationGroup="Endereco" CausesValidation="false" />
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="width: 98%; height: 100px; overflow-y: scroll;">
+                                <asp:GridView ID="gridEnderecos" runat="server" Width="99%" AutoGenerateColumns="false"
+                                    OnRowDeleting="gridEnderecos_RowDeleting">
+                                    <Columns>
+                                        <asp:BoundField DataField="dsEndereco" HeaderText="Endereço" />
+                                        <asp:BoundField DataField="nrEndereco" HeaderText="Nº" />
+                                        <asp:BoundField DataField="dsBairro" HeaderText="Bairro" />
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:ImageButton ID="btnDelete" runat="server" CommandName="Delete" ImageUrl="~/Images/icon_recyclebin_16px.gif"
+                                                    CausesValidation="false" />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </eo:PageView>
             </eo:MultiPage>
         </div>
@@ -366,11 +380,34 @@
                 <tr>
                     <td colspan="2">
                         <br />
-                        <asp:Button ID="btnSave" runat="server" Text="Cadastrar" CssClass="button" OnClick="btnSave_Click"
-                            CausesValidation="false" />
+                        <asp:UpdatePanel ID="updateSubmit" runat="server">
+                            <ContentTemplate>
+                                <asp:Button ID="btnSave" runat="server" Text="Cadastrar" CssClass="button" OnClick="btnSave_Click"
+                                    CausesValidation="false" />
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                     </td>
                 </tr>
             </table>
         </div>
     </div>
+    <asp:Panel ID="panelUpdateProgress" runat="server" CssClass="ModalUpdateProgress">
+        <asp:UpdateProgress ID="up_progress" DisplayAfter="1" runat="server">
+            <ProgressTemplate>
+                <div id="updateDiv" class="loading">
+                    <img alt="" src="Images/ajax-loader.gif" />
+                    <br />
+                    Carregando...
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+    </asp:Panel>
+    <ajaxToolkit:ModalPopupExtender ID="modalProgress" runat="server" TargetControlID="panelUpdateProgress"
+        BackgroundCssClass="modalBackground" PopupControlID="panelUpdateProgress" RepositionMode="RepositionOnWindowResizeAndScroll">
+    </ajaxToolkit:ModalPopupExtender>
+    <script type="text/javascript">
+        var ModalProgress = '<%= modalProgress.ClientID %>';
+        var panelUpdateProgress = '<%= panelUpdateProgress.ClientID %>';
+    </script>
+    <script type="text/javascript" src="Scripts/jsUpdateProgress.js"></script>
 </asp:Content>
