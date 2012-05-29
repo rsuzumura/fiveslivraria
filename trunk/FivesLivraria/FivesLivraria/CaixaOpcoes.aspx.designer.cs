@@ -13,6 +13,15 @@ namespace FivesLivraria {
     public partial class CaixaOpcoes {
         
         /// <summary>
+        /// btnCaixa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCaixa;
+        
+        /// <summary>
         /// btnBalcao control.
         /// </summary>
         /// <remarks>
@@ -29,14 +38,5 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPedidos;
-        
-        /// <summary>
-        /// btnCaixa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCaixa;
     }
 }

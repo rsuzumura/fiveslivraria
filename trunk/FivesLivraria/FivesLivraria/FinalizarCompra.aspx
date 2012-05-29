@@ -16,7 +16,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"/Images/"+ Eval("nmImagem") %>'
+                                        <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"~/Images/"+ Eval("nmImagem") %>'
                                             Width="80px" />
                                     </td>
                                     <td>

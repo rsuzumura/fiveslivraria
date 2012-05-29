@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FivesLivraria.Data.Classes;
+using System.IO;
+using FivesLivraria.Data;
 
 namespace FivesLivraria
 {
@@ -16,26 +18,36 @@ namespace FivesLivraria
 
         protected void btnAbrirCaixa_onClick(object sender, EventArgs e)
         {
-            bool statusAbertura = false;
-            bool statusFechamento = false;
+            CupomFiscal cupom = null;
+            #region Carregamento da abertura de caixa
+            SchemaManager sm = new SchemaManager();
+            CaixaAcesso ca = null;
+            if (File.Exists(Server.MapPath("/") + "acesso.xml"))
+                ca = sm.LoadFile(Server.MapPath("/"), "acesso.xml");
 
-            //if (Session["statusAberturaCaixa"] != null)
-            //    statusAbertura   = (bool)Session["statusAberturaCaixa"];
-            //if (Session["statusFechamentoCaixa"] != null)
-            //    statusFechamento = (bool)Session["statusFechamentoCaixa"];
-
-            if (!statusAbertura && !statusFechamento)
+            if (ca != null)
             {
-                statusAbertura = true;
-                Session["statusAbertura"] = statusAbertura;
-                CupomFiscal cupom = new CupomFiscal();
-                Session["cupom"] = cupom;
+                if (ca.Exists(Current.UserId, DateTime.Now))
+                    ShowMessage(MessageType.Warning, "O caixa já foi aberto por este usuário.", "Caixa Aberto");
+                else
+                {
+                    ca.acessos.Add(new Acesso() { dataAcesso = DateTime.Now, userId = Current.UserId, userName = Current.UserName });
+                    cupom = new CupomFiscal();
+                    Session["cupom"] = cupom;
+                    ShowMessage(MessageType.Info, string.Format("Caixa aberto pelo usuário {0}", Current.UserName), "Caixa Aberto");
+                }
             }
             else
             {
-                string txtErro = "Caixa não pode ser re-aberto";
-                ShowMessage(MessageType.Error, txtErro, "Erro no Caixa");
+                ca = new CaixaAcesso();
+                ca.acessos = new Acessos();
+                ca.acessos.Add(new Acesso() { dataAcesso = DateTime.Now, userId = Current.UserId, userName = Current.UserName });
+                cupom = new CupomFiscal();
+                Session["cupom"] = cupom;
+                ShowMessage(MessageType.Info, string.Format("Caixa aberto pelo usuário {0}", Current.UserName), "Caixa Aberto");
             }
+            sm.SaveFile("acesso.xml", ca);
+            #endregion
         }
 
         protected void btnReducao_onClick(object sender, EventArgs e)

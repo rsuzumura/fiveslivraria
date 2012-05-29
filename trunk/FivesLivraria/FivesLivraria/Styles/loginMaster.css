@@ -118,3 +118,38 @@
 	font-weight: bold;
 	font-size: 10pt;
 }
+/*	Css Modal and Update	*/
+.modalBackground 
+{
+	background-color:Silver;
+	filter:alpha(opacity=30);
+	opacity:0.3;
+}
+.ModalUpdateProgress
+{
+	position: absolute;
+	width: 152px;
+	height: 37px;
+	padding-left: 10px;
+	display: table-cell;
+	vertical-align: middle;
+}
+.modalPopup 
+{
+	background-color:white;
+	border-width:3px;
+	border-style:double;
+	border-color:#4682B4;
+	padding:3px;	
+}
+.loading
+{
+	border: 1px solid black; 
+	background-color: #FEFEFE;
+	padding: 20px;
+	height: 50px; 
+	width: 130px; 
+	text-align: center; 
+	font-family: Verdana; 
+	font-size: 10pt;
+}
