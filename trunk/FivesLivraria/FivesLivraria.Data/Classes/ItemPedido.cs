@@ -61,7 +61,7 @@ namespace FivesLivraria.Data.Classes
            {
               if (k.qtdProduto.IsNull)
                  k.qtdProduto = 1;
-              valorTotal = (double)(k.qtdProduto.Value * k.vlPreco.Value);
+              valorTotal += (double)(k.qtdProduto.Value * k.vlPreco.Value);
            }
            return valorTotal;
         }

@@ -21,8 +21,8 @@ namespace FivesLivraria.Data.Classes
       public const string CEP = "CEP 01157-989";
       public const string linhaDIV = "--------------------------------------------------";
 
-      public string texto { get; set; }
-      public string nomeArquivo { get; set; }
+      public String texto { get; set; }
+      public String nomeArquivo { get; set; }
 
       public Comprovante()
       {
@@ -33,8 +33,12 @@ namespace FivesLivraria.Data.Classes
          bool retorno = false;
          try
          {
-            StreamWriter outArquivo = new StreamWriter(nomeArquivo);
-            outArquivo.WriteLine(texto);
+            StreamWriter outArquivo = new StreamWriter(this.nomeArquivo);
+            String[] strArray = this.texto.Split('\n');
+            foreach ( String str in strArray )
+               outArquivo.WriteLine( str);
+
+            outArquivo.Close();
          }
          catch
          {
@@ -48,13 +52,15 @@ namespace FivesLivraria.Data.Classes
          bool retorno = false;
          try
          {
-            StreamReader inArquivo = new StreamReader(nomeArquivo);
+            StreamReader inArquivo = new StreamReader(this.nomeArquivo);
             string line = "";
 
             while ((line = inArquivo.ReadLine()) != null)
             {
                this.texto += line;
             }
+
+            inArquivo.Close();
          }
          catch
          {
@@ -63,9 +69,9 @@ namespace FivesLivraria.Data.Classes
          return retorno;
       }
 
-      public static string cabecalho( bool endereco = false )
+      public static String cabecalho( bool endereco = false )
       {
-         string txtRetorno = "";
+         String txtRetorno = "";
             txtRetorno += "             FIVE's LIVRARIA ME." + '\n';
 
                if (endereco)

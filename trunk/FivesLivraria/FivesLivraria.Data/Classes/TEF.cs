@@ -29,7 +29,9 @@ namespace FivesLivraria.Data.Classes
             codigoVerificador = codigoCartao,
             valorTransacao = valorTransacao
          };
-         sTef.confirmar();
+
+         if (sTef.confirmar())
+            this.criarAutorizacao();
 
          return sTef.statusAprovacao;
       }
@@ -39,10 +41,10 @@ namespace FivesLivraria.Data.Classes
          return true;
       }
 
-      public string imprimir()
+      public String imprimir()
       {
          string operacao = (id == PAGAMENTOCREDITO ? "CREDITO" : "DEBITO");
-         string txtImprimir = "";
+         String txtImprimir = "";
 
             txtImprimir += Comprovante.cabecalho(true);
             txtImprimir += "            COMPROVANTE " + operacao + '\n';
@@ -100,7 +102,7 @@ namespace FivesLivraria.Data.Classes
 
       public void saveFile()
       {
-         string dados = this.imprimir();
+         String dados = this.imprimir();
          string fileName = @Comprovante.PATH+codigoAutorizacao.ToString();
 
          Comprovante comp = new Comprovante
