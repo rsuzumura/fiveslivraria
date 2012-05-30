@@ -58,10 +58,10 @@ namespace FivesLivraria.Data.Classes
          oper.saveFile();
       }
 
-      public string modelo( bool reducao )
+      public String modelo( bool reducao )
       {
-         string txtModelo = "";
-         string operacao = ( reducao ? "REDUÇÃO Z" : "LEITURA X" );
+         String txtModelo = "";
+         String operacao = ( reducao ? "REDUÇÃO Z" : "LEITURA X" );
 
          txtModelo += Comprovante.cabecalho() + '\n';
          txtModelo += DateTime.Now.ToString() + "                COD: " + codigoCupom.ToString() + '\n';
@@ -76,15 +76,15 @@ namespace FivesLivraria.Data.Classes
          txtModelo += "Cumpom Fiscal Cancelado:                000000" + '\n';
 
          txtModelo += "            TOTALIZADORES" + '\n';
-         txtModelo += "Venda Bruta Diária:              " + sumVendasGerais.ToString() + '\n';
+         txtModelo += "Venda Bruta Diária:              " + sumVendasGerais.ToString("#0.00") + '\n';
          txtModelo += "Total de ICMS:                   0000,00" + '\n';
-         txtModelo += "Venda Líquida:                   " + sumVendasGerais.ToString() + '\n';
+         txtModelo += "Venda Líquida:                   " + sumVendasGerais.ToString("#0.00") + '\n';
 
          txtModelo += "            MEIOS DE PAGAMENTO" + '\n';
          txtModelo += "Nº   MEIO PAGAMENTO         VALOR ACUMULADO (R$)" + /*  + */'\n';
-         txtModelo += "01    DINHEIRO                  " + sumPgtoDinheiro.ToString() + '\n';
-         txtModelo += "02    CARTÃO DE CRÉDITO         " + sumPgtoCredito.ToString() + '\n';
-         txtModelo += "03    CARTÃO DE DÉBITO          " + sumPgtoDebito.ToString() + '\n';
+         txtModelo += "01    DINHEIRO                  " + sumPgtoDinheiro.ToString("#0.00") + '\n';
+         txtModelo += "02    CARTÃO DE CRÉDITO         " + sumPgtoCredito.ToString("#0.00") + '\n';
+         txtModelo += "03    CARTÃO DE DÉBITO          " + sumPgtoDebito.ToString("#0.00") + '\n';
 
          txtModelo += Comprovante.linhaDIV + '\n';
          txtModelo += "   CAIXA: " + /* usuariologado + */ '\n';
@@ -92,13 +92,14 @@ namespace FivesLivraria.Data.Classes
          return txtModelo;
       }
 
-      public string imprimeCupom()
+      public String imprimeCupom()
       {
-         string txtVenda = "";
+         String txtVenda = "";
 
          txtVenda += Comprovante.cabecalho();
-         txtVenda += DateTime.Now.ToString() + "                  COO: " + /* codCupom.ToString() + */ '\n';
+         txtVenda += DateTime.Now.ToString() + "                  COO: " + codigoCupom.ToString() + '\n';
          txtVenda += "            CUPOM FISCAL" + '\n';
+         txtVenda += "Cliente: " + cliente.ToString(@"000\.000\.000-00") + '\n';
          txtVenda += "item codprod        descricao" + '\n';
          txtVenda += "qtd   um     vlr unit       TIPOTX      vlr item  " + '\n';
          txtVenda += "" + '\n';
@@ -106,13 +107,15 @@ namespace FivesLivraria.Data.Classes
          {
             Produto prodTmp = item.produtos[pos];
             prodTmp.qtdProduto = 1;
-            double vlrTotal = (double)(prodTmp.vlPreco.Value * prodTmp.qtdProduto.Value);
-            txtVenda += pos.ToString() +"  " + prodTmp.idProduto.ToString() + "  " 
+            double vlrUnit = (double)prodTmp.vlPreco.Value;
+            double vlrTotal = (double)( vlrUnit * prodTmp.qtdProduto.Value);
+            txtVenda += (pos+1).ToString() +"  " + prodTmp.idProduto.ToString() + "  " 
                      +  prodTmp.dsProduto.ToString() + '\n';
-            txtVenda += prodTmp.qtdProduto.ToString() + "  UN   " + prodTmp.vlPreco.ToString() + "         " + vlrTotal.ToString() + '\n';
+            txtVenda += ">> " + prodTmp.qtdProduto.ToString() + "  UN      " + vlrUnit.ToString("#0.00") + "                  "
+                     + "       " + vlrTotal.ToString("#0.00") + '\n';
          }
          txtVenda += "                          ------------------------" + '\n';
-         txtVenda += "  TOTAL  R$                           " + item.totalizarItens().ToString() + '\n';
+         txtVenda += "  TOTAL  R$                           " + item.totalizarItens().ToString("#0.00") + '\n';
          txtVenda += "FORMAPGTO                             " + /* valorPagamento + */'\n'; // identificar via get na interface?
          txtVenda += "TROCO                                 " + /* diferenca */ '\n'; // calcular diferenca dinheiro superior ao total
          txtVenda += Comprovante.linhaDIV + '\n';
@@ -156,8 +159,8 @@ namespace FivesLivraria.Data.Classes
 
       public void saveFile()
       {
-         string dados = this.imprimeCupom();
-         string fileName = @Comprovante.PATH + this.codigoCupom;
+         String dados = this.imprimeCupom();
+         String fileName = @Comprovante.PATH + this.codigoCupom;
          Comprovante comp = new Comprovante {
             texto = dados,
             nomeArquivo = fileName
