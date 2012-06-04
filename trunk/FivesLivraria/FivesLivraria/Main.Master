@@ -16,10 +16,15 @@
     <div style="width: 100%;" align="center">
         <div class="main">
             <div class="loginHeader">
-                <asp:LinkButton ID="lkbCarrinho" runat="server" Text="Ver Carrinho" CssClass="link"
-                    OnClick="lkbCarrinho_Click"></asp:LinkButton>&nbsp;&nbsp; Seja bem vindo,
+                Seja bem vindo,
                 <asp:Label ID="lblUser" runat="server" CssClass="labelHeader" />!&nbsp;&nbsp;
-                <asp:LinkButton ID="lkbExit" runat="server" Text="Sair" OnClick="lkbExit_Click" CssClass="link"></asp:LinkButton>&nbsp;&nbsp;
+                <asp:LinkButton ID="lkbCarrinho" runat="server" CssClass="link"
+                    OnClick="lkbCarrinho_Click">Ver Carrinho</asp:LinkButton>
+                <span id="separator" runat="server" visible="false">&nbsp;|&nbsp;</span>
+                <asp:LinkButton ID="lkbCadastro" runat="server" Text="Cadastrar" OnClick="lkbCadastro_Click"
+                    CssClass="link"></asp:LinkButton>&nbsp;|&nbsp;
+                <asp:LinkButton ID="lkbLogin" runat="server" Text="Sair" OnClick="lkbLogin_Click"
+                    CssClass="link"></asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="header">
                 &nbsp;&nbsp;Five'S Livraria

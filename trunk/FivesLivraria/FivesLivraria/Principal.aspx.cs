@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using FivesLivraria.Data.Classes;
-using FivesLivraria.Data;
 using System.Data;
 using System.IO;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using FivesLivraria.Data;
 
 namespace FivesLivraria
 {
@@ -148,10 +144,15 @@ namespace FivesLivraria
         }
 
         protected void DataList1_ItemCommand(object source, DataListCommandEventArgs e)
-        {   
-            Label id = (Label)e.Item.FindControl("idProduto");
-            FivesLivraria.Data.Classes.Carrinho.Insert(Convert.ToInt32(id.Text), Current.UserId);
-            Response.Redirect("Carrinho.aspx");
+        {
+            if (Current.UserId != 0)
+            {
+                Label id = (Label)e.Item.FindControl("idProduto");
+                FivesLivraria.Data.Classes.Carrinho.Insert(Convert.ToInt32(id.Text), Current.UserId);
+                Response.Redirect("~/Carrinho.aspx");
+            }
+            else
+                Response.Redirect("~/Login.aspx", false);
         }
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)

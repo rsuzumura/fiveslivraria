@@ -27,6 +27,7 @@ namespace FivesLivraria.Data
         public SqlDecimal vlPreco { get; set; }
         public SqlInt32 idCategoria { get; set; }
         public SqlString dsCategoria { get; set; }
+        public SqlDecimal vlFinal { get; set; }
 
         //[XmlIgnore]
         //public int codigo { get; set; }
@@ -83,6 +84,11 @@ namespace FivesLivraria.Data
         public static DataSet List(int categoria, string nmProduto, int pageIndex, int pageSize, out int totalRowCount)
         {
             return Dataset.ConverteListParaDataTable(SqlXmlGet<ListaProdutos>.Select("spLista_produtos", pageIndex, pageSize, out totalRowCount, new SqlXmlParams("categoria", categoria, "nmProduto", nmProduto)));
+        }
+
+        public static ListaProdutos ListByPedido(int idPedido)
+        {
+            return SqlXmlGet<ListaProdutos>.Select("spLista_produtosByPedido", new SqlXmlParams("idPedido", idPedido));
         }
     }
 }

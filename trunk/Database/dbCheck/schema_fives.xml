@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Server="192.168.0.70" Name="FiveLivraria" User="sa" xmlns="hppt://www.orbium.com.br">
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Server="RSUZUMURA-PC" Name="FivesLivraria" User="sa" xmlns="hppt://www.orbium.com.br">
   <Tables>
     <Table Name="Produtos">
       <Columns>
@@ -13,9 +13,13 @@
         <Column Name="nrAno" Type="int" Length="0" Nullable="false" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
         <Column Name="dsEdicao" Type="varchar" Length="50" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
         <Column Name="qtdProduto" Type="int" Length="0" Nullable="false" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nmImagem" Type="varchar" Length="100" Nullable="true" Ordinal="11" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="vlPreco" Type="decimal" Length="0" Nullable="false" Ordinal="12" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="2" />
+        <Column Name="idCategoria" Type="int" Length="0" Nullable="true" Ordinal="13" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
       </Columns>
       <Keys>
         <Key Name="pk_Produto" UniqueTable="" Type="PRIMARY KEY" Columns="idProduto" UniqueColumns="" />
+        <Key Name="fk_Categoria" UniqueTable="Categoria" Type="FOREIGN KEY" Columns="idCategoria" UniqueColumns="idCategoria" />
       </Keys>
       <Indexes />
       <Triggers />
@@ -25,12 +29,7 @@
         <Column Name="idUsuario" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
         <Column Name="nmUsuario" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
         <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="tpUsuario" Type="smallint" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="5" NumericScale="0" />
-        <Column Name="dsLogin" Type="varchar" Length="100" Nullable="false" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="senha" Type="varchar" Length="100" Nullable="false" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="dsPergunta" Type="varchar" Length="500" Nullable="false" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="dsResposta" Type="int" Length="0" Nullable="false" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
-        <Column Name="dsEmail" Type="varchar" Length="100" Nullable="false" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsLogin" Type="varchar" Length="100" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
       </Columns>
       <Keys>
         <Key Name="pk_Usuario" UniqueTable="" Type="PRIMARY KEY" Columns="idUsuario" UniqueColumns="" />
@@ -123,24 +122,6 @@
       <Indexes />
       <Triggers />
     </Table>
-    <Table Name="Endereco">
-      <Columns>
-        <Column Name="idEndereco" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
-        <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="nrEndereco" Type="varchar" Length="10" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="compEndereco" Type="varchar" Length="20" Nullable="true" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="dsBairro" Type="varchar" Length="100" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
-        <Column Name="idMunicipio" Type="int" Length="0" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
-        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
-      </Columns>
-      <Keys>
-        <Key Name="pk_Endereco" UniqueTable="" Type="PRIMARY KEY" Columns="idEndereco" UniqueColumns="" />
-        <Key Name="end_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
-        <Key Name="end_Municipio" UniqueTable="Municipio" Type="FOREIGN KEY" Columns="idMunicipio" UniqueColumns="idMunicipio" />
-      </Keys>
-      <Indexes />
-      <Triggers />
-    </Table>
     <Table Name="Pedido">
       <Columns>
         <Column Name="idPedido" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
@@ -155,11 +136,11 @@
         <Column Name="nrParcelas" Type="int" Length="0" Nullable="true" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
       </Columns>
       <Keys>
+        <Key Name="ped_EnderecoCobranca" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoCobranca" UniqueColumns="idEndereco" />
+        <Key Name="ped_EnderecoEntrega" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoEntrega" UniqueColumns="idEndereco" />
         <Key Name="pk_Pedido" UniqueTable="" Type="PRIMARY KEY" Columns="idPedido" UniqueColumns="" />
         <Key Name="ped_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
         <Key Name="ped_Usuario" UniqueTable="Usuarios" Type="FOREIGN KEY" Columns="idUsuario" UniqueColumns="idUsuario" />
-        <Key Name="ped_EnderecoEntrega" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoEntrega" UniqueColumns="idEndereco" />
-        <Key Name="ped_EnderecoCobranca" UniqueTable="Endereco" Type="FOREIGN KEY" Columns="idEnderecoCobranca" UniqueColumns="idEndereco" />
       </Keys>
       <Indexes />
       <Triggers />
@@ -218,7 +199,118 @@
       <Indexes />
       <Triggers />
     </Table>
+    <Table Name="fiv_Logins">
+      <Columns>
+        <Column Name="lgi_Login" Type="uniqueidentifier" Length="0" Nullable="false" Ordinal="1" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_Username" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_ApplicationName" Type="varchar" Length="100" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_Email" Type="varchar" Length="100" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_Notes" Type="varchar" Length="250" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_Password" Type="varchar" Length="100" Nullable="false" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_PasswordQuestion" Type="varchar" Length="250" Nullable="true" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_PasswordAnswer" Type="varchar" Length="100" Nullable="true" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_IsApproved" Type="bit" Length="0" Nullable="true" Ordinal="9" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_LastActivityDate" Type="datetime" Length="0" Nullable="true" Ordinal="10" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_LastLoginDate" Type="datetime" Length="0" Nullable="true" Ordinal="11" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_LastPasswordChangeDate" Type="datetime" Length="0" Nullable="true" Ordinal="12" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_CreationDate" Type="datetime" Length="0" Nullable="true" Ordinal="13" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_IsLockedOut" Type="bit" Length="0" Nullable="true" Ordinal="14" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_LastLockedOutDate" Type="datetime" Length="0" Nullable="true" Ordinal="15" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_FailedAttemptCount" Type="int" Length="0" Nullable="true" Ordinal="16" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="lgi_FailedAttemptWindow" Type="datetime" Length="0" Nullable="true" Ordinal="17" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lgi_FailedAnswerAttemptCount" Type="int" Length="0" Nullable="true" Ordinal="18" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="lgi_FailedAnswerAttemptWindow" Type="datetime" Length="0" Nullable="true" Ordinal="19" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="lgi_Login" UniqueTable="" Type="PRIMARY KEY" Columns="lgi_Login" UniqueColumns="" />
+        <Key Name="lgi_Username" UniqueTable="" Type="UNIQUE" Columns="lgi_Username lgi_ApplicationName" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="fiv_Roles">
+      <Columns>
+        <Column Name="rol_Rolename" Type="varchar" Length="100" Nullable="false" Ordinal="1" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="rol_ApplicationName" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="rol_roles" UniqueTable="" Type="PRIMARY KEY" Columns="rol_Rolename rol_ApplicationName" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="fiv_Logins_Roles">
+      <Columns>
+        <Column Name="lro_Username" Type="varchar" Length="100" Nullable="false" Ordinal="1" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lro_Rolename" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="lro_ApplicationName" Type="varchar" Length="100" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="lro_login_role" UniqueTable="" Type="PRIMARY KEY" Columns="lro_Username lro_Rolename lro_ApplicationName" UniqueColumns="" />
+        <Key Name="lro_role" UniqueTable="fiv_Roles" Type="FOREIGN KEY" Columns="lro_Rolename lro_ApplicationName" UniqueColumns="rol_Rolename rol_ApplicationName" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Categoria">
+      <Columns>
+        <Column Name="idCategoria" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsCategoria" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="stCategoria" Type="bit" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_idCategoria" UniqueTable="" Type="PRIMARY KEY" Columns="idCategoria" UniqueColumns="" />
+        <Key Name="uk_dsCategoria" UniqueTable="" Type="UNIQUE" Columns="dsCategoria" UniqueColumns="" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Carrinho">
+      <Columns>
+        <Column Name="idCarrinho" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idProduto" Type="int" Length="0" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="nrQtdProduto" Type="int" Length="0" Nullable="false" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="vlFinal" Type="decimal" Length="0" Nullable="false" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="2" />
+        <Column Name="dvStatus" Type="char" Length="1" Nullable="false" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_idCarrinho" UniqueTable="" Type="PRIMARY KEY" Columns="idCarrinho" UniqueColumns="" />
+        <Key Name="fk_CarrinhoProduto" UniqueTable="Produtos" Type="FOREIGN KEY" Columns="idProduto" UniqueColumns="idProduto" />
+        <Key Name="fk_ClienteProduto" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Endereco">
+      <Columns>
+        <Column Name="idEndereco" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsEndereco" Type="varchar" Length="200" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="nrEndereco" Type="varchar" Length="10" Nullable="true" Ordinal="3" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="compEndereco" Type="varchar" Length="20" Nullable="true" Ordinal="4" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="cep" Type="varchar" Length="10" Nullable="true" Ordinal="5" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="dsBairro" Type="varchar" Length="100" Nullable="true" Ordinal="6" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+        <Column Name="idMunicipio" Type="int" Length="0" Nullable="true" Ordinal="7" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="idCliente" Type="int" Length="0" Nullable="false" Ordinal="8" Identity="false" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+      </Columns>
+      <Keys>
+        <Key Name="pk_Endereco" UniqueTable="" Type="PRIMARY KEY" Columns="idEndereco" UniqueColumns="" />
+        <Key Name="end_Cliente" UniqueTable="Cliente" Type="FOREIGN KEY" Columns="idCliente" UniqueColumns="idCliente" />
+        <Key Name="end_Municipio" UniqueTable="Municipio" Type="FOREIGN KEY" Columns="idMunicipio" UniqueColumns="idMunicipio" />
+      </Keys>
+      <Indexes />
+      <Triggers />
+    </Table>
+    <Table Name="Tipo_pagamento">
+      <Columns>
+        <Column Name="tpPagamento" Type="int" Length="0" Nullable="false" Ordinal="1" Identity="true" DefaultValue="" NumericPrecision="10" NumericScale="0" />
+        <Column Name="dsPagamento" Type="varchar" Length="100" Nullable="false" Ordinal="2" Identity="false" DefaultValue="" NumericPrecision="0" NumericScale="0" />
+      </Columns>
+      <Keys />
+      <Indexes />
+      <Triggers />
+    </Table>
   </Tables>
-  <Programs>
+  <Programs>    
   </Programs>
 </Database>

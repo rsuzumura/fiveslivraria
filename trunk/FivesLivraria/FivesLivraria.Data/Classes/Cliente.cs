@@ -16,6 +16,11 @@ namespace FivesLivraria.Data
         [XmlArray("EnderecoCollection")]
         [XmlArrayItem("Endereco")]
         public EnderecoCollection Enderecos;
+
+        public static Cliente Get(int idUsuario)
+        {
+            return SqlXmlGet<Cliente>.Select("spGet_cliente", new SqlXmlParams("idUsuario", idUsuario));
+        }
     }
 
     [XmlRoot("ListaCliente")]
@@ -41,9 +46,9 @@ namespace FivesLivraria.Data
             SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
         }
 
-        public Pessoa Get(int idPessoa)
+        public static Pessoa Get(int idUsuario)
         {
-            return SqlXmlGet<Pessoa>.Select("", new SqlXmlParams());
+            return SqlXmlGet<Pessoa>.Select("spGet_pessoa", new SqlXmlParams("idUsuario", idUsuario));
         }
     }
 
@@ -67,6 +72,11 @@ namespace FivesLivraria.Data
         {
             int id = 0;
             SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
+        }
+
+        public static Empresa Get(int idUsuario)
+        {
+            return SqlXmlGet<Empresa>.Select("spGet_empresa", new SqlXmlParams("idUsuario", idUsuario));
         }
     }
 }

@@ -15,11 +15,6 @@ namespace FivesLivraria.Administrativo
         {
             if (!User.IsInRole("gestor"))
                 Response.Redirect("~/Login.aspx", false);
-
-            if (!IsPostBack)
-            {
-                FillControlWithoutNull(dropRoles, Roles.GetAllRoles());
-            }
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using FivesLivraria.Data;
 
 namespace FivesLivraria
 {
@@ -35,6 +36,21 @@ namespace FivesLivraria
             set
             {
                 HttpContext.Current.Session["userName"] = value;
+            }
+        }
+        public static Acesso AcessoCaixa
+        {
+            get 
+            {
+                object o = HttpContext.Current.Session["Acesso"];
+                if (o == null)
+                    return new Acesso();
+                else
+                    return (Acesso)o;
+            }
+            set
+            {
+                HttpContext.Current.Session["Acesso"] = value;
             }
         }
     }

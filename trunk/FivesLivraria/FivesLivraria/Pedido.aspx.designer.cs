@@ -10,78 +10,60 @@
 namespace FivesLivraria {
     
     
-    public partial class Main {
+    public partial class Pedido {
         
         /// <summary>
-        /// head control.
+        /// ltPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Literal ltPedido;
         
         /// <summary>
-        /// form1 control.
+        /// ltDtPedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Literal ltDtPedido;
         
         /// <summary>
-        /// lblUser control.
+        /// ltDataPrevista control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUser;
+        protected global::System.Web.UI.WebControls.Literal ltDataPrevista;
         
         /// <summary>
-        /// lkbCarrinho control.
+        /// ltEnderecoEntrega control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbCarrinho;
+        protected global::System.Web.UI.WebControls.Literal ltEnderecoEntrega;
         
         /// <summary>
-        /// separator control.
+        /// ltEnderecoCobranca control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl separator;
+        protected global::System.Web.UI.WebControls.Literal ltEnderecoCobranca;
         
         /// <summary>
-        /// lkbCadastro control.
+        /// gridProdutos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbCadastro;
-        
-        /// <summary>
-        /// lkbLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lkbLogin;
-        
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::FivesLivraria.Controls.PagedGridView gridProdutos;
     }
 }

@@ -23,5 +23,10 @@ namespace FivesLivraria.Data
     [Serializable]
     [XmlRoot("EnderecoCollection")]
     public class EnderecoCollection : List<Endereco>
-    { }
+    {
+        public static EnderecoCollection ListByCliente(int idCliente)
+        {
+            return SqlXmlGet<EnderecoCollection>.Select("spLista_endereco", new SqlXmlParams("idCliente", idCliente));
+        }
+    }
 }

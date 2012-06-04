@@ -138,3 +138,22 @@
 	font-family: Verdana;
 	font-size: 10pt;
 }
+.titleHeader
+{
+	background-color: #31A400;
+	color: White;
+	height: 30px;
+	width: 100%;
+	text-align: left;
+	vertical-align: middle;
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 10pt;
+	line-height: 28px;
+}
+.toolbar
+{
+	text-align: left;
+	padding-top: 7px;
+	padding-left: 40px;
+}

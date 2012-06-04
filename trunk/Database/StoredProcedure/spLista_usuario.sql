@@ -45,7 +45,8 @@ begin
 			inner join fiv_Logins_Roles on lro_Username = dsLogin
 		where
 			(@nmUsuario is null or nmUsuario like @nmUsuario) and
-			(@roleName is null or lro_Rolename = @roleName)
+			(@roleName is null or lro_Rolename = @roleName) and
+			(lro_Rolename in('usuario','gestor'))
 	)
 	select
 		*

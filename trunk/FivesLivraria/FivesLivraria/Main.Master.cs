@@ -14,21 +14,58 @@ namespace FivesLivraria
         {
             if (!IsPostBack)
             {
-                lblUser.Text = !string.IsNullOrEmpty(Current.UserName) ? Current.UserName : "Visitante";
+                if (Current.UserId == 0)
+                {
+                    lkbLogin.Text       = "Entrar";
+                    lblUser.Text        = "Visitante";
+                    lkbCadastro.Text    = "Cadastrar";
+                    lkbCarrinho.Visible = false;
+                    separator.Visible   = false;
+                }
+                else
+                {
+                    lkbLogin.Text   = "Sair";
+                    lblUser.Text    = Current.UserName;
+                    if (Page.User.IsInRole("cliente"))
+                    {
+                        lkbCadastro.Text    = "Visualizar Cadastro";
+                        lkbCarrinho.Visible = true;
+                        separator.Visible   = true;
+                    }
+                    else
+                    {
+                        lkbCadastro.Visible = false;
+                        lkbCarrinho.Visible = false;
+                        separator.Visible   = false;
+                    }
+                }
             }
         }
 
-        protected void lkbExit_Click(object sender, EventArgs e)
+        protected void lkbLogin_Click(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
-            Current.UserId = 0;
-            Current.UserName = string.Empty;
-            Response.Redirect("~/Login.aspx");            
+            if (Current.UserId == 0)
+                Response.Redirect("~/Login.aspx");
+            else
+            {
+                FormsAuthentication.SignOut();
+                Current.UserId = 0;
+                Current.UserName = string.Empty;
+                Response.Redirect("~/Principal.aspx");
+            }
         }
 
         protected void lkbCarrinho_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Carrinho.aspx");
+        }
+
+        protected void lkbCadastro_Click(object sender, EventArgs e)
+        {
+            if (Current.UserId == 0)
+                Response.Redirect("~/CadastroCliente.aspx", false);
+            else
+                Response.Redirect("~/ViewCliente.aspx", false);
         }
     }
 }
