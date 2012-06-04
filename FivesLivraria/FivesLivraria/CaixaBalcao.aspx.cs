@@ -19,35 +19,25 @@ namespace FivesLivraria
                                    {"3", "Produto 03", "35,00" },
                                    {"4", "Produto 04", "20,00" },
                                    {"5", "Produto 05", "10,00" } };
-        Pedido pedido;
-        ItemPedido item;
-       CupomFiscal cupom;
+        FivesLivraria.Data.Classes.Pedido pedido;
+        ItemPedido  item;
+        CupomFiscal cupom;
         bool vendaOk = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //              vendaOk = ((bool)Session["statusAberturaCaixa"]);  // remover
-                if (vendaOk)
+                if (Current.AcessoCaixa.userId != 0)
                 {
-                    ViewState["pedidoCaixa"] = new Pedido();
-                    ViewState["itemCaixa"] = new ItemPedido();
-                    area_Cupom.Visible = true;
-                    area_TEF.Visible = true;
-
-                   cupom = (CupomFiscal)Session["cupom"];
-                    if (cupom == null)
-                    {
-                       ShowMessage(MessageType.Error, "Problemas na geração do cupom", "Erro: Cupom");
-                       ViewState["cupom"] = new CupomFiscal();
-                    }
+                    ViewState["pedidoCaixa"] = new FivesLivraria.Data.Classes.Pedido();
+                    ViewState["itemCaixa"]   = new ItemPedido();
+                    area_Cupom.Visible       = true;
+                    area_TEF.Visible         = true;
+                    Session["cupom"]         = new CupomFiscal();
                 }
                 else
-                {
                     exibeErroAbertura();
-                   // redirecionar página para não acessar
-                }
             }
         }
 
@@ -64,40 +54,40 @@ namespace FivesLivraria
                 item = (ItemPedido)ViewState["itemCaixa"];
                 item.AddProduto(codProd, nome, vlr);
 
-                cupom = (CupomFiscal)ViewState["cupom"];
+                cupom = (CupomFiscal)Session["cupom"];
                 cupom.setItem(item);
 
                 TableCell celltemp1 = new TableCell();
-                  celltemp1.Text = codProd.ToString();
+                celltemp1.Text = codProd.ToString();
                 TableCell celltemp2 = new TableCell();
-                  celltemp2.Text = nome;
+                celltemp2.Text = nome;
                 TableCell celltemp3 = new TableCell();
-                  celltemp3.Text = vlr.ToString();
+                celltemp3.Text = vlr.ToString();
                 TableRow rowtemp = new TableRow();
-                  rowtemp.Cells.Add( celltemp1 );
-                  rowtemp.Cells.Add( celltemp2 );
-                  rowtemp.Cells.Add( celltemp3 );
+                rowtemp.Cells.Add(celltemp1);
+                rowtemp.Cells.Add(celltemp2);
+                rowtemp.Cells.Add(celltemp3);
 
-               tblItensTeste.Rows.Add(rowtemp);
+                tblItensTeste.Rows.Add(rowtemp);
 
             }
             else
             {
                 exibeErroAbertura();
-               // redirecionar página para não acessar
+                // redirecionar página para não acessar
             }
         }
 
         protected void btnPedido_Click(object sender, EventArgs e)
         {
             bool pagamento = false;
-            cupom = (CupomFiscal)ViewState["cupom"];
+            cupom = (CupomFiscal)Session["cupom"];
 
             if (cupom != null)
             {
                 if (vendaOk)
                 {
-                    pedido = (Pedido)ViewState["pedidoCaixa"];
+                    pedido = (FivesLivraria.Data.Classes.Pedido)ViewState["pedidoCaixa"];
                     item = (ItemPedido)ViewState["itemCaixa"];
 
                     // colando o conteúdo para simulação de cupom
@@ -129,7 +119,7 @@ namespace FivesLivraria
 
                     if (pagamento)
                     {
-                       area_Cupom.Value = cupom.imprimeCupom();
+                        area_Cupom.Value = cupom.imprimeCupom();
                         //-------------------------------------------------------------------
                         //   Implementar gravação da venda no banco
                         //-------------------------------------------------------------------
@@ -139,11 +129,11 @@ namespace FivesLivraria
                         //   Reiniciando variáveis relacionadas com o Pedido
                         //-------------------------------------------------------------------
                         ViewState["itemCaixa"] = new ItemPedido();
-                        ViewState["pedidoCaixa"] = new Pedido();
+                        ViewState["pedidoCaixa"] = new FivesLivraria.Data.Classes.Pedido();
 
-                       //-------------------------------------------------------------------
-                       //   Reposicionar link para não conseguir 'voltar' os comandos
-                       //-------------------------------------------------------------------
+                        //-------------------------------------------------------------------
+                        //   Reposicionar link para não conseguir 'voltar' os comandos
+                        //-------------------------------------------------------------------
 
                     }
                     else
@@ -152,12 +142,12 @@ namespace FivesLivraria
                 else
                 {
                     exibeErroAbertura();
-                   // redirecionar página para não acessar
+                    // redirecionar página para não acessar
                 }
             }
             else
                 exibeErroAbertura();
-               // redirecionar página para não acessar
+            // redirecionar página para não acessar
         }
 
         protected void ListFrmPgto_SelectedIndexChanged(object sender, EventArgs e)
@@ -166,7 +156,7 @@ namespace FivesLivraria
             // --------------------------------------------------
             //   Habilitar e Desabilitar Get dos dados do cartão
             // --------------------------------------------------
-            lblCartao.Enabled    = transacaoTEF;
+            lblCartao.Enabled = transacaoTEF;
             lblCodCartao.Enabled = transacaoTEF;
             txtCodCartao.Enabled = transacaoTEF;
             lblNumCartao.Enabled = transacaoTEF;
@@ -181,10 +171,10 @@ namespace FivesLivraria
 
         }
 
-       protected void exibeErroAbertura()
+        protected void exibeErroAbertura()
         {
-           string txtErro = "Caixa não foi aberto, realizar abertura ou aguardar dia seguinte!";
-           ShowMessage(MessageType.Error, txtErro, "Erro: Venda");
+            string txtErro = "Caixa não foi aberto, realizar abertura ou aguardar dia seguinte!";
+            ShowMessage(MessageType.Error, txtErro, "Erro: Venda", "CaixaOpcoes.aspx");
         }
 
     }

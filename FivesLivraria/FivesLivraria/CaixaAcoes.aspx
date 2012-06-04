@@ -17,7 +17,7 @@
     <div align="center">
         <asp:Button ID="btnLeitura" runat="server" Text="Leitura X" OnClick="btnLeitura_onClick"
             Width="200px" Height="60px" />&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnHistorico" runat="server" Text="Historico do Caixa" OnClick="btnHistorico_onClick"
+        <asp:Button ID="btnHistorico" runat="server" Text="Histórico do Caixa" OnClick="btnHistorico_onClick"
             Width="200px" Height="60px" />
     </div>
     <br />

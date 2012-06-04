@@ -10,33 +10,42 @@
 namespace FivesLivraria {
     
     
-    public partial class Carrinho {
+    public partial class BuscaCliente {
         
         /// <summary>
-        /// gvCarrinho control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCarrinho;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnContinuarComprando control.
+        /// dropSearchType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContinuarComprando;
+        protected global::System.Web.UI.WebControls.DropDownList dropSearchType;
         
         /// <summary>
-        /// btnFecharPedido control.
+        /// txtSearchField control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFecharPedido;
+        protected global::System.Web.UI.WebControls.TextBox txtSearchField;
+        
+        /// <summary>
+        /// grdClientes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdClientes;
     }
 }

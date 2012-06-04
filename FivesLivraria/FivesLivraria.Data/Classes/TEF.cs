@@ -5,46 +5,47 @@ using System.Text;
 
 namespace FivesLivraria.Data.Classes
 {
-   [Serializable]
-   public class TEF : FormaPagamento
-   {
-      public const string linhaDiv = "==================================================";
-      public const string CNPJ = "11.222.333/0001-99";
-      
-      public string numeroCartao { get; set; }
-      public string codigoCartao { get; set; }
-      public double valorTransacao { get; set; }
-      public bool statusConexao { get; set; }
-      public long codigoCupom { get; set; }
-      public long codigoAutorizacao { get; set; }
+    [Serializable]
+    public class TEF : FormaPagamento
+    {
+        public const string linhaDiv = "==================================================";
+        public const string CNPJ = "11.222.333/0001-99";
 
-      public TEF()
-      { 
-      }
+        public string numeroCartao { get; set; }
+        public string codigoCartao { get; set; }
+        public double valorTransacao { get; set; }
+        public bool statusConexao { get; set; }
+        public long codigoCupom { get; set; }
+        public long codigoAutorizacao { get; set; }
 
-      public bool confirmarTransacao()
-      {
-         SimulaTEF sTef = new SimulaTEF {
-            numeroCartao = numeroCartao,
-            codigoVerificador = codigoCartao,
-            valorTransacao = valorTransacao
-         };
+        public TEF()
+        {
+        }
 
-         if (sTef.confirmar())
-            this.criarAutorizacao();
+        public bool confirmarTransacao()
+        {
+            SimulaTEF sTef = new SimulaTEF
+            {
+                numeroCartao = numeroCartao,
+                codigoVerificador = codigoCartao,
+                valorTransacao = valorTransacao
+            };
 
-         return sTef.statusAprovacao;
-      }
+            if (sTef.confirmar())
+                this.criarAutorizacao();
 
-      public bool cancelarTransacao()
-      {
-         return true;
-      }
+            return sTef.statusAprovacao;
+        }
 
-      public String imprimir()
-      {
-         string operacao = (id == PAGAMENTOCREDITO ? "CREDITO" : "DEBITO");
-         String txtImprimir = "";
+        public bool cancelarTransacao()
+        {
+            return true;
+        }
+
+        public String imprimir()
+        {
+            string operacao = (id == PAGAMENTOCREDITO ? "CREDITO" : "DEBITO");
+            String txtImprimir = "";
 
             txtImprimir += Comprovante.cabecalho(true);
             txtImprimir += "            COMPROVANTE " + operacao + '\n';
@@ -85,32 +86,37 @@ namespace FivesLivraria.Data.Classes
             txtImprimir += "venda " + operacao + "  a vista" + '\n';
             txtImprimir += "valor venda:                " + valorTransacao.ToString("#0.00") + '\n';
 
-         return txtImprimir;
-      }
+            return txtImprimir;
+        }
 
-      protected void criarAutorizacao()
-      {
-         Random rdn = new Random();
-         long cod = rdn.Next(10000, 99999);
-         if (FormaPagamento.PAGAMENTODEBITO == id)
-            cod += 200000;
-         else
-            cod += 100000;
-         
-         this.codigoAutorizacao = cod;
-      }
+        protected void criarAutorizacao()
+        {
+            Random rdn = new Random();
+            long cod = rdn.Next(10000, 99999);
+            if (FormaPagamento.PAGAMENTODEBITO == id)
+                cod += 200000;
+            else
+                cod += 100000;
 
-      public void saveFile()
-      {
-         String dados = this.imprimir();
-         string fileName = @Comprovante.PATH+codigoAutorizacao.ToString();
+            this.codigoAutorizacao = cod;
+        }
 
-         Comprovante comp = new Comprovante
-         {
-            texto = dados,
-            nomeArquivo = fileName
-         };
-         comp.saveFile();
-      }
-   }
+        public void saveFile()
+        {
+            String dados = this.imprimir();
+            string fileName = AppDomain.CurrentDomain.BaseDirectory;
+            if (!fileName.EndsWith("\\"))
+                fileName += "\\Files\\";
+            else
+                fileName += "Files\\";
+            fileName += codigoAutorizacao.ToString();
+
+            Comprovante comp = new Comprovante
+            {
+                texto = dados,
+                nomeArquivo = fileName
+            };
+            comp.saveFile();
+        }
+    }
 }

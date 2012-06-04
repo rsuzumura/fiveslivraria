@@ -1,21 +1,20 @@
-declare @o varchar(100); set @o = 'spGet_usuario';
+declare @o varchar(100); set @o = 'spGet_cliente';
 if object_id(@o, 'P') is not null begin
 	declare @d nvarchar(250); set @d = 'drop procedure ' + @o;
 	execute sp_executesql @d;
 end;
 go
-create procedure spGet_usuario (
-	@dsLogin varchar(100)
+create procedure spGet_cliente (
+	@idUsuario int
 ) as
 begin
 	select
+		idCliente,
 		idUsuario,
-		nmUsuario,
-		dsEndereco,
-		dsLogin
+		nmCliente
 	from
-		Usuarios [Usuario]
+		Cliente
 	where
-		dsLogin = @dsLogin
+		idUsuario = @idUsuario
 	for xml auto, elements
 end

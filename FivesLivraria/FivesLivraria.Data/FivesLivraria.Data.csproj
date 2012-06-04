@@ -51,6 +51,7 @@
     <Compile Include="Classes\FormaPagamento.cs" />
     <Compile Include="Classes\ItemPedido.cs" />
     <Compile Include="Classes\Municipio.cs" />
+    <Compile Include="Classes\Pedidos.cs" />
     <Compile Include="Classes\Produto.cs" />
     <Compile Include="Utils\Dataset.cs" />
     <Compile Include="Classes\CupomFiscal.cs" />

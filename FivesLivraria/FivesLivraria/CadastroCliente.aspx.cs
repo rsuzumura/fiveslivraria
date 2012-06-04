@@ -18,6 +18,9 @@ namespace FivesLivraria
                 FillControl<Estado>(dropEstado, EstadoCollection.List());
                 FillControl<Municipio>(dropMunicipio, null);
                 EnableFields(Convert.ToBoolean(rdoTipoCliente.SelectedValue));
+
+                if (!string.IsNullOrEmpty(Request.QueryString["idcliente"]))
+                    LoadControls();
             }
         }
 
@@ -36,7 +39,7 @@ namespace FivesLivraria
                     Usuario u = new Usuario()
                     {
                         nmUsuario   = txtUser.Text,
-                        dsEndereco  = txtAddress.Text,
+                        //dsEndereco  = txtAddress.Text,
                         dsLogin     = txtLogin.Text
                     };
                     u.Insert();
@@ -45,7 +48,7 @@ namespace FivesLivraria
                         Empresa emp = new Empresa()
                         {
                             idUsuario           = u.idUsuario,
-                            nmCliente           = txtUser.Text,
+                            nmCliente           = txtRazaoSocial.Text,
                             nmRazaoSocial       = txtRazaoSocial.Text,
                             cnpj                = txtCNPJ.Text,
                             inscricaoMunicipal  = txtInscricaoMunicipal.Text,
@@ -257,6 +260,16 @@ namespace FivesLivraria
         {
             txtEnderecoCliente.Text = txtNumero.Text = txtBairro.Text = txtComplemento.Text = txtCEP.Text = string.Empty;
             dropMunicipio.SelectedIndex = dropEstado.SelectedIndex = -1;
+        }
+
+        protected void cvEndereco_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (gridEnderecos.Rows.Count == 0)
+                args.IsValid = false;
+        }
+
+        protected void LoadControls()
+        { 
         }
     }
 }

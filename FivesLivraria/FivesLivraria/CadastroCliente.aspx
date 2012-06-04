@@ -2,8 +2,7 @@
     CodeBehind="CadastroCliente.aspx.cs" Inherits="FivesLivraria.CadastroCliente" %>
 
 <%@ Register Assembly="EO.Web" Namespace="EO.Web" TagPrefix="eo" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script type="text/javascript" src="Scripts/keyScripts.js" ></script>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">    
     <ajaxToolkit:ToolkitScriptManager ID="ScriptManager" runat="server">
@@ -43,106 +42,16 @@
                 </LookItems>
                 <TopGroup>
                     <Items>
-                        <eo:TabItem Text-Html="Dados de Acesso" PageViewID="acesso">
-                        </eo:TabItem>
                         <eo:TabItem Text-Html="Dados Cadastrais" PageViewID="cadastro">
                         </eo:TabItem>
                         <eo:TabItem Text-Html="Endereços de Entrega" PageViewID="endereco">
+                        </eo:TabItem>
+                        <eo:TabItem Text-Html="Dados de Acesso" PageViewID="acesso">
                         </eo:TabItem>
                     </Items>
                 </TopGroup>
             </eo:TabStrip>
             <eo:MultiPage ID="tabs" runat="server" Width="100%">
-                <eo:PageView ID="acesso" runat="server" Width="98%">
-                    <table class="data">
-                        <colgroup>
-                            <col width="15%" />
-                            <col width="85%" />
-                        </colgroup>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvUser" runat="server" ErrorMessage="O nome é obrigatório."
-                                    ControlToValidate="txtUser" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
-                                Nome:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                Endereço:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="O email é obrigatório."
-                                    ControlToValidate="txtEmailAddress" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
-                                <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="O formato do email está inválido"
-                                    ValidationGroup="cadastro" ControlToValidate="txtEmailAddress" Text="*" ValidationExpression="[\w-]+(\.[\w-]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                                Email:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvLogin" runat="server" ErrorMessage="O login é obrigatório."
-                                    ValidationGroup="cadastro" ControlToValidate="txtLogin" Text="*"></asp:RequiredFieldValidator>
-                                Login:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="A senha é obrigatória."
-                                    ValidationGroup="cadastro" ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
-                                Senha:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:CompareValidator ID="cmpPassword" runat="server" ControlToValidate="txtPassword"
-                                    ValidationGroup="cadastro" ControlToCompare="txtConfirmPassword" ErrorMessage="A senha e a confirmação não correspondem."
-                                    Text="*"></asp:CompareValidator>
-                                Confirmação<br />
-                                de senha:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvQuestion" runat="server" ErrorMessage="A pergunta é obrigatória."
-                                    ValidationGroup="cadastro" ControlToValidate="txtQuestion" Text="*"></asp:RequiredFieldValidator>
-                                Pergunta:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="name">
-                                <asp:RequiredFieldValidator ID="rfvAnswer" runat="server" ErrorMessage="A resposta é obrigatória."
-                                    ValidationGroup="cadastro" ControlToValidate="txtAnswer" Text="*"></asp:RequiredFieldValidator>
-                                Resposta:
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </eo:PageView>
                 <eo:PageView runat="server" ID="cadastro" Width="100%">
                     <table class="data">
                         <colgroup>
@@ -172,6 +81,16 @@
                                         </colgroup>
                                         <tr>
                                             <td class="name">
+                                                <asp:RequiredFieldValidator ID="rfvUser" runat="server" ErrorMessage="O nome é obrigatório."
+                                                    ControlToValidate="txtUser" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
+                                                Nome:&nbsp;&nbsp;
+                                            </td>
+                                            <td style="text-align: left;">
+                                                <asp:TextBox ID="txtUser" runat="server"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="name">
                                                 <asp:RequiredFieldValidator ID="rfvCPF" runat="server" Text="*" ErrorMessage="O CPF é obrigatório."
                                                     ValidationGroup="cadastro" ControlToValidate="txtCPF"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator ID="rexCPF" runat="server" Text="*" ControlToValidate="txtCPF"
@@ -182,7 +101,8 @@
                                                 CPF:&nbsp;&nbsp;
                                             </td>
                                             <td style="text-align: left;">
-                                                <asp:TextBox ID="txtCPF" runat="server" onkeypress="validateCPF(this, event);"></asp:TextBox>
+                                                <script type="text/javascript" src="Scripts/keyScripts.js" ></script>
+                                                <asp:TextBox ID="txtCPF" runat="server" onkeypress="return validateCPF(this, event);"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -255,7 +175,8 @@
                                                 CNPJ:
                                             </td>
                                             <td style="text-align: left;">
-                                                &nbsp;&nbsp;<asp:TextBox ID="txtCNPJ" runat="server"></asp:TextBox>
+                                                <script type="text/javascript" src="Scripts/keyScripts.js" ></script>
+                                                &nbsp;&nbsp;<asp:TextBox ID="txtCNPJ" runat="server" onkeypress="return validateCNPJ(this, event);"></asp:TextBox>
                                             </td>
                                         </tr>
                                         <tr>
@@ -297,6 +218,8 @@
                                     <td class="name">
                                         <asp:RequiredFieldValidator ID="rfvEnderecoCliente" runat="server" Text="*" ErrorMessage="O endereço é obrigatório"
                                             ControlToValidate="txtEnderecoCliente" ValidationGroup="Endereco"></asp:RequiredFieldValidator>
+                                        <asp:CustomValidator ID="cvEndereco" runat="server" Text="*" ErrorMessage="É necessário cadastrar pelo menos um endereço de entrega."
+                                            ValidationGroup="cadastro" OnServerValidate="cvEndereco_ServerValidate"></asp:CustomValidator>
                                         Endereço:
                                     </td>
                                     <td colspan="4" style="text-align: left;">
@@ -372,6 +295,78 @@
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
+                </eo:PageView>
+                <eo:PageView ID="acesso" runat="server" Width="98%">
+                    <table class="data">
+                        <colgroup>
+                            <col width="15%" />
+                            <col width="85%" />
+                        </colgroup>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ErrorMessage="O email é obrigatório."
+                                    ControlToValidate="txtEmailAddress" Text="*" ValidationGroup="cadastro"></asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="revEmail" runat="server" ErrorMessage="O formato do email está inválido"
+                                    ValidationGroup="cadastro" ControlToValidate="txtEmailAddress" Text="*" ValidationExpression="[\w-]+(\.[\w-]+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                Email:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtEmailAddress" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvLogin" runat="server" ErrorMessage="O login é obrigatório."
+                                    ValidationGroup="cadastro" ControlToValidate="txtLogin" Text="*"></asp:RequiredFieldValidator>
+                                Login:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="A senha é obrigatória."
+                                    ValidationGroup="cadastro" ControlToValidate="txtPassword" Text="*"></asp:RequiredFieldValidator>
+                                Senha:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <asp:CompareValidator ID="cmpPassword" runat="server" ControlToValidate="txtPassword"
+                                    ValidationGroup="cadastro" ControlToCompare="txtConfirmPassword" ErrorMessage="A senha e a confirmação não correspondem."
+                                    Text="*"></asp:CompareValidator>
+                                Confirmação<br />
+                                de senha:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvQuestion" runat="server" ErrorMessage="A pergunta é obrigatória."
+                                    ValidationGroup="cadastro" ControlToValidate="txtQuestion" Text="*"></asp:RequiredFieldValidator>
+                                Pergunta:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtQuestion" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="name">
+                                <asp:RequiredFieldValidator ID="rfvAnswer" runat="server" ErrorMessage="A resposta é obrigatória."
+                                    ValidationGroup="cadastro" ControlToValidate="txtAnswer" Text="*"></asp:RequiredFieldValidator>
+                                Resposta:
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtAnswer" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                    </table>
                 </eo:PageView>
             </eo:MultiPage>
         </div>

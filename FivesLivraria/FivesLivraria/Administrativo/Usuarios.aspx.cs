@@ -18,7 +18,6 @@ namespace FivesLivraria.Administrativo
 
             if (!IsPostBack)
             {
-                FillControl(dropRoles, Roles.GetAllRoles());
                 BindGrid(null, null, 0);
             }
         }
@@ -29,7 +28,6 @@ namespace FivesLivraria.Administrativo
             BindGrid((string)ViewState["role"], (string)ViewState["username"], gridUsuarios.PageIndex);
             DropDownList roles      = (DropDownList)gridUsuarios.Rows[e.NewEditIndex].FindControl("dropRoles");
             HiddenField hdnRole     = (HiddenField)gridUsuarios.Rows[e.NewEditIndex].FindControl("hdnRole");
-            FillControlWithoutNull(roles, Roles.GetAllRoles());
             roles.SelectedValue     = hdnRole.Value;
         }
 

@@ -1,0 +1,171 @@
+
+-- DbCheck 1.3 - Database structure checker - (c) 2008 Orbium Ltda
+-- 21/05/2012 10:34
+
+--Checking database 'fiveslivraria.no-ip.org:FivesLivraria' against schema 'schema_fives.xml'...
+
+--TABLE 'Tipo_pagamento' not found.
+
+create table Tipo_pagamento (
+ tpPagamento int identity not null,
+ dsPagamento varchar(100) not null
+)
+go
+
+
+
+
+
+--Tables not matching definition: 1.
+
+--Unknown PROCEDURE 'spCadastra_empresa' found.
+/*
+drop PROCEDURE spCadastra_empresa
+go
+*/
+
+--Unknown PROCEDURE 'spVerifica_email' found.
+/*
+drop PROCEDURE spVerifica_email
+go
+*/
+
+--Unknown PROCEDURE 'spLista_categoriasByFilter' found.
+/*
+drop PROCEDURE spLista_categoriasByFilter
+go
+*/
+
+--Unknown PROCEDURE 'spCadastra_categoria' found.
+/*
+drop PROCEDURE spCadastra_categoria
+go
+*/
+
+--Unknown PROCEDURE 'spRemove_categoria' found.
+/*
+drop PROCEDURE spRemove_categoria
+go
+*/
+
+--Unknown PROCEDURE 'spUpdate_categoria' found.
+/*
+drop PROCEDURE spUpdate_categoria
+go
+*/
+
+--Unknown PROCEDURE 'spGet_categoria' found.
+/*
+drop PROCEDURE spGet_categoria
+go
+*/
+
+--Unknown PROCEDURE 'spLista_categorias' found.
+/*
+drop PROCEDURE spLista_categorias
+go
+*/
+
+--Unknown PROCEDURE 'spLista_produtos' found.
+/*
+drop PROCEDURE spLista_produtos
+go
+*/
+
+--Unknown PROCEDURE 'spLista_item_carrinho' found.
+/*
+drop PROCEDURE spLista_item_carrinho
+go
+*/
+
+--Unknown PROCEDURE 'spInsere_item_carrinho' found.
+/*
+drop PROCEDURE spInsere_item_carrinho
+go
+*/
+
+--Unknown PROCEDURE 'spUpdate_usuario' found.
+/*
+drop PROCEDURE spUpdate_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spCadastra_produto' found.
+/*
+drop PROCEDURE spCadastra_produto
+go
+*/
+
+--Unknown PROCEDURE 'spUpdate_produto' found.
+/*
+drop PROCEDURE spUpdate_produto
+go
+*/
+
+--Unknown PROCEDURE 'spGet_produto' found.
+/*
+drop PROCEDURE spGet_produto
+go
+*/
+
+--Unknown PROCEDURE 'spRemove_produto' found.
+/*
+drop PROCEDURE spRemove_produto
+go
+*/
+
+--Unknown PROCEDURE 'spLista_produto' found.
+/*
+drop PROCEDURE spLista_produto
+go
+*/
+
+--Unknown PROCEDURE 'spAltera_usuario' found.
+/*
+drop PROCEDURE spAltera_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spCadastra_usuario' found.
+/*
+drop PROCEDURE spCadastra_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spGet_usuario' found.
+/*
+drop PROCEDURE spGet_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spLista_usuario' found.
+/*
+drop PROCEDURE spLista_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spRemove_usuario' found.
+/*
+drop PROCEDURE spRemove_usuario
+go
+*/
+
+--Unknown PROCEDURE 'spLista_estado' found.
+/*
+drop PROCEDURE spLista_estado
+go
+*/
+
+--Unknown PROCEDURE 'spLista_municipio' found.
+/*
+drop PROCEDURE spLista_municipio
+go
+*/
+
+--Unknown PROCEDURE 'spCadastra_pessoa' found.
+/*
+drop PROCEDURE spCadastra_pessoa
+go
+*/
+
+--Programs not matching definition: 25.

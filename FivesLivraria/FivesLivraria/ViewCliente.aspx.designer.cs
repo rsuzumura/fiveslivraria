@@ -10,33 +10,51 @@
 namespace FivesLivraria {
     
     
-    public partial class Carrinho {
+    public partial class ViewCliente {
         
         /// <summary>
-        /// gvCarrinho control.
+        /// btnSave control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCarrinho;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// btnContinuarComprando control.
+        /// ltNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContinuarComprando;
+        protected global::System.Web.UI.WebControls.Literal ltNome;
         
         /// <summary>
-        /// btnFecharPedido control.
+        /// ltLabelTaxId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFecharPedido;
+        protected global::System.Web.UI.WebControls.Literal ltLabelTaxId;
+        
+        /// <summary>
+        /// ltTaxId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltTaxId;
+        
+        /// <summary>
+        /// gridPedidos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::FivesLivraria.Controls.PagedGridView gridPedidos;
     }
 }

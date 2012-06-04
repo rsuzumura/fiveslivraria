@@ -32,6 +32,18 @@ namespace FivesLivraria.Data
         public int userId;
         [XmlAttribute]
         public string userName;
+        [XmlAttribute]
+        public bool isClosed;
+
+        public static Acesso Get(CaixaAcesso ca, int userId)
+        {
+            Acesso acesso = ca.acessos.Find(
+                        delegate(Acesso a)
+                        {
+                            return a.dataAcesso.ToShortDateString() == DateTime.Now.ToShortDateString() && a.userId == userId;
+                        });
+            return acesso;
+        }
     }
 
     public class Acessos : List<Acesso> { }

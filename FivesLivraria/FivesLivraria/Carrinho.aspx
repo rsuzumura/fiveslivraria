@@ -1,19 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true"
     CodeBehind="Carrinho.aspx.cs" Inherits="FivesLivraria.Carrinho" %>
-
+<%@ Import Namespace="System.Data.SqlTypes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="margin-top: 30px">
         <asp:GridView ID="gvCarrinho" runat="server" AutoGenerateColumns="False" DataKeyNames="idCarrinho"
-            OnRowCommand="gvCarrinho_RowCommand">
+            Width="90%" OnRowCommand="gvCarrinho_RowCommand" OnRowDataBound="gvCarrinho_RowDataBound"
+            ShowFooter="true">
+            <FooterStyle Font-Bold="true" />
             <Columns>
                 <asp:TemplateField HeaderText="Descrição">
+                    <ItemStyle HorizontalAlign="Left" />
                     <ItemTemplate>
-                        <table>
+                        <table style="margin-left: 10px;">
                             <tr>
                                 <td>
-                                    <asp:Image ID="imagem" runat="server" Text="Imagem" src='<%#"~/Images/"+ Eval("nmImagem") %>'
+                                    <asp:Image ID="imagem" runat="server" Text="Imagem" ImageUrl='<%#"~/Images/"+ Eval("nmImagem") %>'
                                         Width="120px" Height="188px" />
                                 </td>
                                 <td>
@@ -30,8 +33,19 @@
                         <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' Width="40" />
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="vlPreco" HeaderText="Preço Unitário" SortExpression="idProduto" />
-                <asp:BoundField DataField="vlFinal" HeaderText="Valor Final" SortExpression="nmTitulo" />
+                <asp:TemplateField HeaderText="Preço Unitário">
+                    <FooterTemplate>
+                        Total:
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <%# String.Format("{0:C}", ((SqlDecimal)Eval("vlPreco")).Value) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Valor Final">
+                    <ItemTemplate>
+                        <%# String.Format("{0:C}", ((SqlDecimal)Eval("vlFinal")).Value) %>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:ButtonField ButtonType="Button" CommandName="atualizar" Text="Atualizar" ControlStyle-CssClass="button" />
             </Columns>
             <EmptyDataTemplate>
@@ -43,9 +57,6 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="btnFecharPedido" runat="server" Text="Fechar Pedido" CssClass="buttonAcao"
             OnClick="btnFecharPedido_Click" Width="200px" />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="lblTotal" runat="server" Text="Total: " />
-        <asp:Label ID="txtTotal" runat="server" />
     </div>
     <br />
 </asp:Content>

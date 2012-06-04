@@ -110,6 +110,8 @@
                 </td>
                 <td>
                     <asp:DropDownList ID="dropRoles" runat="server" Width="90%" TabIndex="8">
+                        <asp:ListItem Value="gestor" Text="Gestor"></asp:ListItem>
+                        <asp:ListItem Value="usuario" Text="Funcionário"></asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
