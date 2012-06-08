@@ -28,5 +28,10 @@ namespace FivesLivraria
       {
           Response.Redirect("~/CaixaAcoes.aspx", false);
       }
+
+      protected void lbkAjudaUsuario_Click(object sender, EventArgs e)
+      {
+          Response.Redirect("ModuloUsuarioHelp.htm", false);
+      }
    }
 }

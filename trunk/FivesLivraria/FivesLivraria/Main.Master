@@ -16,6 +16,7 @@
     <div style="width: 100%;" align="center">
         <div class="main">
             <div class="loginHeader">
+
                 Seja bem vindo,
                 <asp:Label ID="lblUser" runat="server" CssClass="labelHeader" />!&nbsp;&nbsp;
                 <asp:LinkButton ID="lkbCarrinho" runat="server" CssClass="link"
@@ -24,7 +25,9 @@
                 <asp:LinkButton ID="lkbCadastro" runat="server" Text="Cadastrar" OnClick="lkbCadastro_Click"
                     CssClass="link"></asp:LinkButton>&nbsp;|&nbsp;
                 <asp:LinkButton ID="lkbLogin" runat="server" Text="Sair" OnClick="lkbLogin_Click"
-                    CssClass="link"></asp:LinkButton>&nbsp;&nbsp;
+                    CssClass="link"></asp:LinkButton>&nbsp;|&nbsp;
+                <asp:LinkButton ID="lkbAjudaUsuario" runat="server" CssClass="link"
+                    OnClick="lkbAjudaUsuario_Click">Ajuda</asp:LinkButton>&nbsp;&nbsp;
             </div>
             <div class="header">
                 &nbsp;&nbsp;Five'S Livraria
