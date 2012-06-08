@@ -1,0 +1,5 @@
+Meu Carrinho
+
+Nesta sessão o usuário poderá gerenciar os itens anteriormente indicados, bem como sua quantidade, além das opções de fechar o pedido ou continuar incluindo itens.
+Se o usuário clicar em [Continuar comprando], ele retornará à tela de seleção de livros, porém os itens anteriormente selecionados continuam no carrinho. 
+A transação somente será fechada se o usuário clicar no botão [fechar pedido].

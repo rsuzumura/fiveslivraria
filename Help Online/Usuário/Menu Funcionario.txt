@@ -1,0 +1,9 @@
+Menu Funcionário
+
+
+Nesta sessão, teremos acesso às seguintes opções:
+
+
+- Ações de caixa
+- caixa / Balcão
+- consulta de pedidos
