@@ -1,0 +1,17 @@
+Submenu Caixa / Balcão
+
+
+Nesta subsessão, o usuário poderá manualmente efetuar a venda de produtos. Serão solicitadas informações básicas de faturamento, como Nome, CPF e Forma de Pagamento. A Forma de Pagamento pode ser Dinheiro, Crédito ou Débito.
+
+No caso de a forma de pagamento escolhida for a de Crédito, será solicitado o número do cartão e seu código de controle, que serão submetidos a uma validação.
+
+Após efetuar a adição dos produtos pelo combo ao pedido, é permitido adicionar outros produtos (pelo botão [adicionar]) ou finalizar a compra (através do botão [Finalizar]).
+
+Se todos os dados estiverem completamente preenchidos, teremos duas visualizações à direita, onde será possível conferir a integridade do pedido:
+
+- Simulação Cupom
+- Simulação TEF
+
+
+
+

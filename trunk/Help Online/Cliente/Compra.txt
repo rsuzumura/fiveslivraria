@@ -1,0 +1,9 @@
+Comprar
+
+Nesta tela há um formulário que deverá ser preenchido com os dados correspondentes para que seja efetuada a compra dos itens ora elencados no carrinho.
+Entre as opções de compra disponíves, estão: 
+- Débito
+- Crédito
+- À vista
+
+Ao final da compra, será possível visualizar a nota correspondente à toda a compra, ou seja, aos  itens que foram comprados, sua quantidade, valores unitário e totais.

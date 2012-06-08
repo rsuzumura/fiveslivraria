@@ -1,0 +1,10 @@
+Submenu Consulta de Pedidos
+
+
+Nesta sessão, o usuário terá acesso à consulta de pedidos com as seguintes opções:
+
+
+- relatórios por clientes
+- relatórios pedidos
+- relatório de produtos
+- pedidos gerados entre DataX e DataZ

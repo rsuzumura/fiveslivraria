@@ -1,0 +1,6 @@
+Menu Cliente
+
+Nesta página, o cliente pode selecionar os itens que deseja adquirir, clicando no botão [Comprar]. 
+O cliente poderá, ainda, fazer uma busca por título ou categoria. 
+
+Quando o cliente clicar no botão comprar, ele será direcionado à interface "Carrinho", onde poderá gerenciar melhor suas compras de maneira padrão.
