@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Módulo Cliente - Ajuda</title>
+    <link rel="Stylesheet" type="text/css" href="Styles/admin.css" />
+</head>
+<body>
+    <div style="width: 100%;" align="center">
+        <div class="divMain">
+            <div class="divUserHeader">
+                <a href="Default.aspx">Voltar ao módulo cliente</a>
+            </div>
+            <div class="divHeader">
+                &nbsp;&nbsp;Five'S Livraria
+            </div>
+            <div style="width: 100%;">
+                <div class="divMenu">
+                    <div class="divMenuHeader">
+                        &nbsp;&nbsp;Índice
+                    </div>
+                    <div>
+                        <ul>
+                            <li>Visão Geral</li>
+                            <li>Comprar</li>
+                            <li>Carrinho</li>                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="divContent">
+                    <div class="divFilter" id="divFilter" runat="server" style="background-color: #FFFFFF; height: 660px; overflow-y: scroll;">
+                        <div class="divFormHeader" style="width: 98%;">
+                            &nbsp;&nbsp;Filtro
+                        </div>
+                        <div>
+                            <h1>Visão Geral</h1>
+                            <p style="text-align: justify; padding-left: 10px; padding-right: 10px;">
+                               &nbsp;&nbsp;&nbsp;&nbsp;Nesta página, o cliente pode selecionar os itens que deseja adquirir, clicando no botão [Comprar]. 
+O cliente poderá, ainda, fazer uma busca por título ou categoria. 
+Quando o cliente clicar no botão comprar, ele será direcionado à interface "Carrinho", onde poderá gerenciar melhor suas compras de maneira padrão.                             
+                            </p>
+                            <h2 id="categorias">Comprar</h2>
+                            <p style="text-align: justify; padding-left: 10px; padding-right: 10px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp;Nesta tela há um formulário que deverá ser preenchido com os dados correspondentes para que seja efetuada a compra dos itens ora elencados no carrinho.
+Entre as opções de compra disponíves, estão: 
+- Débito
+- Crédito
+- À vista
+
+Ao final da compra, será possível visualizar a nota correspondente à toda a compra, ou seja, aos  itens que foram comprados, sua quantidade, valores unitário e totais.<br />
+
+                            </p>
+                            
+                            <h2 id="Usuarios">Carrinho</h2>
+                            <p style="text-align: justify; padding-left: 10px; padding-right: 10px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp; Nesta sessão o usuário poderá gerenciar os itens anteriormente indicados, bem como sua quantidade, além das opções de fechar o pedido ou continuar incluindo itens.
+Se o usuário clicar em [Continuar comprando], ele retornará à tela de seleção de livros, porém os itens anteriormente selecionados continuam no carrinho. 
+A transação somente será fechada se o usuário clicar no botão [fechar pedido].<br />
+
+                            </p>
+                            </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <div class="divFooter">
+            FATEC-SP - Laboratório de Engenharia de Software - Grupo 4
+        </div>
+    </div>
+</body>
+</html>
