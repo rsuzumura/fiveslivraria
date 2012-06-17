@@ -4,6 +4,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script>
+        function validateInt(obj, evt) {
+            if (typeof obj == 'object') {
+                var key = evt.keyCode;
+                if (key < 48 || key > 57)
+                    return false;
+                else
+                    return true;
+            }
+        }
+    </script>
     <div style="margin-top: 30px">
         <asp:GridView ID="gvCarrinho" runat="server" AutoGenerateColumns="False" DataKeyNames="idCarrinho"
             Width="90%" OnRowCommand="gvCarrinho_RowCommand" OnRowDataBound="gvCarrinho_RowDataBound"
@@ -30,7 +41,7 @@
                     CommandName="excluir" Text="Excluir" />
                 <asp:TemplateField HeaderText="Quantidade">
                     <ItemTemplate>
-                        <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' Width="40" />
+                        <asp:TextBox ID="nrQtdProduto" runat="server" Text='<%#Eval("nrQtdProduto")%>' Width="40" MaxLength="2"  onkeypress="return validateInt(this, event);"/>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Preço Unitário">
@@ -46,7 +57,7 @@
                         <%# String.Format("{0:C}", ((SqlDecimal)Eval("vlFinal")).Value) %>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:ButtonField ButtonType="Button" CommandName="atualizar" Text="Atualizar" ControlStyle-CssClass="button" />
+                <asp:ButtonField ButtonType="Button" CommandName="atualizar" Text="Atualizar" ControlStyle-CssClass="button" CausesValidation="true"/>
             </Columns>
             <EmptyDataTemplate>
                 Não foi encontrado nenhum produto</EmptyDataTemplate>
