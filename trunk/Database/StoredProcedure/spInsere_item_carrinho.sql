@@ -20,21 +20,39 @@ begin
 	where
 		c.idUsuario = @idUsuario
 	
-	insert into Carrinho(
-	idProduto
-	,idCliente
-	,nrQtdProduto
-	,vlFinal
-	,dvStatus
-	)
-	select @idProduto
-	,@idCliente
-	,1
-	,vlPreco
-	,'C'
-	from Produtos
-	where idProduto = @idProduto
+	if exists (select 1 
+				from Carrinho 
+				where idCliente = @idCliente
+				and idProduto = @idProduto
+				and dvStatus = 'C')
+	begin
+		update c set 
+		nrQtdProduto = nrQtdProduto + 1 
+		,c.vlFinal = vlFinal + p.vlPreco
+		from Carrinho c
+		inner join Produtos p on
+		p.idProduto = c.idProduto
+		where c.idCliente = @idCliente
+		and c.idProduto = @idProduto
+		and c.dvStatus = 'C'
+	end
+	else
+	begin
+		insert into Carrinho(
+		idProduto
+		,idCliente
+		,nrQtdProduto
+		,vlFinal
+		,dvStatus
+		)
+		select @idProduto
+		,@idCliente
+		,1
+		,vlPreco
+		,'C'
+		from Produtos
+		where idProduto = @idProduto
 	
-	
+	end
 	
 end
