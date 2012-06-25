@@ -47,7 +47,12 @@ namespace FivesLivraria
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Response.Redirect(string.Format("~/CadastroCliente.aspx?idcliente={0}", Current.UserId), false);
+            Response.Redirect(string.Format("~/AlteraCliente.aspx?idUsuario={0}", Current.UserId), false);
+        }
+
+        protected void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ChangePassword.aspx", false);
         }
     }
 }

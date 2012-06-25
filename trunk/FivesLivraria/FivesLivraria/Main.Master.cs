@@ -19,6 +19,7 @@ namespace FivesLivraria
                     lkbLogin.Text       = "Entrar";
                     lblUser.Text        = "Visitante";
                     lkbCadastro.Text    = "Cadastrar";
+                    lkbAjudaUsuario.Visible = false;
                     lkbCarrinho.Visible = false;
                     separator.Visible   = false;
                 }
@@ -34,6 +35,7 @@ namespace FivesLivraria
                     }
                     else
                     {
+                        lkbAjudaUsuario.Visible = true;
                         lkbCadastro.Visible = false;
                         lkbCarrinho.Visible = false;
                         separator.Visible   = false;
@@ -66,6 +68,11 @@ namespace FivesLivraria
                 Response.Redirect("~/CadastroCliente.aspx", false);
             else
                 Response.Redirect("~/ViewCliente.aspx", false);
+        }
+
+        protected void lkbAjudaUsuario_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ModuloUsuarioHelp.htm", false);
         }
     }
 }

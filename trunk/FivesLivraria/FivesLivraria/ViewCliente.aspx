@@ -9,7 +9,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="toolbar">
         <asp:Button ID="btnSave" runat="server" Text="Alterar Cadastro" CssClass="button"
-            CausesValidation="false" Width="150px" onclick="btnSave_Click" />
+            CausesValidation="false" Width="150px" OnClick="btnSave_Click" />
+            &nbsp;&nbsp;
+        <asp:Button ID="btnChangePassword" runat="server" Text="Alterar Senha" CssClass="button"
+            CausesValidation="false" Width="150px" OnClick="btnChangePassword_Click" />
     </div>
     <br />
     <div class="main">

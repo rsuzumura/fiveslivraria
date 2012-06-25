@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System;   
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,9 +18,6 @@ namespace FivesLivraria
                 FillControl<Estado>(dropEstado, EstadoCollection.List());
                 FillControl<Municipio>(dropMunicipio, null);
                 EnableFields(Convert.ToBoolean(rdoTipoCliente.SelectedValue));
-
-                if (!string.IsNullOrEmpty(Request.QueryString["idcliente"]))
-                    LoadControls();
             }
         }
 
@@ -28,53 +25,59 @@ namespace FivesLivraria
         {
             Page.Validate("cadastro");
             if (Page.IsValid)
-            {
-                MembershipCreateStatus s;
-                Membership.CreateUser(txtLogin.Text, txtPassword.Text, txtEmailAddress.Text, txtQuestion.Text, txtAnswer.Text, true, out s);
-                if (s != MembershipCreateStatus.Success)
-                    ShowMessage(MessageType.Error, TraduzMensagem(s), "Erro");
-                else
+            {                
+                try
                 {
-                    Roles.AddUsersToRoles(new string[]{ txtLogin.Text }, new string[] { "cliente" });
-                    Usuario u = new Usuario()
-                    {
-                        nmUsuario   = txtUser.Text,
-                        //dsEndereco  = txtAddress.Text,
-                        dsLogin     = txtLogin.Text
-                    };
-                    u.Insert();
-                    if (Convert.ToBoolean(rdoTipoCliente.SelectedValue))
-                    {
-                        Empresa emp = new Empresa()
-                        {
-                            idUsuario           = u.idUsuario,
-                            nmCliente           = txtRazaoSocial.Text,
-                            nmRazaoSocial       = txtRazaoSocial.Text,
-                            cnpj                = txtCNPJ.Text,
-                            inscricaoMunicipal  = txtInscricaoMunicipal.Text,
-                            inscricaoEstadual   = txtInscricaoEstadual.Text
-                        };
-                        if (ViewState["enderecos"] != null)
-                            emp.Enderecos = (EnderecoCollection)ViewState["enderecos"];
-                        emp.Insert();
-                    }
+                    MembershipCreateStatus s;
+                    Membership.CreateUser(txtLogin.Text, txtPassword.Text, txtEmailAddress.Text, txtQuestion.Text, txtAnswer.Text, true, out s);
+                    if (s != MembershipCreateStatus.Success)
+                        ShowMessage(MessageType.Error, TraduzMensagem(s), "Erro");
                     else
                     {
-                        Pessoa p = new Pessoa()
+                        Roles.AddUsersToRoles(new string[] { txtLogin.Text }, new string[] { "cliente" });
+                        Usuario u = new Usuario()
                         {
-                            idUsuario = u.idUsuario,
-                            nmCliente = txtUser.Text,
-                            cpf       = txtCPF.Text,
-                            rg        = txtRG.Text,
-                            nmMae     = txtNmMae.Text
+                            nmUsuario = txtUser.Text,
+                            dsLogin = txtLogin.Text
                         };
-                        if (!string.IsNullOrEmpty(datePickerNascimento.SelectedDateString))
-                            p.dtNascimento = datePickerNascimento.SelectedDate;
-                        if (ViewState["enderecos"] != null)
-                            p.Enderecos = (EnderecoCollection)ViewState["enderecos"];
-                        p.Insert();
+                        u.Insert();
+                        if (Convert.ToBoolean(rdoTipoCliente.SelectedValue))
+                        {
+                            Empresa emp = new Empresa()
+                            {
+                                idUsuario = u.idUsuario,
+                                nmCliente = txtRazaoSocial.Text,
+                                nmRazaoSocial = txtRazaoSocial.Text,
+                                cnpj = txtCNPJ.Text,
+                                inscricaoMunicipal = txtInscricaoMunicipal.Text,
+                                inscricaoEstadual = txtInscricaoEstadual.Text
+                            };
+                            if (ViewState["enderecos"] != null)
+                                emp.Enderecos = (EnderecoCollection)ViewState["enderecos"];
+                            emp.Insert();
+                        }
+                        else
+                        {
+                            Pessoa p = new Pessoa()
+                            {
+                                idUsuario = u.idUsuario,
+                                nmCliente = txtUser.Text,
+                                cpf = txtCPF.Text,
+                                rg = txtRG.Text,
+                                nmMae = txtNmMae.Text
+                            };
+                            if (!string.IsNullOrEmpty(datePickerNascimento.SelectedDateString))
+                                p.dtNascimento = datePickerNascimento.SelectedDate;
+                            if (ViewState["enderecos"] != null)
+                                p.Enderecos = (EnderecoCollection)ViewState["enderecos"];
+                            p.Insert();
+                        }
+                        Response.Redirect("Login.aspx", false);
                     }
-                    Response.Redirect("Login.aspx", false);
+                }
+                catch (Exception ex)
+                {
+                    ShowMessage(MessageType.Error, ex.Message, "Erro");
                 }
             }
         }   
@@ -267,9 +270,35 @@ namespace FivesLivraria
             if (gridEnderecos.Rows.Count == 0)
                 args.IsValid = false;
         }
+        protected void cvNascimento_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            TimeSpan ts = DateTime.Now.Subtract(datePickerNascimento.SelectedDate);
+            DateTime idade = (new DateTime() + ts);
+            if (idade.Year > 1)
+                idade = idade.AddYears(-1);
+            if (idade.Year < 18)
+                args.IsValid = false;
+            else
+                args.IsValid = true;
+        }
 
-        protected void LoadControls()
-        { 
+        protected void lkbBuscaCEP_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCEP.Text.Trim()))
+            {
+                CEP cep = CEP.Get(txtCEP.Text.Trim());
+                if (cep != null)
+                {
+                    txtEnderecoCliente.Text = cep.endereco.Value;
+                    txtBairro.Text = cep.bairro.Value;
+                    dropEstado.SelectedValue = cep.idEstado.Value.ToString();
+                    FillControl<Municipio>(dropMunicipio, MunicipioCollection.List(Convert.ToInt32(dropEstado.SelectedValue)));
+                    ListItem li = dropMunicipio.Items.FindByText(cep.cidade.Value);
+                    if (li != null)
+                        dropMunicipio.SelectedValue = li.Value;
+                    txtNumero.Focus();
+                }
+            }
         }
     }
 }

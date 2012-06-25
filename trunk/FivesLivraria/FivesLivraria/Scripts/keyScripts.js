@@ -58,3 +58,20 @@ function validateCNPJ(obj, evt) {
         }
     }
 }
+
+function validateNumber(obj, evt) {
+    if (navigator.appName.indexOf('Internet Explorer') > (-1)) {
+        var key = evt.keyCode;
+        if (key < 48 || key > 57)
+            return false;
+        else 
+            return true;
+    } else if (navigator.userAgent.indexOf('Firefox') > (-1)) {
+        var key = evt.charCode;
+        if ((key < 48 || key > 57) && (key != 0))
+            return false;
+        else {
+            return true;
+        }
+    }
+}

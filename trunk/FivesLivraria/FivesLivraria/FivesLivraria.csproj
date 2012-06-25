@@ -77,6 +77,7 @@
     <Content Include="Administrativo\Categorias.aspx" />
     <Content Include="Administrativo\Default.aspx" />
     <Content Include="Administrativo\Usuarios.aspx" />
+    <Content Include="AlteraCliente.aspx" />
     <Content Include="App_Themes\Theme_Default\button.css" />
     <Content Include="App_Themes\Theme_Default\gridview.css" />
     <Content Include="Arquivos\acesso.txt" />
@@ -85,6 +86,7 @@
     <Content Include="CaixaOpcoes.aspx" />
     <Content Include="CaixaPedidos.aspx" />
     <Content Include="Carrinho.aspx" />
+    <Content Include="ChangePassword.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="External\ChilkatDotNet4.dll" />
     <Content Include="External\EO.Web.dll" />
@@ -176,6 +178,13 @@
     <Compile Include="Administrativo\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AlteraCliente.aspx.cs">
+      <DependentUpon>AlteraCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlteraCliente.aspx.designer.cs">
+      <DependentUpon>AlteraCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -213,6 +222,13 @@
     </Compile>
     <Compile Include="Carrinho.aspx.designer.cs">
       <DependentUpon>Carrinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinalizarCompra.aspx.cs">
       <DependentUpon>FinalizarCompra.aspx</DependentUpon>

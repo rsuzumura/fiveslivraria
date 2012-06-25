@@ -21,6 +21,11 @@ namespace FivesLivraria.Data
         {
             return SqlXmlGet<Cliente>.Select("spGet_cliente", new SqlXmlParams("idUsuario", idUsuario));
         }
+
+        public static void ChangeEmail(string username, string email)
+        {
+            SqlXmlRun.Execute("spAltera_email", new SqlXmlParams("username", username, "email", email));
+        }
     }
 
     [XmlRoot("ListaCliente")]
@@ -44,6 +49,11 @@ namespace FivesLivraria.Data
         {
             int id = 0;
             SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
+        }
+
+        public void Save()
+        {
+            SqlXmlRun.Execute("spAltera_pessoa", this);
         }
 
         public static Pessoa Get(int idUsuario)
@@ -71,7 +81,12 @@ namespace FivesLivraria.Data
         public void Insert()
         {
             int id = 0;
-            SqlXmlRun.Execute("spCadastra_pessoa", this, "idCliente", out id);
+            SqlXmlRun.Execute("spCadastra_empresa", this, "idCliente", out id);
+        }
+
+        public void Update()
+        {
+            SqlXmlRun.Execute("spAltera_empresa", this);
         }
 
         public static Empresa Get(int idUsuario)
