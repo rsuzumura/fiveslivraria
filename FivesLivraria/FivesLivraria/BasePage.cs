@@ -6,6 +6,7 @@ using System.Text;
 using System.Web.UI.WebControls;
 using System.Reflection;
 using System.Web.Security;
+using System.Data.SqlTypes;
 
 namespace FivesLivraria
 {
@@ -302,6 +303,22 @@ namespace FivesLivraria
             {
                 return string.Concat("Erro desconhecido: ", err.Message);
             }
+        }
+
+        public string GetString(SqlString val)
+        {
+            if (!val.IsNull)
+                return val.Value;
+            else
+                return string.Empty;
+        }
+
+        public string GetString(SqlDateTime val)
+        {
+            if (!val.IsNull)
+                return val.Value.ToString("dd/MM/yyyy");
+            else
+                return string.Empty;
         }
     }
 }

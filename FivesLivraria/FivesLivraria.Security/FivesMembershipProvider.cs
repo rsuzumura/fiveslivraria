@@ -517,7 +517,10 @@ namespace FivesLivraria.Security
                         status = MembershipCreateStatus.InvalidProviderUserKey;
                         return null;
                     }
-                
+
+                if (password.Length < _minRequiredPasswordLength)
+                    throw new Exception(string.Format("Tamanho de senha inválido, tamanho mínimo da senha => {0} caracteres", MinRequiredPasswordLength));
+
                 SqlConnection cn = new SqlConnection(connectionString);
                 SqlCommand cm    = new SqlCommand(Scripts.Create, cn);
                 cm.Parameters.AddWithValue("login", (Guid)providerUserKey);

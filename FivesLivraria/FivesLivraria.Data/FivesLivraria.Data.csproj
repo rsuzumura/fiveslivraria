@@ -44,6 +44,7 @@
     <Compile Include="Classes\Acesso.cs" />
     <Compile Include="Classes\Carrinho.cs" />
     <Compile Include="Classes\Categoria.cs" />
+    <Compile Include="Classes\CEP.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Classes\Comprovante.cs" />
     <Compile Include="Classes\Endereco.cs" />
