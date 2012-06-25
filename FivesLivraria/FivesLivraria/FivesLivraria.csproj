@@ -108,6 +108,8 @@
     <Content Include="Images\subjectselect_delete.gif" />
     <Content Include="Login.aspx" />
     <Content Include="LostPassword.aspx" />
+    <Content Include="ModuloClienteHelp.htm" />
+    <Content Include="ModuloUsuarioHelp.htm" />
     <Content Include="Pedido.aspx" />
     <Content Include="Principal.aspx" />
     <Content Include="Administrativo\Produtos.aspx" />

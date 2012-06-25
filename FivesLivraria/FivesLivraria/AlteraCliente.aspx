@@ -186,6 +186,15 @@
                                     <col width="9%" />
                                 </colgroup>
                                 <tr>
+                                    <td class="name">CEP:</td>
+                                    <td colspan="6" style="text-align: left;">
+                                        <script type="text/javascript" src="Scripts/keyScripts.js" ></script>
+                                        <asp:TextBox ID="txtCEP" runat="server" Width="40%" MaxLength="8" onkeypress="return validateNumber(this, event);"></asp:TextBox>&nbsp;&nbsp;
+                                        <asp:LinkButton ID="lkbBuscaCEP" Text="Buscar" runat="server" CausesValidation="false"
+                                            Font-Bold="true" OnClick="lkbBuscaCEP_Click"></asp:LinkButton>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class="name">
                                         <asp:RequiredFieldValidator ID="rfvEnderecoCliente" runat="server" Text="*" ErrorMessage="O endereço é obrigatório"
                                             ControlToValidate="txtEnderecoCliente" ValidationGroup="Endereco"></asp:RequiredFieldValidator>
@@ -210,11 +219,9 @@
                                     <td style="text-align: left;">
                                         <asp:TextBox ID="txtComplemento" runat="server" Width="90%"></asp:TextBox>
                                     </td>
-                                    <td class="name">
-                                        CEP:
+                                    <td class="name">                                        
                                     </td>
-                                    <td style="text-align: left;">
-                                        <asp:TextBox ID="txtCEP" runat="server" Width="90%"></asp:TextBox>
+                                    <td style="text-align: left;">                                        
                                     </td>
                                     <td class="name">
                                         Bairro:
@@ -227,7 +234,7 @@
                                     <td class="name">
                                         Estado:
                                     </td>
-                                    <td colspan="3" style="text-align: left;">
+                                    <td colspan="2" style="text-align: left;">
                                         <asp:DropDownList ID="dropEstado" runat="server" DataTextField="nmEstado" DataValueField="idEstado"
                                             Width="96%" AutoPostBack="true" OnSelectedIndexChanged="dropEstado_SelectedIndexChanged">
                                         </asp:DropDownList>
@@ -235,7 +242,7 @@
                                     <td class="name">
                                         Município:
                                     </td>
-                                    <td colspan="2" style="text-align: left;">
+                                    <td colspan="3" style="text-align: left;">
                                         <asp:DropDownList ID="dropMunicipio" runat="server" DataTextField="nmMunicipio" DataValueField="idMunicipio"
                                             Width="100%">
                                         </asp:DropDownList>

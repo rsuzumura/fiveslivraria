@@ -202,6 +202,24 @@ namespace FivesLivraria {
         protected global::System.Web.UI.UpdatePanel UpdateEndereco;
         
         /// <summary>
+        /// txtCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCEP;
+        
+        /// <summary>
+        /// lkbBuscaCEP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lkbBuscaCEP;
+        
+        /// <summary>
         /// rfvEnderecoCliente control.
         /// </summary>
         /// <remarks>
@@ -245,15 +263,6 @@ namespace FivesLivraria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtComplemento;
-        
-        /// <summary>
-        /// txtCEP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCEP;
         
         /// <summary>
         /// txtBairro control.

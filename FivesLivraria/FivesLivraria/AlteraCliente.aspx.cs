@@ -158,5 +158,24 @@ namespace FivesLivraria
         {
             Response.Redirect("~/ViewCliente.aspx", false);
         }
+
+        protected void lkbBuscaCEP_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtCEP.Text.Trim()))
+            {
+                CEP cep = CEP.Get(txtCEP.Text.Trim());
+                if (cep != null)
+                {
+                    txtEnderecoCliente.Text = cep.endereco.Value;
+                    txtBairro.Text = cep.bairro.Value;
+                    dropEstado.SelectedValue = cep.idEstado.Value.ToString();
+                    FillControl<Municipio>(dropMunicipio, MunicipioCollection.List(Convert.ToInt32(dropEstado.SelectedValue)));
+                    ListItem li = dropMunicipio.Items.FindByText(cep.cidade.Value);
+                    if (li != null)
+                        dropMunicipio.SelectedValue = li.Value;
+                    txtNumero.Focus();
+                }
+            }
+        }
     }
 }
